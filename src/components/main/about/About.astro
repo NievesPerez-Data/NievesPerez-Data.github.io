@@ -28,14 +28,17 @@
   </div>
 </section>
 
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
 <style>
   .section-about {
     position: relative;
-    background-color: #000000;
-    padding: 120px 0; /* Aumentamos el padding para que no quede pegado al menú */
+    background-color: #000000; /* Fondo negro puro */
+    padding: 140px 0 100px 0; /* Más espacio superior para el ancla */
     overflow: hidden;
-    /* Esto ayuda a que el scroll no tape el título con el menú fijo */
-    scroll-margin-top: 80px; 
+    /* Margen de scroll para compensar el Header fijo de 90px */
+    scroll-margin-top: 90px;
+    z-index: 1;
   }
 
   .linear-gradient-background {
@@ -44,8 +47,13 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(at left center, rgba(4, 32, 27, 0.4), transparent, transparent);
-    z-index: 0;
+    /* Gradiente esmeralda muy sutil que se desvanece a negro */
+    background: radial-gradient(
+      at left center, 
+      rgba(9, 64, 53, 0.15) 0%, 
+      rgba(0, 0, 0, 0) 70%
+    );
+    z-index: -1;
   }
 
   .container-about {
@@ -55,8 +63,7 @@
     margin: 0 auto;
     max-width: 1355px;
     align-items: center;
-    z-index: 1;
-    gap: 40px;
+    gap: 60px;
   }
 
   .container-text-about {
@@ -66,28 +73,57 @@
   }
 
   .title-about {
-    font-size: 32px;
-    margin-bottom: 20px;
+    font-size: 2.2rem;
+    margin-bottom: 25px;
     color: #ffffff;
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
+    /* Efecto de línea esmeralda bajo el título opcional */
+    display: inline-block;
   }
 
   .container-text-about p {
-    font-size: 18px;
-    line-height: 1.6;
+    font-size: 1.1rem;
+    line-height: 1.8;
     color: #cbd5e1;
     margin-bottom: 20px;
+  }
+
+  .container-text-about p strong {
+    color: #0b5e4f; /* Resaltado en esmeralda */
+    font-weight: 600;
   }
 
   .container-svg-about {
     width: 45%;
     display: flex;
     justify-content: center;
+    align-items: center;
+  }
+
+  .container-svg {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* --- Responsive --- */
+
+  @media (max-width: 1024px) {
+    .container-about {
+      gap: 30px;
+    }
+    .title-about {
+      font-size: 1.8rem;
+    }
   }
 
   @media (max-width: 900px) {
+    .section-about {
+      padding: 100px 0;
+    }
     .container-about {
       flex-direction: column;
       text-align: center;
@@ -95,5 +131,8 @@
     .container-text-about, .container-svg-about {
       width: 100%;
     }
-  }
-</style>
+    .container-text-about p {
+      text-align: center;
+      font-size: 1rem;
+    }
+    .container-svg lottie-player {
