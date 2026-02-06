@@ -1,142 +1,93 @@
-<header class="header">
-  <div class="logo-container">
-    <div class="logo-symbol">
-      <span class="dot"></span>
-      <span class="line"></span>
-    </div>
-    <h1 class="name-logo">Nieves Pérez Alonso</h1>
-  </div>
-  
-  <nav class="nav-container">
-    <ul class="nav-links">
-      <li><a href="#inicio">Inicio</a></li>
-      <li><a href="#proyectos">Proyectos</a></li>
-      <li><a href="#skills">Habilidades</a></li>
-      <li><a href="#estudios">Estudios</a></li>
-      <li><a href="#sobremi">Sobre mí</a></li>
-    </ul>
-    <a href="mailto:mnieves.perez.alonso@gmail.com" class="cta-contact">Contacto</a>
-  </nav>
+---
+// Footer estilizado con Glassmorphism y paleta Deep Emerald
+---
 
-  <div class="mobile-toggle">
-    <span></span>
-    <span></span>
+<footer class="footer-glass">
+  <div class="footer-content">
+    <div class="footer-brand">
+      <p class="role-text">Data Analyst | BI & Operations Strategy</p>
+    </div>
+    
+    <div class="footer-social-links">
+      <a href="https://www.linkedin.com/in/nievesperezalonso/" target="_blank" title="LinkedIn">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+      <a href="https://github.com/NievesPerez-Data" target="_blank" title="GitHub">
+        <i class="fa-brands fa-github"></i>
+      </a>
+      <a href="https://public.tableau.com/app/profile/nieves.p.rez.alonso" target="_blank" title="Tableau">
+        <i class="fa-solid fa-chart-column"></i>
+      </a>
+      <a href="mailto:mnieves.perez.alonso@gmail.com" title="Email">
+        <i class="fa-solid fa-envelope"></i>
+      </a>
+    </div>
+
+    <div class="footer-copyright">
+      <p>&copy; 2026 Portafolio Profesional</p>
+    </div>
   </div>
-</header>
+</footer>
 
 <style>
-  :root {
-    --emerald-primary: #094035;
-    --emerald-glow: rgba(11, 94, 79, 0.4);
-    --glass-bg: rgba(0, 0, 0, 0.7);
-  }
-
-  .header {
-    position: sticky; /* Se queda fijo al hacer scroll */
-    top: 0;
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 85px;
-    padding: 0 5%;
-    background: var(--glass-bg);
-    backdrop-filter: blur(12px); /* Efecto de cristal esmerilado */
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(9, 64, 53, 0.3);
-  }
-
-  /* Logotipo Estilizado */
-  .logo-container {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    cursor: default;
-  }
-
-  .logo-symbol {
+  .footer-glass {
     position: relative;
-    width: 20px;
-    height: 20px;
+    width: 100%;
+    padding: 60px 5%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(9, 64, 53, 0.2);
     display: flex;
-    align-items: center;
     justify-content: center;
+    margin-top: 50px;
   }
 
-  .dot {
-    width: 8px;
-    height: 8px;
-    background: #0b5e4f;
-    border-radius: 50%;
-    box-shadow: 0 0 15px var(--emerald-glow);
-    animation: pulse 2s infinite;
-  }
-
-  .name-logo {
-    font-size: 1.25rem;
-    font-weight: 500;
-    letter-spacing: 2px;
-    color: #ffffff;
-    text-transform: uppercase;
-  }
-
-  /* Navegación */
-  .nav-container {
+  .footer-content {
+    max-width: 1200px;
+    width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    gap: 30px;
+  }
+
+  .role-text {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #0b5e4f; /* Tu color esmeralda */
+    font-weight: 500;
+    text-align: center;
+  }
+
+  .footer-social-links {
+    display: flex;
     gap: 40px;
   }
 
-  .nav-links {
-    display: flex;
-    list-style: none;
-    gap: 30px;
-    margin: 0;
-    padding: 0;
-  }
-
-  .nav-links a {
-    text-decoration: none;
+  .footer-social-links a {
     color: #a0aec0;
-    font-size: 0.85rem;
-    font-weight: 400;
+    font-size: 1.5rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .footer-social-links a:hover {
+    color: #ffffff;
+    transform: translateY(-5px);
+    text-shadow: 0 0 15px rgba(9, 64, 53, 0.8);
+  }
+
+  .footer-copyright {
+    font-size: 0.75rem;
+    color: #4a5568;
     letter-spacing: 1px;
-    transition: all 0.4s ease;
-  }
-
-  .nav-links a:hover {
-    color: #ffffff;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-  }
-
-  /* Botón de Contacto Estilo "Outline" */
-  .cta-contact {
-    text-decoration: none;
-    color: #ffffff;
-    font-size: 0.85rem;
-    padding: 10px 22px;
-    border: 1px solid var(--emerald-primary);
-    border-radius: 2px;
-    background: rgba(9, 64, 53, 0.1);
-    transition: all 0.3s ease;
-  }
-
-  .cta-contact:hover {
-    background: var(--emerald-primary);
-    box-shadow: 0 0 20px var(--emerald-glow);
-    transform: translateY(-2px);
-  }
-
-  /* Animaciones */
-  @keyframes pulse {
-    0% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.5); opacity: 0.5; }
-    100% { transform: scale(1); opacity: 1; }
   }
 
   /* Responsive */
-  @media (max-width: 950px) {
-    .nav-links { display: none; }
-    .cta-contact { display: none; }
+  @media (max-width: 768px) {
+    .footer-social-links {
+      gap: 25px;
+    }
   }
 </style>
