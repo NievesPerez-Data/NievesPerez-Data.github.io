@@ -1,59 +1,143 @@
-<div class="footer-social-links">
-  <a href="https://www.linkedin.com/in/nievesperezalonso/" target="_blank" aria-label="LinkedIn">
-    <i class="fa-brands fa-linkedin"></i>
-  </a>
-  <a href="https://github.com/NievesPerez-Data" target="_blank" aria-label="GitHub">
-    <i class="fa-brands fa-github"></i>
-  </a>
-  <a href="https://public.tableau.com/app/profile/nieves.p.rez.alonso" target="_blank" aria-label="Tableau">
-    <i class="fa-solid fa-chart-column"></i>
-  </a>
-  <a href="mailto:mnieves.perez.alonso@gmail.com" aria-label="Email">
-    <i class="fa-solid fa-envelope"></i>
-  </a>
-</div>
+---
+// Footer Premium: Centrado, con gran presencia y efecto Glassmorphism
+---
+
+<footer class="footer-premium">
+  <div class="glass-container">
+    
+    <div class="role-highlight">
+      <h2 class="role-text">Data Analyst</h2>
+      <p class="specialization-text">Business Intelligence & Operations Strategy</p>
+    </div>
+
+    <div class="social-massive-links">
+      <a href="https://www.linkedin.com/in/nievesperezalonso/" target="_blank" aria-label="LinkedIn">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+      <a href="https://github.com/NievesPerez-Data" target="_blank" aria-label="GitHub">
+        <i class="fa-brands fa-github"></i>
+      </a>
+      <a href="https://public.tableau.com/app/profile/nieves.p.rez.alonso" target="_blank" aria-label="Tableau">
+        <i class="fa-solid fa-chart-column"></i>
+      </a>
+      <a href="mailto:mnieves.perez.alonso@gmail.com" aria-label="Email">
+        <i class="fa-solid fa-envelope"></i>
+      </a>
+    </div>
+
+    <div class="footer-bottom">
+      <span class="year-stamp">2026</span>
+    </div>
+  </div>
+</footer>
 
 <style>
-  /* ... resto de tus estilos anteriores ... */
-
-  .footer-social-links {
-    display: flex;
-    /* Aumentamos el espacio significativamente */
-    gap: 60px; 
-    margin: 20px 0;
+  :root {
+    --emerald-primary: #094035;
+    --emerald-bright: #0b5e4f;
+    --emerald-glow: rgba(9, 64, 53, 0.6);
   }
 
-  .footer-social-links a {
-    color: #a0aec0;
-    /* Iconos un poco más grandes para que tengan "peso" visual */
-    font-size: 1.8rem; 
-    transition: all 0.5s ease;
+  .footer-premium {
+    width: 100%;
+    padding: 100px 5% 60px 5%;
+    background: #000000;
     display: flex;
-    align-items: center;
     justify-content: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    /* Un borde casi invisible que se ilumina al pasar el ratón */
-    border: 1px solid transparent; 
+    position: relative;
+    overflow: hidden;
   }
 
-  .footer-social-links a:hover {
+  /* El contenedor Glassmorphism */
+  .glass-container {
+    max-width: 1000px;
+    width: 100%;
+    background: rgba(4, 32, 27, 0.1); /* Sutil tinte esmeralda */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(9, 64, 53, 0.2);
+    padding: 60px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Texto de Profesión con gran presencia */
+  .role-highlight {
+    margin-bottom: 50px;
+  }
+
+  .role-text {
+    font-size: 3.5rem; /* Tamaño masivo */
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 8px;
     color: #ffffff;
-    transform: translateY(-8px);
-    /* Resplandor esmeralda que refuerza tu paleta */
-    text-shadow: 0 0 20px rgba(9, 64, 53, 1);
-    border-color: rgba(9, 64, 53, 0.5);
-    background: rgba(9, 64, 53, 0.1);
+    margin: 0;
+    line-height: 1;
+    background: linear-gradient(to bottom, #fff, #0b5e4f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
-  /* Responsive: reducir espacio solo si la pantalla es muy pequeña */
-  @media (max-width: 600px) {
-    .footer-social-links {
+  .specialization-text {
+    font-size: 1.1rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #a0aec0;
+    margin-top: 15px;
+    font-weight: 300;
+  }
+
+  /* Iconos Sociales con Gap de 60px y gran tamaño */
+  .social-massive-links {
+    display: flex;
+    gap: 60px; /* Espaciado solicitado */
+    margin-bottom: 50px;
+  }
+
+  .social-massive-links a {
+    color: #4a5568;
+    font-size: 2.2rem; /* Aumentamos tamaño de iconos */
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .social-massive-links a:hover {
+    color: #ffffff;
+    transform: translateY(-10px) scale(1.1);
+    text-shadow: 0 0 30px var(--emerald-glow);
+  }
+
+  /* Estampa del año */
+  .footer-bottom {
+    border-top: 1px solid rgba(9, 64, 53, 0.2);
+    width: 100%;
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .year-stamp {
+    font-size: 1rem;
+    color: #4a5568;
+    letter-spacing: 5px;
+    font-weight: 400;
+  }
+
+  /* Responsive para pantallas pequeñas */
+  @media (max-width: 768px) {
+    .role-text {
+      font-size: 2rem;
+      letter-spacing: 4px;
+    }
+    .social-massive-links {
       gap: 30px;
     }
-    .footer-social-links a {
-      font-size: 1.5rem;
+    .glass-container {
+      padding: 40px 20px;
     }
   }
 </style>
