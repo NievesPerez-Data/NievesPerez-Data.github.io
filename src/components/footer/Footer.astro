@@ -1,5 +1,5 @@
 ---
-import "./footer.css";
+// Eliminamos el import del archivo externo para evitar el error de "Could not resolve"
 ---
 
 <footer class="footer">
@@ -26,3 +26,53 @@ import "./footer.css";
   </div>
   <p class="copy">&copy; 2026 - Hecho con ❤️ por Nieves Pérez</p>
 </footer>
+
+<style>
+  .footer {
+    background-color: #000;
+    color: #f6f6f9;
+    padding: 40px 20px;
+    border-top: 1px solid #333;
+  }
+  .container-footer {
+    max-width: 1355px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .footer-texts h2 {
+    color: #01be96;
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+  }
+  .footer-social {
+    display: flex;
+    gap: 20px;
+  }
+  .footer-social a {
+    color: #f6f6f9;
+    font-size: 24px;
+    transition: 0.3s;
+    text-decoration: none;
+  }
+  .footer-social a:hover {
+    color: #01be96;
+    transform: translateY(-3px);
+  }
+  .copy {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+    color: #888;
+  }
+
+  @media (max-width: 768px) {
+    .container-footer {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>
