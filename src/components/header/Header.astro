@@ -1,17 +1,18 @@
 <header class="header">
+<header class="header">
   <div class="logo-container">
     <div class="logo-box"></div>
-    <h1 id="inicio">Nieves Pérez Alonso</h1>
+    <h1 id="inicio">Nieves Pérez</h1>
   </div>
   
   <nav class="nav">
     <ul class="ul-nav">
-      <a href="#inicio"><li class="li-nav">Inicio</li></a>
-      <a href="#proyectos"><li class="li-nav">Proyectos</li></a>
-      <a href="#skills"><li class="li-nav">Habilidades</li></a>
-      <a href="#estudios"><li class="li-nav">Estudios</li></a>
-      <a href="#sobremi"><li class="li-nav">Sobre mí</li></a>
-      <a href="mailto:mnieves.perez.alonso@gmail.com"><li class="li-nav contact-btn">Contacto</li></a>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#skills">Habilidades</a></li>
+      <li><a href="#estudios">Estudios</a></li>
+      <li><a href="#sobremi">Sobre mí</a></li>
+      <li><a href="mailto:mnieves.perez.alonso@gmail.com" class="contact-btn">Contacto</a></li>
     </ul>
   </nav>
 
@@ -25,25 +26,22 @@
   <div class="menu-drop"></div>
 </header>
 
-<style is:global>
+<style>
   :root {
     --emerald-light: #094035;
     --emerald-mid: #073028;
     --emerald-dark: #04201b;
-    --emerald-black: #02100d;
     --pure-black: #000000;
   }
 
   .header {
-    position: relative;
-    height: 90px;
-    background-color: var(--pure-black);
-    width: 100%;
-    padding: 0 40px;
-    color: #f6f6f9;
     display: flex;
+    flex-direction: row; /* Asegura horizontalidad */
     justify-content: space-between;
     align-items: center;
+    height: 80px;
+    background-color: var(--pure-black);
+    padding: 0 40px;
     max-width: 1355px;
     margin: 0 auto;
     border-bottom: 1px solid var(--emerald-dark);
@@ -56,74 +54,76 @@
   }
 
   .logo-box {
-    width: 15px;
-    height: 15px;
+    width: 12px;
+    height: 12px;
     background-color: var(--emerald-light);
-    transform: rotate(45deg); /* Un rombo elegante en lugar de un círculo */
-    border: 1px solid #0b5e4f;
+    transform: rotate(45deg);
   }
 
   .header h1 {
-    font-size: 1.3rem;
-    font-weight: 600;
+    font-size: 1.2rem;
+    color: #f6f6f9;
     letter-spacing: 1px;
-    color: #e2e8f0;
-    text-transform: uppercase;
+    margin: 0;
   }
 
-  .li-nav {
-    position: relative;
+  /* --- ESTA ES LA PARTE QUE CORRIGE EL VERTICAL --- */
+  .ul-nav {
+    display: flex;
+    flex-direction: row; /* FUERZA HORIZONTAL */
     list-style: none;
-    transition: 0.3s;
-    margin: 0 15px;
-    padding: 5px 0;
-    font-size: 0.95rem;
-    color: #cbd5e1;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+    align-items: center;
   }
 
-  .li-nav::before {
+  .ul-nav a {
+    text-decoration: none;
+    color: #cbd5e1;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    position: relative;
+    padding: 5px 0;
+  }
+
+  .ul-nav a:hover {
+    color: #fff;
+  }
+
+  /* Subrayado esmeralda al pasar el ratón */
+  .ul-nav a::after {
     content: "";
     position: absolute;
+    width: 0;
     height: 2px;
-    width: 0%;
-    background-color: var(--emerald-light);
     bottom: 0;
     left: 0;
-    transition: 0.4s;
+    background-color: var(--emerald-light);
+    transition: 0.3s;
   }
 
-  .li-nav:hover::before {
+  .ul-nav a:hover::after {
     width: 100%;
-  }
-
-  .li-nav:hover {
-    color: #fff;
-    text-shadow: 0 0 8px rgba(9, 64, 53, 0.8);
   }
 
   .contact-btn {
     border: 1px solid var(--emerald-light);
-    padding: 6px 18px !important;
-    color: #fff !important;
-    background-color: var(--emerald-black);
+    padding: 8px 16px !important;
+    border-radius: 2px;
+    background-color: var(--emerald-dark);
   }
 
   .contact-btn:hover {
     background-color: var(--emerald-mid);
-    border-color: #0b5e4f;
   }
 
-  /* Menú Móvil con tu paleta */
-  @media (max-width: 720px) {
-    .nav {
-      background: var(--emerald-black);
-      border-left: 1px solid var(--emerald-mid);
+  /* Responsive: Aquí sí se vuelve vertical para el móvil */
+  @media (max-width: 850px) {
+    .container-bnt-menu { display: block; }
+    .ul-nav {
+      display: none; /* Se oculta el menú horizontal en móvil */
     }
-    .linea-menu {
-      background-color: var(--emerald-light) !important;
-    }
-    .li-nav:hover {
-      background-color: var(--emerald-dark);
-    }
+    /* Si necesitas el menú móvil activado, añadiríamos la lógica de .menu-activado aquí */
   }
 </style>
