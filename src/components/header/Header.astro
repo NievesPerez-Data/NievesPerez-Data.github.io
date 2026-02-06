@@ -1,142 +1,109 @@
-<header class="header">
-  <div class="logo-container">
-    <div class="logo-symbol">
-      <span class="dot"></span>
-      <span class="line"></span>
-    </div>
-    <h1 class="name-logo">Nieves Pérez Alonso</h1>
-  </div>
-  
-  <nav class="nav-container">
-    <ul class="nav-links">
-      <li><a href="#inicio">Inicio</a></li>
-      <li><a href="#proyectos">Proyectos</a></li>
-      <li><a href="#skills">Habilidades</a></li>
-      <li><a href="#estudios">Estudios</a></li>
-      <li><a href="#sobremi">Sobre mí</a></li>
-    </ul>
-    <a href="mailto:mnieves.perez.alonso@gmail.com" class="cta-contact">Contacto</a>
-  </nav>
+---
+// Footer Profesional - Estilo Minimalista Esmeralda
+---
 
-  <div class="mobile-toggle">
-    <span></span>
-    <span></span>
+<footer class="footer-custom">
+  <div class="footer-container">
+    
+    <div class="footer-main">
+      <h2 class="footer-role">Data Analyst</h2>
+      <p class="footer-sub">Business Intelligence & Operations Strategy</p>
+    </div>
+
+    <div class="footer-socials">
+      <a href="https://www.linkedin.com/in/nievesperezalonso/" target="_blank">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+      <a href="https://github.com/NievesPerez-Data" target="_blank">
+        <i class="fa-brands fa-github"></i>
+      </a>
+      <a href="https://public.tableau.com/app/profile/nieves.p.rez.alonso" target="_blank">
+        <i class="fa-solid fa-chart-column"></i>
+      </a>
+      <a href="mailto:mnieves.perez.alonso@gmail.com">
+        <i class="fa-solid fa-envelope"></i>
+      </a>
+    </div>
+
+    <div class="footer-copy">
+      <span>2026</span>
+    </div>
   </div>
-</header>
+</footer>
 
 <style>
+  /* Colores de tu paleta */
   :root {
-    --emerald-primary: #094035;
-    --emerald-glow: rgba(11, 94, 79, 0.4);
-    --glass-bg: rgba(0, 0, 0, 0.7);
+    --deep-emerald: #094035;
+    --near-black: #02100d;
   }
 
-  .header {
-    position: sticky; /* Se queda fijo al hacer scroll */
-    top: 0;
-    z-index: 1000;
+  .footer-custom {
+    width: 100%;
+    background-color: #000000;
+    padding: 80px 20px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 85px;
-    padding: 0 5%;
-    background: var(--glass-bg);
-    backdrop-filter: blur(12px); /* Efecto de cristal esmerilado */
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(9, 64, 53, 0.3);
-  }
-
-  /* Logotipo Estilizado */
-  .logo-container {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    cursor: default;
-  }
-
-  .logo-symbol {
-    position: relative;
-    width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
     justify-content: center;
+    border-top: 1px solid var(--deep-emerald);
   }
 
-  .dot {
-    width: 8px;
-    height: 8px;
-    background: #0b5e4f;
-    border-radius: 50%;
-    box-shadow: 0 0 15px var(--emerald-glow);
-    animation: pulse 2s infinite;
-  }
-
-  .name-logo {
-    font-size: 1.25rem;
-    font-weight: 500;
-    letter-spacing: 2px;
-    color: #ffffff;
-    text-transform: uppercase;
-  }
-
-  /* Navegación */
-  .nav-container {
+  .footer-container {
+    max-width: 1200px;
+    width: 100%;
+    text-align: center;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 40px;
   }
 
-  .nav-links {
-    display: flex;
-    list-style: none;
-    gap: 30px;
+  .footer-role {
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: 6px;
+    text-transform: uppercase;
     margin: 0;
-    padding: 0;
   }
 
-  .nav-links a {
+  .footer-sub {
+    color: var(--deep-emerald);
+    font-size: 1rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin: 10px 0 40px 0;
+  }
+
+  .footer-socials {
+    display: flex;
+    gap: 60px; /* El espaciado que pediste */
+    margin-bottom: 40px;
+  }
+
+  .footer-socials a {
+    color: #f6f6f9;
+    font-size: 2rem;
+    transition: 0.3s ease;
     text-decoration: none;
-    color: #a0aec0;
-    font-size: 0.85rem;
-    font-weight: 400;
-    letter-spacing: 1px;
-    transition: all 0.4s ease;
   }
 
-  .nav-links a:hover {
-    color: #ffffff;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  .footer-socials a:hover {
+    color: var(--deep-emerald);
+    transform: translateY(-5px);
   }
 
-  /* Botón de Contacto Estilo "Outline" */
-  .cta-contact {
-    text-decoration: none;
-    color: #ffffff;
-    font-size: 0.85rem;
-    padding: 10px 22px;
-    border: 1px solid var(--emerald-primary);
-    border-radius: 2px;
-    background: rgba(9, 64, 53, 0.1);
-    transition: all 0.3s ease;
+  .footer-copy {
+    color: #444;
+    font-size: 0.9rem;
+    letter-spacing: 4px;
+    border-top: 1px solid #111;
+    padding-top: 20px;
+    width: 100%;
+    max-width: 300px;
   }
 
-  .cta-contact:hover {
-    background: var(--emerald-primary);
-    box-shadow: 0 0 20px var(--emerald-glow);
-    transform: translateY(-2px);
-  }
-
-  /* Animaciones */
-  @keyframes pulse {
-    0% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.5); opacity: 0.5; }
-    100% { transform: scale(1); opacity: 1; }
-  }
-
-  /* Responsive */
-  @media (max-width: 950px) {
-    .nav-links { display: none; }
-    .cta-contact { display: none; }
+  /* Ajuste para móviles */
+  @media (max-width: 768px) {
+    .footer-role { font-size: 1.8rem; }
+    .footer-socials { gap: 30px; }
   }
 </style>
