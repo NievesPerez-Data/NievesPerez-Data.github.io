@@ -5,6 +5,7 @@ import vercel from "@astrojs/vercel/serverless";
 // If you want to remove vercel from your project you can do npm uninstall vercel
 export default defineConfig({
   site: 'https://NievesPerez-Data.github.io',
+  base: '/NievesPerez-Data',
   output: "server",
   adapter: vercel({
     webAnalytics: {
@@ -12,7 +13,3 @@ export default defineConfig({
     },
   }),
 });
-
-//If you don't have vercel the configuration will be empty
-
-//ej : export default defineConfig({});
