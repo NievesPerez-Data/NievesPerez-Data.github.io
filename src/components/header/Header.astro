@@ -1,60 +1,143 @@
 <header class="header">
   <div class="logo-container">
-    <div class="logo-symbol"><span class="dot"></span></div>
+    <div class="logo-symbol">
+      <span class="dot"></span>
+    </div>
     <h1 class="name-logo">Nieves Pérez Alonso</h1>
   </div>
   
   <nav class="nav-container">
     <ul class="nav-links">
-      <li><a href="#inicio" class="nav-item">Inicio</a></li>
-      <li><a href="#proyectos" class="nav-item">Proyectos</a></li>
-      <li><a href="#skills" class="nav-item">Habilidades</a></li>
-      <li><a href="#estudios" class="nav-item">Estudios</a></li>
-      <li><a href="#sobremi" class="nav-item">Sobre mí</a></li>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#skills">Habilidades</a></li>
+      <li><a href="#estudios">Estudios</a></li>
+      <li><a href="#sobremi">Sobre mí</a></li>
     </ul>
     <a href="mailto:mnieves.perez.alonso@gmail.com" class="cta-contact">Contacto</a>
   </nav>
+
+  <div class="mobile-toggle">
+    <span></span>
+    <span></span>
+  </div>
 </header>
 
-<script>
-  // Script para forzar el scroll suave si falla el nativo
-  const navLinks = document.querySelectorAll('.nav-item');
-  
-  navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const id = link.getAttribute('href');
-      const targetSection = document.querySelector(id);
-      
-      if (targetSection) {
-        const headerHeight = 90;
-        const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-        
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
-        });
-      }
-    });
-  });
-</script>
+<style is:global>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
 
 <style>
-  /* Mantén tus estilos anteriores aquí, solo asegúrate de estos puntos: */
+  :root {
+    --emerald-primary: #094035;
+    --emerald-bright: #0b5e4f;
+    --emerald-glow: rgba(11, 94, 79, 0.4);
+    --glass-bg: rgba(0, 0, 0, 0.85);
+  }
+
   .header {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 9999; /* Asegura que el menú esté siempre ARRIBA */
-    height: 90px;
+    z-index: 9999;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 90px; /* Un poco más de altura para dar aire al nombre */
     padding: 0 5%;
-    background: rgba(0, 0, 0, 0.85);
+    background: var(--glass-bg);
     backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(9, 64, 53, 0.3);
   }
-  /* ... resto de tus estilos de nombre y enlaces ... */
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    background: var(--emerald-bright);
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--emerald-glow);
+    animation: pulse 2s infinite;
+  }
+
+  .name-logo {
+    font-size: 1.5rem; /* Aumentado de 1.1rem a 1.5rem */
+    font-weight: 700; /* Más grosor */
+    letter-spacing: 1.5px;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin: 0;
+    /* Efecto de brillo suave para hacerlo más llamativo */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    white-space: nowrap;
+  }
+
+  .nav-container {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+  }
+
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: #a0aec0;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: all 0.4s ease;
+  }
+
+  .nav-links a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 8px var(--emerald-glow);
+  }
+
+  .cta-contact {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 0.85rem;
+    padding: 10px 20px;
+    border: 1px solid var(--emerald-primary);
+    border-radius: 2px;
+    background: rgba(9, 64, 53, 0.2);
+    transition: all 0.3s ease;
+    font-weight: 600;
+  }
+
+  .cta-contact:hover {
+    background: var(--emerald-primary);
+    box-shadow: 0 0 20px var(--emerald-glow);
+    transform: translateY(-2px);
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.3); opacity: 0.6; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  @media (max-width: 1100px) {
+    .name-logo { font-size: 1.2rem; } /* Se adapta un poco en pantallas medianas */
+  }
+
+  @media (max-width: 950px) {
+    .nav-links, .cta-contact { display: none; }
+  }
 </style>
