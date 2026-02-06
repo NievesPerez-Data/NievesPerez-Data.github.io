@@ -1,8 +1,8 @@
-<section class="section-about">
+<section class="section-about" id="sobremi">
   <div class="linear-gradient-background"></div>
   <div class="container-about">
     <div class="container-text-about">
-      <h2 class="title-about" id="sobremi">Sobre mí</h2>
+      <h2 class="title-about">Sobre mí</h2>
       <p>
         Como **Data Analyst especializado en Business Intelligence y Estrategia de Operaciones**, 
         me apasiona transformar datos complejos en decisiones accionables. Mi enfoque se centra en 
@@ -11,8 +11,7 @@
       <p>
         Tengo una gran capacidad para identificar patrones y tendencias, utilizando herramientas 
         avanzadas de visualización para contar la historia detrás de los números. Me considero una 
-        persona analítica, detallista y con una mentalidad orientada a resultados, siempre en busca 
-        de nuevos desafíos tecnológicos que me permitan expandir mis capacidades en el ecosistema del Big Data.
+        persona analítica, detallista y con una mentalidad orientada a resultados.
       </p>
     </div>
     <div class="container-svg-about">
@@ -29,14 +28,14 @@
   </div>
 </section>
 
-<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-
 <style>
   .section-about {
     position: relative;
-    background-color: #000000; /* Fondo negro puro */
-    padding: 100px 0;
+    background-color: #000000;
+    padding: 120px 0; /* Aumentamos el padding para que no quede pegado al menú */
     overflow: hidden;
+    /* Esto ayuda a que el scroll no tape el título con el menú fijo */
+    scroll-margin-top: 80px; 
   }
 
   .linear-gradient-background {
@@ -45,7 +44,6 @@
     top: 0;
     width: 100%;
     height: 100%;
-    /* Degradado sutil en tu nuevo color esmeralda */
     background: radial-gradient(at left center, rgba(4, 32, 27, 0.4), transparent, transparent);
     z-index: 0;
   }
@@ -58,20 +56,20 @@
     max-width: 1355px;
     align-items: center;
     z-index: 1;
+    gap: 40px;
   }
 
   .container-text-about {
-    width: 50%;
+    width: 55%;
     display: flex;
     flex-direction: column;
   }
 
   .title-about {
     font-size: 32px;
-    padding: 10px 0;
+    margin-bottom: 20px;
     color: #ffffff;
     font-weight: 800;
-    scroll-margin-top: 80px;
     text-transform: uppercase;
     letter-spacing: 2px;
   }
@@ -80,24 +78,15 @@
     font-size: 18px;
     line-height: 1.6;
     color: #cbd5e1;
-    text-align: left;
     margin-bottom: 20px;
   }
 
   .container-svg-about {
-    width: 50%;
+    width: 45%;
     display: flex;
     justify-content: center;
   }
 
-  .container-svg {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  /* Responsive */
   @media (max-width: 900px) {
     .container-about {
       flex-direction: column;
@@ -105,12 +94,6 @@
     }
     .container-text-about, .container-svg-about {
       width: 100%;
-    }
-    .container-text-about p {
-      text-align: center;
-    }
-    .container-svg {
-      padding: 0;
     }
   }
 </style>
