@@ -2,9 +2,8 @@
   <div class="logo-container">
     <div class="logo-symbol">
       <span class="dot"></span>
-      <span class="line"></span>
     </div>
-    <h1 class="name-logo">Nieves Pérez</h1>
+    <h1 class="name-logo">Nieves Pérez Alonso</h1>
   </div>
   
   <nav class="nav-container">
@@ -24,73 +23,74 @@
   </div>
 </header>
 
+<style is:global>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
+
 <style>
   :root {
     --emerald-primary: #094035;
+    --emerald-bright: #0b5e4f;
     --emerald-glow: rgba(11, 94, 79, 0.4);
-    --glass-bg: rgba(0, 0, 0, 0.7);
+    --glass-bg: rgba(0, 0, 0, 0.85);
   }
 
   .header {
-    position: sticky; /* Se queda fijo al hacer scroll */
+    position: fixed;
     top: 0;
-    z-index: 1000;
+    left: 0;
+    right: 0;
+    z-index: 9999;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 85px;
+    height: 90px; /* Un poco más de altura para dar aire al nombre */
     padding: 0 5%;
     background: var(--glass-bg);
-    backdrop-filter: blur(12px); /* Efecto de cristal esmerilado */
+    backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(9, 64, 53, 0.3);
   }
 
-  /* Logotipo Estilizado */
   .logo-container {
     display: flex;
     align-items: center;
-    gap: 15px;
-    cursor: default;
-  }
-
-  .logo-symbol {
-    position: relative;
-    width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    gap: 12px;
   }
 
   .dot {
-    width: 8px;
-    height: 8px;
-    background: #0b5e4f;
+    width: 10px;
+    height: 10px;
+    background: var(--emerald-bright);
     border-radius: 50%;
     box-shadow: 0 0 15px var(--emerald-glow);
     animation: pulse 2s infinite;
   }
 
   .name-logo {
-    font-size: 1.25rem;
-    font-weight: 500;
-    letter-spacing: 2px;
+    font-size: 1.5rem; /* Aumentado de 1.1rem a 1.5rem */
+    font-weight: 700; /* Más grosor */
+    letter-spacing: 1.5px;
     color: #ffffff;
     text-transform: uppercase;
+    margin: 0;
+    /* Efecto de brillo suave para hacerlo más llamativo */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    white-space: nowrap;
   }
 
-  /* Navegación */
   .nav-container {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 35px;
   }
 
   .nav-links {
     display: flex;
     list-style: none;
-    gap: 30px;
+    gap: 25px;
     margin: 0;
     padding: 0;
   }
@@ -99,26 +99,26 @@
     text-decoration: none;
     color: #a0aec0;
     font-size: 0.85rem;
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: 1px;
     transition: all 0.4s ease;
   }
 
   .nav-links a:hover {
     color: #ffffff;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    text-shadow: 0 0 8px var(--emerald-glow);
   }
 
-  /* Botón de Contacto Estilo "Outline" */
   .cta-contact {
     text-decoration: none;
     color: #ffffff;
     font-size: 0.85rem;
-    padding: 10px 22px;
+    padding: 10px 20px;
     border: 1px solid var(--emerald-primary);
     border-radius: 2px;
-    background: rgba(9, 64, 53, 0.1);
+    background: rgba(9, 64, 53, 0.2);
     transition: all 0.3s ease;
+    font-weight: 600;
   }
 
   .cta-contact:hover {
@@ -127,16 +127,17 @@
     transform: translateY(-2px);
   }
 
-  /* Animaciones */
   @keyframes pulse {
     0% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.5); opacity: 0.5; }
+    50% { transform: scale(1.3); opacity: 0.6; }
     100% { transform: scale(1); opacity: 1; }
   }
 
-  /* Responsive */
+  @media (max-width: 1100px) {
+    .name-logo { font-size: 1.2rem; } /* Se adapta un poco en pantallas medianas */
+  }
+
   @media (max-width: 950px) {
-    .nav-links { display: none; }
-    .cta-contact { display: none; }
+    .nav-links, .cta-contact { display: none; }
   }
 </style>
