@@ -1,78 +1,59 @@
----
-// Eliminamos el import del archivo externo para evitar el error de "Could not resolve"
----
-
-<footer class="footer">
-  <div class="container-footer">
-    <div class="footer-texts">
-      <h2>Nieves Pérez</h2>
-      <p>Data Analyst | Business Intelligence & Operations Strategy</p>
-    </div>
-    
-    <div class="footer-social">
-      <a href="https://www.linkedin.com/in/nievesperezalonso/" target="_blank">
-        <i class="fa-brands fa-linkedin"></i>
-      </a>
-      <a href="https://github.com/NievesPerez-Data" target="_blank">
-        <i class="fa-brands fa-github"></i>
-      </a>
-      <a href="https://public.tableau.com/app/profile/nieves.p.rez.alonso" target="_blank">
-        <i class="fa-solid fa-chart-column"></i>
-      </a>
-      <a href="mailto:mnieves.perez.alonso@gmail.com">
-        <i class="fa-solid fa-envelope"></i>
-      </a>
-    </div>
-  </div>
-  <p class="copy">&copy; 2026 - Hecho con ❤️ por Nieves Pérez</p>
-</footer>
+<div class="footer-social-links">
+  <a href="https://www.linkedin.com/in/nievesperezalonso/" target="_blank" aria-label="LinkedIn">
+    <i class="fa-brands fa-linkedin"></i>
+  </a>
+  <a href="https://github.com/NievesPerez-Data" target="_blank" aria-label="GitHub">
+    <i class="fa-brands fa-github"></i>
+  </a>
+  <a href="https://public.tableau.com/app/profile/nieves.p.rez.alonso" target="_blank" aria-label="Tableau">
+    <i class="fa-solid fa-chart-column"></i>
+  </a>
+  <a href="mailto:mnieves.perez.alonso@gmail.com" aria-label="Email">
+    <i class="fa-solid fa-envelope"></i>
+  </a>
+</div>
 
 <style>
-  .footer {
-    background-color: #000;
-    color: #f6f6f9;
-    padding: 40px 20px;
-    border-top: 1px solid #333;
-  }
-  .container-footer {
-    max-width: 1355px;
-    margin: 0 auto;
+  /* ... resto de tus estilos anteriores ... */
+
+  .footer-social-links {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  .footer-texts h2 {
-    color: #01be96;
-    font-size: 1.8rem;
-    margin-bottom: 5px;
-  }
-  .footer-social {
-    display: flex;
-    gap: 20px;
-  }
-  .footer-social a {
-    color: #f6f6f9;
-    font-size: 24px;
-    transition: 0.3s;
-    text-decoration: none;
-  }
-  .footer-social a:hover {
-    color: #01be96;
-    transform: translateY(-3px);
-  }
-  .copy {
-    text-align: center;
-    margin-top: 30px;
-    font-size: 14px;
-    color: #888;
+    /* Aumentamos el espacio significativamente */
+    gap: 60px; 
+    margin: 20px 0;
   }
 
-  @media (max-width: 768px) {
-    .container-footer {
-      flex-direction: column;
-      text-align: center;
+  .footer-social-links a {
+    color: #a0aec0;
+    /* Iconos un poco más grandes para que tengan "peso" visual */
+    font-size: 1.8rem; 
+    transition: all 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    /* Un borde casi invisible que se ilumina al pasar el ratón */
+    border: 1px solid transparent; 
+  }
+
+  .footer-social-links a:hover {
+    color: #ffffff;
+    transform: translateY(-8px);
+    /* Resplandor esmeralda que refuerza tu paleta */
+    text-shadow: 0 0 20px rgba(9, 64, 53, 1);
+    border-color: rgba(9, 64, 53, 0.5);
+    background: rgba(9, 64, 53, 0.1);
+  }
+
+  /* Responsive: reducir espacio solo si la pantalla es muy pequeña */
+  @media (max-width: 600px) {
+    .footer-social-links {
+      gap: 30px;
+    }
+    .footer-social-links a {
+      font-size: 1.5rem;
     }
   }
 </style>
