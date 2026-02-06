@@ -1,109 +1,93 @@
 ---
-// Footer Profesional - Estilo Minimalista Esmeralda
+// Footer estilizado con Glassmorphism y paleta Deep Emerald
 ---
 
-<footer class="footer-custom">
-  <div class="footer-container">
-    
-    <div class="footer-main">
-      <h2 class="footer-role">Data Analyst</h2>
-      <p class="footer-sub">Business Intelligence & Operations Strategy</p>
+<footer class="footer-glass">
+  <div class="footer-content">
+    <div class="footer-brand">
+      <p class="role-text">Data Analyst | BI & Operations Strategy</p>
     </div>
-
-    <div class="footer-socials">
-      <a href="https://www.linkedin.com/in/nievesperezalonso/" target="_blank">
+    
+    <div class="footer-social-links">
+      <a href="https://www.linkedin.com/in/nievesperezalonso/" target="_blank" title="LinkedIn">
         <i class="fa-brands fa-linkedin"></i>
       </a>
-      <a href="https://github.com/NievesPerez-Data" target="_blank">
+      <a href="https://github.com/NievesPerez-Data" target="_blank" title="GitHub">
         <i class="fa-brands fa-github"></i>
       </a>
-      <a href="https://public.tableau.com/app/profile/nieves.p.rez.alonso" target="_blank">
+      <a href="https://public.tableau.com/app/profile/nieves.p.rez.alonso" target="_blank" title="Tableau">
         <i class="fa-solid fa-chart-column"></i>
       </a>
-      <a href="mailto:mnieves.perez.alonso@gmail.com">
+      <a href="mailto:mnieves.perez.alonso@gmail.com" title="Email">
         <i class="fa-solid fa-envelope"></i>
       </a>
     </div>
 
-    <div class="footer-copy">
-      <span>2026</span>
+    <div class="footer-copyright">
+      <p>&copy; 2026 Portafolio Profesional</p>
     </div>
   </div>
 </footer>
 
 <style>
-  /* Colores de tu paleta */
-  :root {
-    --deep-emerald: #094035;
-    --near-black: #02100d;
-  }
-
-  .footer-custom {
+  .footer-glass {
+    position: relative;
     width: 100%;
-    background-color: #000000;
-    padding: 80px 20px;
+    padding: 60px 5%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(9, 64, 53, 0.2);
     display: flex;
     justify-content: center;
-    border-top: 1px solid var(--deep-emerald);
+    margin-top: 50px;
   }
 
-  .footer-container {
+  .footer-content {
     max-width: 1200px;
     width: 100%;
-    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 30px;
   }
 
-  .footer-role {
-    color: #ffffff;
-    font-size: 2.5rem;
-    font-weight: 800;
-    letter-spacing: 6px;
-    text-transform: uppercase;
-    margin: 0;
-  }
-
-  .footer-sub {
-    color: var(--deep-emerald);
-    font-size: 1rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin: 10px 0 40px 0;
-  }
-
-  .footer-socials {
-    display: flex;
-    gap: 60px; /* El espaciado que pediste */
-    margin-bottom: 40px;
-  }
-
-  .footer-socials a {
-    color: #f6f6f9;
-    font-size: 2rem;
-    transition: 0.3s ease;
-    text-decoration: none;
-  }
-
-  .footer-socials a:hover {
-    color: var(--deep-emerald);
-    transform: translateY(-5px);
-  }
-
-  .footer-copy {
-    color: #444;
+  .role-text {
     font-size: 0.9rem;
-    letter-spacing: 4px;
-    border-top: 1px solid #111;
-    padding-top: 20px;
-    width: 100%;
-    max-width: 300px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #0b5e4f; /* Tu color esmeralda */
+    font-weight: 500;
+    text-align: center;
   }
 
-  /* Ajuste para móviles */
+  .footer-social-links {
+    display: flex;
+    gap: 40px;
+  }
+
+  .footer-social-links a {
+    color: #a0aec0;
+    font-size: 1.5rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .footer-social-links a:hover {
+    color: #ffffff;
+    transform: translateY(-5px);
+    text-shadow: 0 0 15px rgba(9, 64, 53, 0.8);
+  }
+
+  .footer-copyright {
+    font-size: 0.75rem;
+    color: #4a5568;
+    letter-spacing: 1px;
+  }
+
+  /* Responsive */
   @media (max-width: 768px) {
-    .footer-role { font-size: 1.8rem; }
-    .footer-socials { gap: 30px; }
+    .footer-social-links {
+      gap: 25px;
+    }
   }
 </style>
