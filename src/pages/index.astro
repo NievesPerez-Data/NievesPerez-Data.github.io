@@ -1,59 +1,37 @@
 ---
-// Tu nombre de usuario de GitHub
-const username = "NievesPerez-Data"; 
+import Header from "../components/header/Header.astro";
+import "../style/index.css";
+import Main from "../components/main/main.astro";
+import Footer from "../components/footer/Footer.astro";
 
-// Llamada a la API de GitHub para obtener tus repositorios
+// --- TU LÓGICA DE DATOS ---
+const username = "NievesPerez-Data"; 
 const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated`);
 const allRepos = await response.json();
-
-// Filtramos para mostrar solo los que no sean "forks" y tengan descripción
+// Filtramos para obtener tus repositorios reales
 const projects = allRepos.filter(repo => !repo.fork && repo.description).slice(0, 6);
-
-const pageTitle = "Portfolio | Data Analyst";
 ---
 
 <html lang="es">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<title>{pageTitle}</title>
-		<style>
-			body { font-family: system-ui, sans-serif; background: #f4f4f9; color: #333; line-height: 1.6; }
-			main { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
-			header { text-align: center; margin-bottom: 3rem; }
-			h1 { color: #2c3e50; }
-			.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
-			.card { background: white; padding: 1.5rem; border-radius: 8px; border-left: 5px solid #4a90e2; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: transform 0.2s; }
-			.card:hover { transform: translateY(-5px); }
-			.card h3 { margin-top: 0; color: #4a90e2; }
-			.card p { font-size: 0.9rem; color: #666; }
-			.tech-tag { font-size: 0.75rem; background: #eef2f7; padding: 0.2rem 0.5rem; border-radius: 4px; margin-right: 0.5rem; }
-			a { text-decoration: none; color: inherit; }
-		</style>
-	</head>
-	<body>
-		<main>
-			<header>
-				<h1>Nieves Pérez</h1>
-				<p>Data Analyst | Business Intelligence & Strategy</p>
-			</header>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <meta name="description" content="Nieves Pérez - Data Analyst especializada en Business Intelligence y Estrategia Operativa." />
+    <meta property="og:title" content="Nieves Pérez | Data Portfolio" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://NievesPerez-Data.github.io/" />
 
-			<section>
-				<h2>Proyectos Destacados (GitHub)</h2>
-				<div class="grid">
-					{projects.map((repo) => (
-						<a href={repo.html_url} target="_blank" class="card">
-							<h3>{repo.name}</h3>
-							<p>{repo.description}</p>
-							<div>
-								{repo.language && <span class="tech-tag">{repo.language}</span>}
-								<span class="tech-tag">⭐ {repo.stargazers_count}</span>
-							</div>
-						</a>
-					))}
-				</div>
-			</section>
-		</main>
-	</body>
+    <script src="https://kit.fontawesome.com/2898a0ac51.js" crossorigin="anonymous"></script>
+    <title>Nieves Pérez | Data Portfolio</title>
+  </head>
+  <body>
+    <Header />
+    
+    <Main /> 
+    
+    <Footer />
+  </body>
 </html>
