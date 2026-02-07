@@ -1,9 +1,13 @@
 ---
 import Header from "../components/header/Header.astro";
-import Hero from "../components/hero/Hero.astro"; // Asegúrate de crear este archivo
 import Main from "../components/main/main.astro";
 import Footer from "../components/footer/Footer.astro";
 import "../style/index.css";
+
+const username = "NievesPerez-Data"; 
+const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated`);
+const allRepos = await response.json();
+const projects = allRepos.filter(repo => !repo.fork && repo.description).slice(0, 6);
 ---
 
 <html lang="es">
@@ -11,27 +15,17 @@ import "../style/index.css";
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
-    <title>Nieves Pérez Alonso | Data Analyst</title>
     <script src="https://kit.fontawesome.com/2898a0ac51.js" crossorigin="anonymous"></script>
+    <title>Nieves Pérez Alonso | Data Analyst</title>
   </head>
   <body>
     <Header />
-    <main>
-      <Hero /> <Main /> </main>
+    <Main projects={projects} /> 
     <Footer />
 
     <style is:global>
-      html {
-        scroll-behavior: smooth;
-        scroll-padding-top: 90px;
-        background-color: #000;
-      }
-      body {
-        margin: 0;
-        background-color: #000;
-        color: white;
-        font-family: 'Onest', sans-serif;
-      }
+      html { scroll-behavior: smooth; scroll-padding-top: 90px; background-color: #000; }
+      body { margin: 0; background-color: #000; color: white; font-family: system-ui, sans-serif; }
     </style>
   </body>
 </html>
