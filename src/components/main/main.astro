@@ -1,40 +1,62 @@
 ---
-const { projects = [] } = Astro.props;
+const projects = [
+  { 
+    name: "Sakila Cinema Analytics", 
+    description: "Análisis de plataforma de alquiler mediante SQL avanzado para optimizar inventario y segmentación de clientes.", 
+    language: "SQL", 
+    html_url: "https://github.com/NievesPerez-Data/proyecto-sql-sakila-analysis",
+    tags: ["SQL", "MySQL", "Python"]
+  },
+  { 
+    name: "The Friends Data Project", 
+    description: "Sentiment Analysis para transformar guiones no estructurados en insights de audiencia y arcos de personajes.", 
+    language: "Tableau", 
+    html_url: "https://github.com/NievesPerezData/proyecto_serieTV_Friends_Tableau",
+    tags: ["Tableau", "NLP", "Python"]
+  },
+  { 
+    name: "Friends: The Wedding Effect", 
+    description: "Dashboard analítico sobre hitos narrativos analizando la eficiencia del guion y KPIs de audiencia.", 
+    language: "Power BI", 
+    html_url: "https://github.com/NievesPerez-Data/proyecto_serieTV_Friends2.0_PowerBI",
+    tags: ["Power BI", "DAX", "Power Query"]
+  }
+];
 ---
 
 <main class="main-root">
-  <div class="content-wrapper">
+  <div class="container">
     
     <section class="hero" id="inicio">
-      <div class="hero-text">
+      <div class="hero-content">
         <span class="highlight">Nieves Pérez Alonso</span>
         <h1>DATA ANALYST & <br/> BI STRATEGIST</h1>
-        <p>Transformando datos complejos en decisiones estratégicas mediante Business Intelligence.</p>
-        <div class="hero-btns">
-          <a href="mailto:mnieves.perez.alonso@gmail.com" class="btn-primary">Hablemos</a>
+        <p>Trayectoria consolidada en dirección de unidades de negocio (Retail). Especializada en transformar datasets complejos en estrategias comerciales mediante KPIs.</p>
+        <div class="btns">
+          <a href="mailto:mnieves.perez.alonso@gmail.com" class="btn-fill">Hablemos</a>
+          <a href="https://linkedin.com/in/nievesperezalonso" target="_blank" class="btn-border">LinkedIn</a>
         </div>
       </div>
-      <div class="hero-image">
-        <div class="image-circle">
-          <img src="/img/tu-foto.webp" alt="Nieves" />
+      <div class="hero-img">
+        <div class="circle">
+          <img src="/img/tu-foto.webp" alt="Nieves Pérez" />
         </div>
       </div>
     </section>
 
     <section class="section" id="proyectos">
       <h2 class="title">Proyectos</h2>
-      <div class="projects-grid">
-        {projects.map((repo) => (
-          <div class="project-card">
-            <div class="card-icons">
+      <div class="grid">
+        {projects.map((p) => (
+          <div class="card">
+            <div class="card-head">
               <i class="fa-regular fa-folder"></i>
-              <a href={repo.html_url} target="_blank"><i class="fa-brands fa-github"></i></a>
+              <a href={p.html_url} target="_blank"><i class="fa-brands fa-github"></i></a>
             </div>
-            <h3>{repo.name}</h3>
-            <p>{repo.description || "Análisis estratégico y BI."}</p>
-            <div class="capsules">
-              <span class="pill">{repo.language || "Data Science"}</span>
-              <span class="pill">SQL</span>
+            <h3>{p.name}</h3>
+            <p>{p.description}</p>
+            <div class="pills">
+              {p.tags.map(tag => <span class="pill">{tag}</span>)}
             </div>
           </div>
         ))}
@@ -43,11 +65,46 @@ const { projects = [] } = Astro.props;
 
     <section class="section" id="habilidades">
       <h2 class="title">Habilidades</h2>
-      <div class="skills-grid">
-        <div class="skill"><img src="https://www.vectorlogo.zone/logos/tableau/tableau-icon.svg" /><span>Tableau</span></div>
-        <div class="skill"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" /><span>Python</span></div>
-        <div class="skill"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg" /><span>SQL</span></div>
-        <div class="skill"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pandas/pandas-original.svg" /><span>Pandas</span></div>
+      <div class="skills-wrapper">
+        <div class="skill-category">
+          <h3>Technology & Data</h3>
+          <div class="skill-list">
+            <div class="s-item"><i class="fa-brands fa-python"></i><span>Python</span></div>
+            <div class="s-item"><i class="fa-solid fa-database"></i><span>SQL</span></div>
+            <div class="s-item"><i class="fa-solid fa-chart-pie"></i><span>Tableau/Power BI</span></div>
+            <div class="s-item"><i class="fa-solid fa-code-branch"></i><span>Git</span></div>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Business & Ops</h3>
+          <p>KPIs, Estrategia de Ventas, Liderazgo, Scrum.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="estudios">
+      <h2 class="title">Educación</h2>
+      <div class="edu-list">
+        <div class="edu-item">
+          <div class="line"></div>
+          <h4>Bootcamp Data Analytics & IA</h4>
+          <p>ADALAB | 2025 - 2026</p>
+        </div>
+        <div class="edu-item">
+          <div class="line"></div>
+          <h4>Máster Educación Artística</h4>
+          <p>UCM | 2014 - 2015</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sobremi">
+      <h2 class="title">Sobre mi</h2>
+      <div class="about-flex">
+        <div class="about-text">
+          <p>Profesional con amplia experiencia en <strong>Oysho S.A.</strong> como Store Manager (2019-2025). Experta en toma de decisiones operativas y diagnóstico de problemas complejos mediante el análisis de rendimiento.</p>
+        </div>
+        <img src="/img/illustration.svg" alt="Data Illustration" class="about-icon" />
       </div>
     </section>
 
@@ -55,39 +112,42 @@ const { projects = [] } = Astro.props;
 </main>
 
 <style>
-  .main-root { background-color: #000 !important; padding-top: 100px; color: #fff; }
-  .content-wrapper { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
-  
-  .hero { display: flex; align-items: center; justify-content: space-between; min-height: 60vh; }
+  .main-root { background-color: #000; color: #fff; padding-top: 80px; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+  .section { padding: 100px 0; border-top: 1px solid #111; }
+  .title { font-size: 2.2rem; margin-bottom: 50px; color: #fff; }
+
+  /* HERO */
+  .hero { display: flex; align-items: center; justify-content: space-between; min-height: 70vh; gap: 30px; }
   .highlight { color: #11d4ad; font-weight: bold; font-size: 1.2rem; }
-  h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin: 20px 0; color: #fff; }
-  .btn-primary { background: #11d4ad; color: #000; padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold; }
-  
-  .image-circle {
-    width: 350px; height: 350px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(17, 212, 173, 0.2) 0%, transparent 70%);
-    display: flex; align-items: center; justify-content: center;
-    border: 2px solid #11d4ad;
-  }
-  .image-circle img { width: 85%; height: 85%; border-radius: 50%; object-fit: cover; }
+  h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1; margin: 15px 0; }
+  .hero-content p { color: #888; max-width: 500px; margin-bottom: 30px; font-size: 1.1rem; }
+  .btn-fill { background: #11d4ad; color: #000; padding: 12px 25px; border-radius: 4px; text-decoration: none; font-weight: bold; }
+  .btn-border { border: 1px solid #11d4ad; color: #11d4ad; padding: 12px 25px; border-radius: 4px; text-decoration: none; margin-left: 10px; }
+  .circle { width: 350px; height: 350px; border-radius: 50%; border: 1px solid #11d4ad; display: flex; align-items: center; justify-content: center; background: radial-gradient(circle, #11d4ad22 0%, transparent 70%); }
+  .circle img { width: 85%; height: 85%; border-radius: 50%; object-fit: cover; }
 
-  .section { padding: 100px 0; }
-  .title { font-size: 2.2rem; margin-bottom: 40px; color: #fff; }
+  /* CARDS */
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+  .card { background: #0a0a0a; border: 1px solid #1a1a1a; padding: 30px; border-radius: 10px; transition: 0.3s; }
+  .card:hover { border-color: #11d4ad; transform: translateY(-5px); }
+  .card-head { display: flex; justify-content: space-between; color: #11d4ad; font-size: 1.5rem; margin-bottom: 20px; }
+  .card-head a { color: #11d4ad; }
+  .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .pill { background: #11d4ad15; color: #11d4ad; padding: 4px 10px; border-radius: 15px; font-size: 0.75rem; border: 1px solid #11d4ad33; }
 
-  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-  .project-card { background: #0a0a0a; border: 1px solid #222; padding: 30px; border-radius: 12px; }
-  .card-icons { display: flex; justify-content: space-between; color: #11d4ad; font-size: 1.5rem; margin-bottom: 20px; }
-  .card-icons a { color: #11d4ad; }
-  
-  .capsules { display: flex; gap: 10px; margin-top: 20px; }
-  .pill { background: rgba(17, 212, 173, 0.1); border: 1px solid rgba(17, 212, 173, 0.3); color: #11d4ad; padding: 5px 12px; border-radius: 15px; font-size: 0.8rem; }
+  /* SKILLS & EDU */
+  .skills-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .skill-list { display: flex; gap: 25px; margin-top: 20px; }
+  .s-item { display: flex; flex-direction: column; align-items: center; gap: 8px; color: #888; font-size: 0.9rem; }
+  .s-item i { font-size: 1.8rem; color: #11d4ad; }
+  .edu-item { margin-bottom: 30px; padding-left: 20px; border-left: 2px solid #11d4ad; }
+  .about-flex { display: flex; align-items: center; justify-content: space-between; }
+  .about-icon { width: 250px; filter: drop-shadow(0 0 10px #11d4ad44); }
 
-  .skills-grid { display: flex; flex-wrap: wrap; gap: 40px; }
-  .skill { display: flex; flex-direction: column; align-items: center; gap: 10px; }
-  .skill img { width: 50px; }
-
-  @media (max-width: 900px) {
-    .hero { flex-direction: column; text-align: center; }
-    .image-circle { width: 250px; height: 250px; margin-top: 30px; }
+  @media (max-width: 800px) {
+    .hero, .about-flex, .skills-wrapper { flex-direction: column; text-align: center; }
+    .circle { width: 280px; height: 280px; }
+    .skill-list { justify-content: center; }
   }
 </style>
