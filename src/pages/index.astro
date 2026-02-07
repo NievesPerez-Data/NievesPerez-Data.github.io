@@ -1,9 +1,31 @@
 ---
 import Header from '../components/header/Header.astro';
 import Main from '../components/main/main.astro';
-import '../style/index.css'; // Importa el CSS aquí
 
-const projects = []; // O tu lógica de carga de repos
+// Datos de tus proyectos reales del CV
+const projects = [
+  { 
+    name: "Sakila Cinema Analytics", 
+    description: "Análisis mediante SQL avanzado para optimizar inventario y segmentación de clientes.", 
+    language: "SQL", 
+    html_url: "https://github.com/NievesPerez-Data/proyecto-sql-sakila-analysis",
+    tags: ["SQL", "MySQL", "Python"]
+  },
+  { 
+    name: "The Friends Data Project", 
+    description: "Sentiment Analysis y NLP para transformar guiones en insights de audiencia.", 
+    language: "Tableau", 
+    html_url: "https://github.com/NievesPerezData/proyecto_serieTV_Friends_Tableau",
+    tags: ["Tableau", "Python", "NLP"]
+  },
+  { 
+    name: "Friends: The Wedding Effect", 
+    description: "Dashboard analítico sobre KPIs de audiencia con medidas DAX avanzadas.", 
+    language: "Power BI", 
+    html_url: "https://github.com/NievesPerez-Data/proyecto_serieTV_Friends2.0_PowerBI",
+    tags: ["Power BI", "DAX", "Power Query"]
+  }
+];
 ---
 
 <!DOCTYPE html>
@@ -11,8 +33,18 @@ const projects = []; // O tu lógica de carga de repos
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nieves Pérez | Data Analyst</title>
+    <title>Nieves Pérez | Data Analyst & BI Strategist</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style is:global>
+        @import url("https://fonts.googleapis.com/css2?family=ABeeZee&display=swap");
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; background-color: #000; }
+        body { font-family: 'ABeeZee', sans-serif; background-color: #000; color: white; }
+        /* Scrollbar oscuro */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+    </style>
 </head>
 <body>
     <Header />
