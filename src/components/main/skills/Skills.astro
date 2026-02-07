@@ -1,27 +1,27 @@
 ---
-const tech = ["Python (Pandas, NumPy)", "SQL (MySQL)", "Tableau", "Power BI", "Git", "Web Scraping"];
-const biz = ["KPIs de Rendimiento", "Metodologías Ágiles", "Estrategia de Ventas", "Gestión de RRHH"];
+/* Datos extraídos de tu CV */
+const techSkills = ["Python (Pandas, NumPy)", "SQL (MySQL)", "Tableau", "Power BI", "Git", "Web Scraping"];
+const businessSkills = ["KPIs de Rendimiento", "Metodologías Ágiles", "Estrategia de Ventas", "Gestión de RRHH"];
 ---
-<section class="skills" id="skills">
-  <h2 class="title">Habilidades</h2>
-  <div class="container">
-    <div class="col">
+<section class="skills" id="skills"> <h2 class="title">Habilidades</h2>
+  <div class="skills-wrapper">
+    <div class="skill-column">
       <h3>Technology & Data</h3>
-      <ul>{tech.map(s => <li>{s}</li>)}</ul>
+      <ul>{techSkills.map(s => <li>{s}</li>)}</ul>
     </div>
-    <div class="col">
-      <h3>Business & Ops</h3>
-      <ul>{biz.map(s => <li>{s}</li>)}</ul>
+    <div class="skill-column">
+      <h3>Business & Operations</h3>
+      <ul>{businessSkills.map(s => <li>{s}</li>)}</ul>
     </div>
   </div>
 </section>
 
 <style>
-  .skills { padding: 60px 0; max-width: 1000px; margin: 0 auto; }
-  .title { color: #01be96; margin-bottom: 30px; font-size: 2rem; }
-  .container { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-  h3 { color: #fff; margin-bottom: 15px; }
-  ul { list-style: none; color: #888; }
-  li { margin-bottom: 8px; }
-  li::before { content: "▹ "; color: #01be96; }
+  .skills { padding: 80px 0; max-width: 1100px; margin: 0 auto; }
+  .title { color: #01be96; margin-bottom: 40px; font-size: 2rem; }
+  .skills-wrapper { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+  h3 { color: #fff; margin-bottom: 20px; border-bottom: 1px solid #222; padding-bottom: 10px; }
+  ul { list-style: none; padding: 0; }
+  li { margin-bottom: 12px; color: #888; display: flex; align-items: center; }
+  li::before { content: "▹"; color: #01be96; margin-right: 10px; font-weight: bold; }
 </style>
