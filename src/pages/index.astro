@@ -8,7 +8,6 @@ import Footer from "../components/footer/Footer.astro";
 const username = "NievesPerez-Data"; 
 const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated`);
 const allRepos = await response.json();
-// Filtramos para obtener tus repositorios reales
 const projects = allRepos.filter(repo => !repo.fork && repo.description).slice(0, 6);
 ---
 
@@ -30,8 +29,43 @@ const projects = allRepos.filter(repo => !repo.fork && repo.description).slice(0
   <body>
     <Header />
     
-    <Main /> 
+    <main>
+      <Main /> 
+    </main>
     
     <Footer />
+
+    <style is:global>
+      :root {
+        color-scheme: dark; /* Indica al navegador que la web es oscura */
+      }
+
+      html {
+        scroll-behavior: smooth; /* Desplazamiento suave */
+        /* IMPORTANTE: Deja 100px libres arriba para que el Header no tape el título */
+        scroll-padding-top: 100px; 
+        background-color: #000000;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #000000;
+        color: #ffffff;
+        font-family: system-ui, -apple-system, sans-serif;
+      }
+
+      /* Estilo para la scrollbar que querías limpiar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #000;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #094035;
+        border-radius: 10px;
+      }
+    </style>
   </body>
 </html>
