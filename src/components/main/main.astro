@@ -1,86 +1,166 @@
 ---
 const { projects = [] } = Astro.props;
+
+// Función para limpiar y separar las tecnologías si vienen en un string
+const getTechStack = (repo) => {
+  if (repo.language) return [repo.language];
+  // Si no hay lenguaje principal, podemos inferir algunos por el nombre o descripción
+  return ["Data Analysis", "SQL"];
+};
 ---
 
-<main>
+<main class="main-wrapper">
   <div class="container_p">
     
-    <section class="hero-section" id="inicio">
-      <div class="hero-content">
-        <div class="hero-text">
-          <span class="name-highlight">Nieves Pérez Alonso</span>
-          <h1 class="hero-title">DATA ANALYST & <br/>BI STRATEGIST</h1>
-          <p class="hero-description">
-            Transformando datos complejos en decisiones estratégicas mediante 
-            Business Intelligence, optimización de procesos y visualización avanzada.
-          </p>
-          
-          <div class="hero-btns">
-            <a href="mailto:mnieves.perez.alonso@gmail.com" class="btn-primary">Hablemos</a>
-            <a href="#" class="btn-secondary">Ver Currículum</a>
-          </div>
-
-          <div class="hero-social">
-            <span>Echa un vistazo a mi</span>
-            <div class="social-icons">
-              <a href="https://github.com/NievesPerez-Data" target="_blank"><i class="fa-brands fa-github"></i></a>
-              <a href="https://linkedin.com/in/nievesperezalonso" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-            </div>
+    <section class="hero" id="inicio">
+      <div class="hero-info">
+        <span class="highlight">Nieves Pérez Alonso</span>
+        <h1>DATA ANALYST & <br/> BI STRATEGIST</h1>
+        <p>Transformando datos complejos en decisiones estratégicas mediante Business Intelligence y análisis avanzado.</p>
+        <div class="hero-actions">
+          <a href="mailto:mnieves.perez.alonso@gmail.com" class="btn-fill">Hablemos</a>
+          <a href="#" class="btn-ghost">Ver Currículum</a>
+        </div>
+        <div class="hero-social">
+          <p>Echa un vistazo a mi</p>
+          <div class="icons">
+            <a href="https://github.com/NievesPerez-Data" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a href="https://linkedin.com/in/nievesperezalonso" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
           </div>
         </div>
-
-        <div class="hero-image">
-          <div class="image-circle">
-            <img src="/img/tu-foto.webp" alt="Nieves Pérez Alonso" />
-          </div>
+      </div>
+      <div class="hero-visual">
+        <div class="img-gradient-border">
+          <img src="/img/tu-foto.webp" alt="Nieves Pérez Alonso" />
         </div>
       </div>
     </section>
 
-    <section class="section-container" id="proyectos">
-      <h2 class="section-title">Proyectos</h2>
-      <div class="projects-grid">
+    <section class="section" id="proyectos">
+      <h2 class="title">Proyectos</h2>
+      <div class="project-grid">
         {projects.map((repo) => (
-          <a href={repo.html_url} target="_blank" class="project-card">
-            <div class="project-header">
+          <div class="p-card">
+            <div class="p-icons">
               <i class="fa-regular fa-folder"></i>
-              <i class="fa-brands fa-github"></i>
+              <div class="p-links">
+                <a href={repo.html_url} target="_blank" aria-label="Github"><i class="fa-brands fa-github"></i></a>
+              </div>
             </div>
-            <h3 class="project-name">{repo.name}</h3>
-            <p class="project-desc">{repo.description || "Análisis estratégico de datos."}</p>
-            <div class="project-footer">
-              <span class="project-tech">{repo.language || "SQL / Python"}</span>
+            <h3>{repo.name}</h3>
+            <p>{repo.description || "Análisis de datos estratégico y modelado BI."}</p>
+            
+            <div class="capsule-container">
+              {getTechStack(repo).map((tech) => (
+                <span class="tech-capsule">{tech}</span>
+              ))}
             </div>
-          </a>
+          </div>
         ))}
       </div>
     </section>
 
-    <section class="section-container" id="habilidades">
-      <h2 class="section-title">Habilidades</h2>
+    <section class="section" id="habilidades">
+      <h2 class="title">Habilidades</h2>
       <div class="skills-grid">
-        <div class="skill-item"><i class="fa-solid fa-chart-column" style="color: #11d4ad;"></i><span>Tableau</span></div>
-        <div class="skill-item"><i class="fa-solid fa-database" style="color: #336791;"></i><span>SQL</span></div>
-        <div class="skill-item"><i class="fa-brands fa-python" style="color: #3776AB;"></i><span>Python</span></div>
-        <div class="skill-item"><i class="fa-solid fa-file-excel" style="color: #1D6F42;"></i><span>Excel</span></div>
-        <div class="skill-item"><i class="fa-brands fa-git-alt" style="color: #F05032;"></i><span>Git</span></div>
+        <div class="skill-card"><img src="https://www.vectorlogo.zone/logos/tableau/tableau-icon.svg" alt="Tableau"/><span>Tableau</span></div>
+        <div class="skill-card"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python"/><span>Python</span></div>
+        <div class="skill-card"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg" alt="SQL"/><span>SQL</span></div>
+        <div class="skill-card"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pandas/pandas-original.svg" alt="Pandas"/><span>Pandas</span></div>
+        <div class="skill-card"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="Git"/><span>Git</span></div>
       </div>
     </section>
 
-    <section class="section-container" id="estudios">
-      <h2 class="section-title">Estudios</h2>
+    <section class="section" id="estudios">
+      <h2 class="title">Estudios</h2>
       <div class="timeline">
         <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <h3>Especialización en Big Data & Analytics</h3>
-          <p class="timeline-school">Institución Académica</p>
-          <span class="timeline-date">2024 - Actualidad</span>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <h3>Grado en [Tu Carrera]</h3>
-          <p class="timeline-school">Universidad</p>
-          <span class="timeline-date">2019 - 2023</span>
+          <div class="dot"></div>
+          <h3>Técnico en Análisis de Datos</h3>
+          <p class="school">Institución Académica</p>
+          <p class="date">01/2024 - Presente</p>
         </div>
       </div>
     </section>
+
+    <section class="section" id="sobremi">
+      <div class="about-container">
+        <div class="about-text">
+          <h2 class="title">Sobre mi</h2>
+          <p>Soy una profesional del análisis de datos especializada en Business Intelligence. Me considero una persona responsable, dinámica y creativa, con gran capacidad de adaptación y aprendizaje continuo.</p>
+        </div>
+        <div class="about-img">
+          <img src="/img/illustration.svg" alt="Ilustración Data" />
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<style>
+  .main-wrapper { padding-top: 100px; background-color: #000; }
+  .container_p { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
+  
+  /* HERO */
+  .hero { display: flex; align-items: center; justify-content: space-between; min-height: 70vh; padding-bottom: 50px; }
+  .highlight { color: #11d4ad; font-size: 1.4rem; font-weight: bold; }
+  h1 { font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; margin: 20px 0; font-weight: 800; color: #fff; }
+  .hero-info p { color: #a0aec0; max-width: 550px; font-size: 1.1rem; margin-bottom: 30px; }
+  .hero-actions { display: flex; gap: 15px; margin-bottom: 40px; }
+  .btn-fill { background: #11d4ad; color: #000; padding: 14px 30px; border-radius: 4px; text-decoration: none; font-weight: bold; }
+  .btn-ghost { border: 1px solid #11d4ad; color: #11d4ad; padding: 14px 30px; border-radius: 4px; text-decoration: none; }
+  .hero-social { display: flex; align-items: center; gap: 15px; }
+  .hero-social .icons { display: flex; gap: 10px; font-size: 1.5rem; }
+  .hero-social a { color: #11d4ad; }
+  .img-gradient-border {
+    width: 380px; height: 380px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(1, 190, 150, 0.3) 0%, transparent 70%);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .img-gradient-border img { width: 85%; height: 85%; border-radius: 50%; object-fit: cover; border: 1px solid #11d4ad; }
+
+  /* PROYECTOS Y CÁPSULAS */
+  .section { padding: 80px 0; }
+  .title { font-size: 2.2rem; margin-bottom: 40px; font-weight: 700; color: #fff; }
+  .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
+  .p-card { background: #0a0a0a; border: 1px solid #1a1a1a; padding: 35px; border-radius: 12px; transition: 0.3s; display: flex; flex-direction: column; }
+  .p-card:hover { border-color: #11d4ad; transform: translateY(-5px); }
+  .p-icons { display: flex; justify-content: space-between; color: #11d4ad; font-size: 1.6rem; margin-bottom: 25px; }
+  .p-card h3 { color: #fff; margin-bottom: 15px; font-size: 1.4rem; }
+  .p-card p { color: #a0aec0; font-size: 0.95rem; margin-bottom: 25px; flex-grow: 1; }
+  
+  .capsule-container { display: flex; flex-wrap: wrap; gap: 10px; }
+  .tech-capsule {
+    background: rgba(17, 212, 173, 0.1);
+    color: #11d4ad;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border: 1px solid rgba(17, 212, 173, 0.3);
+    text-transform: uppercase;
+  }
+
+  /* SKILLS */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 30px; }
+  .skill-card { display: flex; flex-direction: column; align-items: center; gap: 10px; font-size: 0.9rem; color: #a0aec0; }
+  .skill-card img { width: 45px; height: 45px; }
+
+  /* TIMELINE */
+  .timeline { border-left: 2px solid #11d4ad; padding-left: 30px; position: relative; }
+  .dot { position: absolute; left: -37px; top: 5px; width: 12px; height: 12px; background: #fff; border-radius: 50%; box-shadow: 0 0 10px #11d4ad; }
+  .school { color: #718096; }
+  .date { color: #11d4ad; font-weight: bold; }
+
+  /* ABOUT */
+  .about-container { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+  .about-text p { color: #a0aec0; font-size: 1.1rem; }
+
+  @media (max-width: 900px) {
+    .hero, .about-container { flex-direction: column; text-align: center; }
+    .hero-actions, .hero-social { justify-content: center; }
+    .img-gradient-border { width: 280px; height: 280px; margin-top: 40px; }
+    .about-img img { width: 250px; margin-top: 30px; }
+  }
+</style>
