@@ -1,39 +1,46 @@
 @import url("https://fonts.googleapis.com/css2?family=ABeeZee&family=Lato:wght@400;700&display=swap");
 
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
 html {
   margin: 0 auto;
   scroll-behavior: smooth;
-  background-color: #000; /* Asegura que no haya destellos blancos al cargar */
+  background-color: #000;
 }
 
 :root {
-  --text: "Lato", sans-serif;
-  --primary-green: #11d4ad; /* Tu verde esmeralda */
-  --bg-black: #000;
+  --text-lato: "Lato", sans-serif;
+  --primary-green: #11d4ad;
 }
 
 body {
   font-family: "ABeeZee", sans-serif;
   background-color: #000;
   color: #fff;
-  overflow-x: hidden;
+  line-height: 1.6;
 }
 
-/* Personalización del scrollbar (como el original pero esmeralda) */
+/* Scrollbar minimalista oscuro (sin turquesa) */
 html::-webkit-scrollbar {
-  background-color: #1a1a1a;
-  width: 10px;
+  width: 8px;
+}
+
+html::-webkit-scrollbar-track {
+  background: #000;
 }
 
 html::-webkit-scrollbar-thumb {
-  background-color: var(--primary-green);
-  border-radius: 20px;
+  background-color: #333; 
+  border-radius: 10px;
+  border: 2px solid #000;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background-color: #444;
 }
 
 main {
