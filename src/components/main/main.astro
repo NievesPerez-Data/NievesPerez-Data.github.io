@@ -2,259 +2,85 @@
 const { projects = [] } = Astro.props;
 ---
 
-<main class="main-content">
-  <section class="hero-section" id="inicio">
-    <div class="hero-container">
-      <div class="hero-text">
-        <span class="name-highlight">Nieves Pérez Alonso</span>
-        <h1 class="hero-title">DATA ANALYST & <br/>BI STRATEGIST</h1>
-        <p class="hero-description">
-          Transformando datos complejos en decisiones estratégicas mediante 
-          Business Intelligence y análisis avanzado.
-        </p>
-        <div class="hero-btns">
-          <a href="mailto:mnieves.perez.alonso@gmail.com" class="btn-primary">Hablemos</a>
-          <a href="#" class="btn-secondary">Ver Currículum</a>
+<main>
+  <div class="container_p">
+    
+    <section class="hero-section" id="inicio">
+      <div class="hero-content">
+        <div class="hero-text">
+          <span class="name-highlight">Nieves Pérez Alonso</span>
+          <h1 class="hero-title">DATA ANALYST & <br/>BI STRATEGIST</h1>
+          <p class="hero-description">
+            Transformando datos complejos en decisiones estratégicas mediante 
+            Business Intelligence, optimización de procesos y visualización avanzada.
+          </p>
+          
+          <div class="hero-btns">
+            <a href="mailto:mnieves.perez.alonso@gmail.com" class="btn-primary">Hablemos</a>
+            <a href="#" class="btn-secondary">Ver Currículum</a>
+          </div>
+
+          <div class="hero-social">
+            <span>Echa un vistazo a mi</span>
+            <div class="social-icons">
+              <a href="https://github.com/NievesPerez-Data" target="_blank"><i class="fa-brands fa-github"></i></a>
+              <a href="https://linkedin.com/in/nievesperezalonso" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+          </div>
         </div>
-        <div class="hero-social">
-          <span>Echa un vistazo a mi</span>
-          <div class="social-icons">
-            <a href="https://github.com/NievesPerez-Data" target="_blank"><i class="fa-brands fa-github"></i></a>
-            <a href="https://linkedin.com/in/nievesperezalonso" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+
+        <div class="hero-image">
+          <div class="image-circle">
+            <img src="/img/tu-foto.webp" alt="Nieves Pérez Alonso" />
           </div>
         </div>
       </div>
-      <div class="hero-image">
-        <div class="image-wrapper">
-          <img src="/img/tu-foto.webp" alt="Nieves Pérez Alonso" />
+    </section>
+
+    <section class="section-container" id="proyectos">
+      <h2 class="section-title">Proyectos</h2>
+      <div class="projects-grid">
+        {projects.map((repo) => (
+          <a href={repo.html_url} target="_blank" class="project-card">
+            <div class="project-header">
+              <i class="fa-regular fa-folder"></i>
+              <i class="fa-brands fa-github"></i>
+            </div>
+            <h3 class="project-name">{repo.name}</h3>
+            <p class="project-desc">{repo.description || "Análisis estratégico de datos."}</p>
+            <div class="project-footer">
+              <span class="project-tech">{repo.language || "SQL / Python"}</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="section-container" id="habilidades">
+      <h2 class="section-title">Habilidades</h2>
+      <div class="skills-grid">
+        <div class="skill-item"><i class="fa-solid fa-chart-column" style="color: #11d4ad;"></i><span>Tableau</span></div>
+        <div class="skill-item"><i class="fa-solid fa-database" style="color: #336791;"></i><span>SQL</span></div>
+        <div class="skill-item"><i class="fa-brands fa-python" style="color: #3776AB;"></i><span>Python</span></div>
+        <div class="skill-item"><i class="fa-solid fa-file-excel" style="color: #1D6F42;"></i><span>Excel</span></div>
+        <div class="skill-item"><i class="fa-brands fa-git-alt" style="color: #F05032;"></i><span>Git</span></div>
+      </div>
+    </section>
+
+    <section class="section-container" id="estudios">
+      <h2 class="section-title">Estudios</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <h3>Especialización en Big Data & Analytics</h3>
+          <p class="timeline-school">Institución Académica</p>
+          <span class="timeline-date">2024 - Actualidad</span>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <h3>Grado en [Tu Carrera]</h3>
+          <p class="timeline-school">Universidad</p>
+          <span class="timeline-date">2019 - 2023</span>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="section-container" id="proyectos">
-    <h2 class="section-title">Proyectos</h2>
-    <div class="projects-grid">
-      {projects.map((repo) => (
-        <a href={repo.html_url} target="_blank" class="project-card">
-          <div class="project-card-header">
-            <i class="fa-regular fa-folder"></i>
-            <i class="fa-brands fa-github"></i>
-          </div>
-          <h3 class="project-name">{repo.name}</h3>
-          <p class="project-desc">{repo.description}</p>
-          <div class="project-footer">
-            <span class="tech-tag">{repo.language || "Data Science"}</span>
-          </div>
-        </a>
-      ))}
-    </div>
-  </section>
-
-  <section class="section-container" id="habilidades">
-    <h2 class="section-title">Habilidades</h2>
-    <div class="skills-grid">
-      <div class="skill-item"><i class="fa-solid fa-chart-column" style="color: #11d4ad;"></i><span>Tableau</span></div>
-      <div class="skill-item"><i class="fa-solid fa-database" style="color: #336791;"></i><span>SQL</span></div>
-      <div class="skill-item"><i class="fa-brands fa-python" style="color: #3776AB;"></i><span>Python</span></div>
-      <div class="skill-item"><i class="fa-solid fa-file-excel" style="color: #1D6F42;"></i><span>Excel</span></div>
-      <div class="skill-item"><i class="fa-brands fa-git-alt" style="color: #F05032;"></i><span>Git</span></div>
-    </div>
-  </section>
-
-  <section class="section-container" id="sobremi">
-    <h2 class="section-title">Sobre mí</h2>
-    <div class="about-wrapper">
-      <div class="about-text">
-        <p>
-          Soy una profesional del análisis de datos apasionada por extraer valor 
-          de grandes volúmenes de información para guiar el crecimiento estratégico.
-        </p>
-      </div>
-      <div class="about-illustration">
-         <img src="/img/illustration.svg" alt="Data Illustration" />
-      </div>
-    </div>
-  </section>
-</main>
-
-<style>
-  /* --- ESTILOS GENERALES --- */
-  .main-content {
-    background-color: #000;
-    color: #fff;
-    font-family: 'Onest', system-ui, sans-serif;
-  }
-
-  .section-container {
-    padding: 100px 10% 40px 10%;
-    max-width: 1300px;
-    margin: 0 auto;
-  }
-
-  .section-title {
-    font-size: 2.5rem;
-    font-weight: 800;
-    margin-bottom: 50px;
-    position: relative;
-  }
-
-  /* --- HERO SECTION --- */
-  .hero-section {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    background: radial-gradient(circle at 85% 50%, rgba(17, 212, 173, 0.15) 0%, transparent 55%);
-    padding: 0 10%;
-  }
-
-  .hero-container {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 50px;
-    align-items: center;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .name-highlight {
-    color: #11d4ad;
-    font-size: 1.5rem;
-    font-weight: 600;
-    display: block;
-    margin-bottom: 15px;
-  }
-
-  .hero-title {
-    font-size: 4rem;
-    font-weight: 800;
-    line-height: 1;
-    margin-bottom: 25px;
-  }
-
-  .hero-description {
-    color: #a0aec0;
-    font-size: 1.2rem;
-    line-height: 1.6;
-    max-width: 550px;
-    margin-bottom: 40px;
-  }
-
-  .hero-btns {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 40px;
-  }
-
-  .btn-primary {
-    background-color: #11d4ad;
-    color: #000;
-    padding: 15px 35px;
-    border-radius: 4px;
-    font-weight: 700;
-    text-decoration: none;
-    transition: 0.3s;
-  }
-
-  .btn-secondary {
-    border: 1px solid rgba(255,255,255,0.2);
-    color: #fff;
-    padding: 15px 35px;
-    border-radius: 4px;
-    text-decoration: none;
-    transition: 0.3s;
-  }
-
-  .image-wrapper {
-    width: 450px;
-    height: 450px;
-    border-radius: 50%;
-    background: #094035;
-    overflow: hidden;
-    border: 2px solid rgba(17, 212, 173, 0.3);
-    box-shadow: 0 0 60px rgba(17, 212, 173, 0.1);
-  }
-
-  .image-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  /* --- TARJETAS DE PROYECTOS --- */
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 25px;
-  }
-
-  .project-card {
-    background: #0a0a0a;
-    border: 1px solid #222;
-    padding: 35px;
-    border-radius: 12px;
-    text-decoration: none;
-    transition: 0.3s;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .project-card:hover {
-    border-color: #11d4ad;
-    transform: translateY(-10px);
-    background: #0d0d0d;
-  }
-
-  .project-card-header {
-    display: flex;
-    justify-content: space-between;
-    font-size: 1.8rem;
-    color: #11d4ad;
-    margin-bottom: 25px;
-  }
-
-  .project-name {
-    color: #fff;
-    font-size: 1.4rem;
-    margin-bottom: 15px;
-  }
-
-  .project-desc {
-    color: #718096;
-    line-height: 1.5;
-    flex-grow: 1;
-  }
-
-  .project-footer {
-    margin-top: 25px;
-    font-family: monospace;
-    color: #11d4ad;
-    font-weight: 700;
-  }
-
-  /* --- SKILLS --- */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-    gap: 40px;
-    text-align: center;
-  }
-
-  .skill-item i {
-    font-size: 3rem;
-    display: block;
-    margin-bottom: 15px;
-  }
-
-  /* --- RESPONSIVE --- */
-  @media (max-width: 1100px) {
-    .hero-container {
-      grid-template-columns: 1fr;
-      text-align: center;
-    }
-    .hero-text { display: flex; flex-direction: column; align-items: center; }
-    .hero-title { font-size: 3rem; }
-    .image-wrapper { width: 300px; height: 300px; order: -1; margin-bottom: 30px; }
-  }
-</style>
+    </section>
