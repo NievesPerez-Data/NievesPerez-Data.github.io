@@ -15,10 +15,9 @@ body {
   font-family: "ABeeZee", sans-serif;
   background-color: #000 !important;
   color: #ffffff;
-  overflow-x: hidden;
 }
 
-/* Scrollbar oscuro minimalista */
+/* Barra lateral gris oscuro */
 html::-webkit-scrollbar {
   width: 8px;
 }
