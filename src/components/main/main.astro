@@ -1,7 +1,6 @@
 ---
 const { projects = [] } = Astro.props;
-// Importante: Solo importa About si el archivo existe en esa ruta exacta
-import About from "./About.astro"; 
+// Hemos quitado la importación de About que daba error para que el build pase
 ---
 
 <main>
@@ -12,13 +11,15 @@ import About from "./About.astro";
         <div class="hero-text">
           <span class="name-highlight">Nieves Pérez Alonso</span>
           <h1 class="hero-title">DATA ANALYST & <br/>BI STRATEGIST</h1>
-          <p class="hero-description">Transformando datos en decisiones estratégicas con Business Intelligence.</p>
+          <p class="hero-description">Transformando datos complejos en decisiones estratégicas mediante Business Intelligence y análisis avanzado.</p>
           <div class="hero-btns">
             <a href="mailto:mnieves.perez.alonso@gmail.com" class="btn-primary">Hablemos</a>
           </div>
         </div>
         <div class="hero-image">
-          <div class="image-circle"><img src="/img/tu-foto.webp" alt="Nieves" /></div>
+          <div class="image-circle">
+            <img src="/img/tu-foto.webp" alt="Nieves Pérez Alonso" />
+          </div>
         </div>
       </div>
     </section>
@@ -27,9 +28,10 @@ import About from "./About.astro";
       <h2 class="section-title">Proyectos</h2>
       <div class="projects-grid">
         {projects.map((repo) => (
-          <a href={repo.html_url} class="project-card">
+          <a href={repo.html_url} target="_blank" class="project-card">
             <h3 class="project-name">{repo.name}</h3>
             <p class="project-desc">{repo.description}</p>
+            <span class="project-tech">{repo.language || "Data Analysis"}</span>
           </a>
         ))}
       </div>
@@ -38,31 +40,51 @@ import About from "./About.astro";
     <section class="section-container" id="skills">
       <h2 class="section-title">Habilidades</h2>
       <div class="skills-grid">
-         <div class="skill-item"><i class="fa-solid fa-database"></i><span>SQL</span></div>
-         <div class="skill-item"><i class="fa-brands fa-python"></i><span>Python</span></div>
+         <div class="skill-item"><i class="fa-solid fa-chart-column" style="color: #11d4ad;"></i><span>Tableau</span></div>
+         <div class="skill-item"><i class="fa-solid fa-database" style="color: #336791;"></i><span>SQL</span></div>
+         <div class="skill-item"><i class="fa-brands fa-python" style="color: #3776AB;"></i><span>Python</span></div>
+         <div class="skill-item"><i class="fa-solid fa-file-excel" style="color: #1D6F42;"></i><span>Excel</span></div>
       </div>
     </section>
 
-    <div id="sobremi">
-      <About />
-    </div>
+    <section class="section-container" id="sobremi">
+      <h2 class="section-title">Sobre mí</h2>
+      <div class="about-content">
+        <p>Aquí puedes escribir tu biografía profesional. Como analista de datos, me enfoco en...</p>
+      </div>
+    </section>
 
   </div>
 </main>
 
 <style>
-  .container_p {
-    display: flex;
-    flex-direction: column;
-    gap: 40px; /* Esto mantiene el espacio entre secciones del creador */
+  .container_p { display: flex; flex-direction: column; background-color: #000; color: white; }
+  .section-container { padding: 80px 10%; max-width: 1200px; margin: 0 auto; width: 100%; }
+  .section-title { font-size: 2.2rem; font-weight: 800; margin-bottom: 30px; color: #fff; }
+  
+  /* Estilo Esmeralda */
+  .name-highlight { color: #11d4ad; font-size: 1.5rem; font-weight: 600; }
+  .hero-section { min-height: 90vh; display: flex; align-items: center; padding: 0 10%; }
+  .hero-content { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center; }
+  .hero-title { font-size: 3.5rem; line-height: 1.1; margin: 20px 0; }
+  .hero-description { color: #a0aec0; font-size: 1.1rem; margin-bottom: 30px; }
+  
+  .btn-primary { background: #11d4ad; color: #000; padding: 12px 25px; border-radius: 4px; font-weight: 700; text-decoration: none; }
+  
+  .image-circle { width: 350px; height: 350px; border-radius: 50%; border: 2px solid #11d4ad; overflow: hidden; box-shadow: 0 0 30px rgba(17, 212, 173, 0.2); }
+  .image-circle img { width: 100%; height: 100%; object-fit: cover; }
+
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+  .project-card { background: #0a0a0a; border: 1px solid #222; padding: 25px; border-radius: 10px; text-decoration: none; color: white; transition: 0.3s; }
+  .project-card:hover { border-color: #11d4ad; transform: translateY(-5px); }
+  .project-name { color: #11d4ad; margin-bottom: 10px; }
+  .project-desc { font-size: 0.9rem; color: #888; margin-bottom: 15px; }
+
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 30px; text-align: center; }
+  .skill-item i { font-size: 2.5rem; margin-bottom: 10px; display: block; }
+
+  @media (max-width: 900px) {
+    .hero-content { grid-template-columns: 1fr; text-align: center; }
+    .image-circle { width: 250px; height: 250px; margin: 0 auto; order: -1; }
   }
-  /* Aquí van los estilos que te pasé en el mensaje anterior para que se vea esmeralda */
-  .hero-section { min-height: 80vh; display: flex; align-items: center; justify-content: center; }
-  .name-highlight { color: #11d4ad; font-weight: bold; }
-  .image-circle { width: 300px; height: 300px; border-radius: 50%; overflow: hidden; border: 2px solid #11d4ad; }
-  .section-container { padding: 40px 10%; }
-  .section-title { font-size: 2rem; border-bottom: 2px solid #11d4ad; display: inline-block; margin-bottom: 20px; }
-  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-  .project-card { background: #111; padding: 20px; border-radius: 8px; border: 1px solid #222; text-decoration: none; color: white; }
-  .project-card:hover { border-color: #11d4ad; }
 </style>
