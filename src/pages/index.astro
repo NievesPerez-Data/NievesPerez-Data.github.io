@@ -1,12 +1,9 @@
 ---
-import Header from "../components/header/Header.astro";
-import Main from "../components/main/main.astro";
+import Header from '../components/header/Header.astro';
+import Main from '../components/main/main.astro';
+import '../style/index.css'; // Importa el CSS aquí
 
-// Datos de ejemplo para que Main no falle al renderizar
-const projects = [
-  { name: "Análisis SQL Sakila", description: "Optimización de consultas y reportes BI.", language: "SQL", html_url: "#" },
-  { name: "ETL Python", description: "Automatización de limpieza de datos.", language: "Python", html_url: "#" }
-];
+const projects = []; // O tu lógica de carga de repos
 ---
 
 <!DOCTYPE html>
@@ -14,49 +11,8 @@ const projects = [
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nieves Pérez Alonso| Data Analyst</title>
-    
+    <title>Nieves Pérez | Data Analyst</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    
-    <style is:global>
-        @import url("https://fonts.googleapis.com/css2?family=ABeeZee&family=Lato:wght@400;700&display=swap");
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* FUERZA EL FONDO NEGRO AQUÍ */
-        html {
-            scroll-behavior: smooth;
-            background-color: #000 !important;
-        }
-
-        body {
-            font-family: "ABeeZee", sans-serif;
-            background-color: #000 !important;
-            color: #ffffff;
-            overflow-x: hidden;
-        }
-
-        /* Scrollbar elegante y oscuro */
-        html::-webkit-scrollbar {
-            width: 8px;
-        }
-        html::-webkit-scrollbar-track {
-            background: #000;
-        }
-        html::-webkit-scrollbar-thumb {
-            background-color: #333;
-            border-radius: 10px;
-        }
-
-        /* Ajuste para que el contenido no quede debajo del header fixed */
-        main {
-            padding-top: 80px;
-        }
-    </style>
 </head>
 <body>
     <Header />
