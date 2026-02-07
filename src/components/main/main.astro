@@ -1,62 +1,40 @@
 ---
-const projects = [
-  { 
-    name: "Sakila Cinema Analytics", 
-    description: "Análisis de plataforma de alquiler mediante SQL avanzado para optimizar inventario y segmentación de clientes.", 
-    language: "SQL", 
-    html_url: "https://github.com/NievesPerez-Data/proyecto-sql-sakila-analysis",
-    tags: ["SQL", "MySQL", "Python"]
-  },
-  { 
-    name: "The Friends Data Project", 
-    description: "Sentiment Analysis para transformar guiones no estructurados en insights de audiencia y arcos de personajes.", 
-    language: "Tableau", 
-    html_url: "https://github.com/NievesPerezData/proyecto_serieTV_Friends_Tableau",
-    tags: ["Tableau", "NLP", "Python"]
-  },
-  { 
-    name: "Friends: The Wedding Effect", 
-    description: "Dashboard analítico sobre hitos narrativos analizando la eficiencia del guion y KPIs de audiencia.", 
-    language: "Power BI", 
-    html_url: "https://github.com/NievesPerez-Data/proyecto_serieTV_Friends2.0_PowerBI",
-    tags: ["Power BI", "DAX", "Power Query"]
-  }
-];
+const { projects = [] } = Astro.props;
 ---
 
-<main class="main-root">
+<main class="main-content">
   <div class="container">
     
     <section class="hero" id="inicio">
-      <div class="hero-content">
-        <span class="highlight">Nieves Pérez Alonso</span>
+      <div class="hero-text">
+        <span class="badge">Nieves Pérez Alonso</span>
         <h1>DATA ANALYST & <br/> BI STRATEGIST</h1>
-        <p>Trayectoria consolidada en dirección de unidades de negocio (Retail). Especializada en transformar datasets complejos en estrategias comerciales mediante KPIs.</p>
-        <div class="btns">
-          <a href="mailto:mnieves.perez.alonso@gmail.com" class="btn-fill">Hablemos</a>
-          <a href="https://linkedin.com/in/nievesperezalonso" target="_blank" class="btn-border">LinkedIn</a>
+        <p>Trayectoria consolidada en dirección de unidades de negocio (Retail). Especialista en interpretación de KPIs y toma de decisiones operativas.</p>
+        <div class="hero-actions">
+          <a href="mailto:mnieves.perez.alonso@gmail.com" class="btn-main">Hablemos</a>
+          <a href="https://linkedin.com/in/nievesperezalonso" target="_blank" class="btn-sec">LinkedIn</a>
         </div>
       </div>
       <div class="hero-img">
-        <div class="circle">
+        <div class="photo-frame">
           <img src="/img/tu-foto.webp" alt="Nieves Pérez" />
         </div>
       </div>
     </section>
 
     <section class="section" id="proyectos">
-      <h2 class="title">Proyectos</h2>
-      <div class="grid">
+      <h2 class="section-title">Proyectos</h2>
+      <div class="projects-grid">
         {projects.map((p) => (
-          <div class="card">
-            <div class="card-head">
+          <div class="p-card">
+            <div class="p-header">
               <i class="fa-regular fa-folder"></i>
               <a href={p.html_url} target="_blank"><i class="fa-brands fa-github"></i></a>
             </div>
             <h3>{p.name}</h3>
             <p>{p.description}</p>
-            <div class="pills">
-              {p.tags.map(tag => <span class="pill">{tag}</span>)}
+            <div class="tags">
+              {p.tags?.map(tag => <span class="tag">{tag}</span>)}
             </div>
           </div>
         ))}
@@ -64,47 +42,62 @@ const projects = [
     </section>
 
     <section class="section" id="habilidades">
-      <h2 class="title">Habilidades</h2>
-      <div class="skills-wrapper">
-        <div class="skill-category">
-          <h3>Technology & Data</h3>
-          <div class="skill-list">
-            <div class="s-item"><i class="fa-brands fa-python"></i><span>Python</span></div>
-            <div class="s-item"><i class="fa-solid fa-database"></i><span>SQL</span></div>
-            <div class="s-item"><i class="fa-solid fa-chart-pie"></i><span>Tableau/Power BI</span></div>
-            <div class="s-item"><i class="fa-solid fa-code-branch"></i><span>Git</span></div>
-          </div>
+      <h2 class="section-title">Habilidades</h2>
+      <div class="skills-grid">
+        <div class="skill-cat">
+          <h3>Data & Tech</h3>
+          <ul>
+            <li>Python (Pandas, NumPy)</li>
+            <li>SQL (MySQL)</li>
+            <li>Visualización (Tableau, Power BI)</li>
+            <li>ETL & Web Scraping</li>
+          </ul>
         </div>
-        <div class="skill-category">
+        <div class="skill-cat">
           <h3>Business & Ops</h3>
-          <p>KPIs, Estrategia de Ventas, Liderazgo, Scrum.</p>
+          <ul>
+            <li>Gestión de KPIs</li>
+            <li>Estrategia de Ventas</li>
+            <li>Metodologías Ágiles (Scrum)</li>
+            <li>Liderazgo de Equipos</li>
+          </ul>
         </div>
       </div>
     </section>
 
     <section class="section" id="estudios">
-      <h2 class="title">Educación</h2>
-      <div class="edu-list">
-        <div class="edu-item">
-          <div class="line"></div>
+      <h2 class="section-title">Educación</h2>
+      <div class="timeline">
+        <div class="t-item">
           <h4>Bootcamp Data Analytics & IA</h4>
-          <p>ADALAB | 2025 - 2026</p>
+          <p class="meta">ADALAB | 2025 - 2026</p>
         </div>
-        <div class="edu-item">
-          <div class="line"></div>
+        <div class="t-item">
           <h4>Máster Educación Artística</h4>
-          <p>UCM | 2014 - 2015</p>
+          <p class="meta">UCM | 2014 - 2015</p>
+        </div>
+        <div class="t-item">
+          <h4>Grado Historia del Arte</h4>
+          <p class="meta">UAM | 2009 - 2014</p>
         </div>
       </div>
     </section>
 
     <section class="section" id="sobremi">
-      <h2 class="title">Sobre mi</h2>
-      <div class="about-flex">
-        <div class="about-text">
-          <p>Profesional con amplia experiencia en <strong>Oysho S.A.</strong> como Store Manager (2019-2025). Experta en toma de decisiones operativas y diagnóstico de problemas complejos mediante el análisis de rendimiento.</p>
+      <h2 class="section-title">Experiencia Profesional</h2>
+      <div class="exp-card">
+        <div class="exp-header">
+          <h4>Store Manager</h4>
+          <span class="company">OYSHO S.A | 2019 - 2025</span>
         </div>
-        <img src="/img/illustration.svg" alt="Data Illustration" class="about-icon" />
+        <p>Dirección de la actividad comercial mediante análisis continuo de KPIs y gestión de equipos para maximizar la conversión.</p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-header">
+          <h4>Deputy Manager</h4>
+          <span class="company">OYSHO S.A | 2016</span>
+        </div>
+        <p>Supervisión de flujos operativos y diagnóstico de problemas complejos para asegurar la continuidad del negocio.</p>
       </div>
     </section>
 
@@ -112,42 +105,46 @@ const projects = [
 </main>
 
 <style>
-  .main-root { background-color: #000; color: #fff; padding-top: 80px; }
+  .main-content { padding-top: 80px; }
   .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-  .section { padding: 100px 0; border-top: 1px solid #111; }
-  .title { font-size: 2.2rem; margin-bottom: 50px; color: #fff; }
+  .section { padding: 80px 0; border-bottom: 1px solid #111; }
+  .section-title { font-size: 2rem; color: #11d4ad; margin-bottom: 40px; }
 
-  /* HERO */
-  .hero { display: flex; align-items: center; justify-content: space-between; min-height: 70vh; gap: 30px; }
-  .highlight { color: #11d4ad; font-weight: bold; font-size: 1.2rem; }
-  h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1; margin: 15px 0; }
-  .hero-content p { color: #888; max-width: 500px; margin-bottom: 30px; font-size: 1.1rem; }
-  .btn-fill { background: #11d4ad; color: #000; padding: 12px 25px; border-radius: 4px; text-decoration: none; font-weight: bold; }
-  .btn-border { border: 1px solid #11d4ad; color: #11d4ad; padding: 12px 25px; border-radius: 4px; text-decoration: none; margin-left: 10px; }
-  .circle { width: 350px; height: 350px; border-radius: 50%; border: 1px solid #11d4ad; display: flex; align-items: center; justify-content: center; background: radial-gradient(circle, #11d4ad22 0%, transparent 70%); }
-  .circle img { width: 85%; height: 85%; border-radius: 50%; object-fit: cover; }
+  /* Hero Style */
+  .hero { display: flex; align-items: center; justify-content: space-between; min-height: 70vh; gap: 40px; }
+  .badge { color: #11d4ad; font-weight: bold; }
+  h1 { font-size: 3.5rem; margin: 15px 0; line-height: 1.1; }
+  .hero-text p { color: #888; margin-bottom: 30px; font-size: 1.1rem; }
+  .btn-main { background: #11d4ad; color: #000; padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block; }
+  .btn-sec { border: 1px solid #11d4ad; color: #11d4ad; padding: 12px 25px; border-radius: 5px; text-decoration: none; margin-left: 10px; display: inline-block; }
+  .photo-frame { width: 320px; height: 320px; border-radius: 50%; border: 2px solid #11d4ad; overflow: hidden; }
+  .photo-frame img { width: 100%; height: 100%; object-fit: cover; }
 
-  /* CARDS */
-  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-  .card { background: #0a0a0a; border: 1px solid #1a1a1a; padding: 30px; border-radius: 10px; transition: 0.3s; }
-  .card:hover { border-color: #11d4ad; transform: translateY(-5px); }
-  .card-head { display: flex; justify-content: space-between; color: #11d4ad; font-size: 1.5rem; margin-bottom: 20px; }
-  .card-head a { color: #11d4ad; }
-  .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
-  .pill { background: #11d4ad15; color: #11d4ad; padding: 4px 10px; border-radius: 15px; font-size: 0.75rem; border: 1px solid #11d4ad33; }
+  /* Projects Grid */
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+  .p-card { background: #0a0a0a; border: 1px solid #1a1a1a; padding: 25px; border-radius: 10px; }
+  .p-header { display: flex; justify-content: space-between; color: #11d4ad; margin-bottom: 15px; font-size: 1.3rem; }
+  .tags { display: flex; gap: 8px; margin-top: 15px; flex-wrap: wrap; }
+  .tag { background: #11d4ad22; color: #11d4ad; padding: 3px 10px; border-radius: 15px; font-size: 0.8rem; }
 
-  /* SKILLS & EDU */
-  .skills-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-  .skill-list { display: flex; gap: 25px; margin-top: 20px; }
-  .s-item { display: flex; flex-direction: column; align-items: center; gap: 8px; color: #888; font-size: 0.9rem; }
-  .s-item i { font-size: 1.8rem; color: #11d4ad; }
-  .edu-item { margin-bottom: 30px; padding-left: 20px; border-left: 2px solid #11d4ad; }
-  .about-flex { display: flex; align-items: center; justify-content: space-between; }
-  .about-icon { width: 250px; filter: drop-shadow(0 0 10px #11d4ad44); }
+  /* Skills & Timeline */
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+  .skill-cat h3 { margin-bottom: 15px; color: #fff; }
+  .skill-cat ul { list-style: none; color: #888; }
+  .skill-cat li { margin-bottom: 8px; }
+  .skill-cat li::before { content: "•"; color: #11d4ad; margin-right: 8px; }
+  
+  .t-item { border-left: 2px solid #11d4ad; padding-left: 20px; margin-bottom: 25px; }
+  .meta { color: #11d4ad; font-size: 0.9rem; margin-top: 5px; }
+
+  /* Experience */
+  .exp-card { margin-bottom: 30px; padding: 20px; background: #0a0a0a; border-radius: 8px; border-left: 3px solid #11d4ad; }
+  .exp-header { display: flex; justify-content: space-between; margin-bottom: 10px; }
+  .company { color: #11d4ad; font-weight: bold; }
 
   @media (max-width: 800px) {
-    .hero, .about-flex, .skills-wrapper { flex-direction: column; text-align: center; }
-    .circle { width: 280px; height: 280px; }
-    .skill-list { justify-content: center; }
+    .hero { flex-direction: column; text-align: center; }
+    .btn-sec { margin-left: 0; margin-top: 10px; }
+    .skills-grid { grid-template-columns: 1fr; }
   }
 </style>
