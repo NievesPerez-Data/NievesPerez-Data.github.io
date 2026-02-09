@@ -2,15 +2,13 @@
 import Header from "../components/header/Header.astro";
 import Main from "../components/main/main.astro";
 import Footer from "../components/footer/Footer.astro";
-import "../style/index.css";
+/* Ya no necesitamos importar el index.css aquí porque lo ponemos abajo */
 ---
 
 <html lang="es">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
     <title>Nieves Pérez Alonso | Data Analyst</title>
     <script src="https://kit.fontawesome.com/2898a0ac51.js" crossorigin="anonymous"></script>
   </head>
@@ -22,30 +20,38 @@ import "../style/index.css";
 </html>
 
 <style is:global>
-  /* ESTO FUERZA EL COLOR NEGRO EN TODA LA WEB */
-  :root {
-    --primary-color: #01be96;
-    --background-color: #000;
-  }
+  /* AQUÍ ESTÁ EL CÓDIGO DE TU GUÍA PERO PROTEGIDO */
+  @import url("https://fonts.googleapis.com/css2?family=ABeeZee&family=Lato:wght@400;700&display=swap");
 
-  html, body {
-    background-color: #000 !important; /* El !important es para que nada lo cambie a blanco */
-    color: #f6f6f9 !important;
-    margin: 0;
+  * {
     padding: 0;
-    font-family: 'ABeeZee', sans-serif;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  html {
     scroll-behavior: smooth;
+    background-color: #000;
   }
 
-  /* Esto hace que cuando pulses "Habilidades", el título no quede tapado por el menú */
+  body {
+    font-family: "ABeeZee", sans-serif;
+    background-color: #000 !important; /* Forzamos el negro */
+    color: #f6f6f9;
+  }
+
+  /* Esto es lo que hace que el botón de Habilidades y el resto no se tapen */
   section {
-    scroll-margin-top: 100px;
-    background-color: #000;
+    scroll-margin-top: 90px;
   }
 
-  .container_p {
-    max-width: 1355px;
-    margin: 0 auto;
-    background-color: #000;
+  /* Personalización del scrollbar (el color esmeralda) */
+  html::-webkit-scrollbar {
+    background-color: #1a1a1a;
+    width: 10px;
+  }
+  html::-webkit-scrollbar-thumb {
+    background-color: #01be96;
+    border-radius: 20px;
   }
 </style>
