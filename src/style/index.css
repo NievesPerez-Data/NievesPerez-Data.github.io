@@ -1,10 +1,9 @@
-/* Importamos Inconsolata para ese estilo de imprenta técnica/mono */
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Lato:wght@400;700&display=swap');
 
 :root {
-  --verde-footer: #152219;   /* El verde oscuro que te gusta del footer */
-  --verde-detalle: #2d4a36;  /* Un verde medio para bordes */
-  --verde-texto: #5c856a;    /* Verde suave para resaltar palabras */
+  --verde-footer: #152219;   /* Tu verde oscuro base */
+  --verde-borde: #233629;    /* Verde para las líneas de los cuadros */
+  --verde-halo: rgba(35, 54, 41, 0.6); /* El resplandor para el efecto 3D */
   --fondo-negro: #020502;
   --blanco-suave: #d1d1d1;
 }
@@ -14,19 +13,17 @@ html, body {
   color: var(--blanco-suave) !important;
   margin: 0;
   padding: 0;
-  font-family: 'Inconsolata', monospace; /* Tipografía estilo mono */
+  font-family: 'Inconsolata', monospace;
   scroll-behavior: smooth;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3 {
   font-family: 'Inconsolata', monospace;
   color: #ffffff;
-  text-transform: uppercase; /* Opcional: da un toque más serio */
-  letter-spacing: 1px;
 }
 
 .container_p {
-  max-width: 1000px; /* Un poco más estrecho para que sea más elegante */
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -34,4 +31,18 @@ h1, h2, h3, h4 {
 section {
   padding: 80px 0;
   scroll-margin-top: 90px;
+}
+
+/* Estilo para los cuadros de proyectos (como pediste) */
+.card-proyecto {
+  background: #050806;
+  border: 1px solid var(--verde-borde);
+  padding: 25px;
+  border-radius: 4px; /* Un poco más cuadrado para estilo imprenta */
+  transition: all 0.3s ease;
+}
+
+.card-proyecto:hover {
+  border-color: var(--verde-halo);
+  box-shadow: 0 0 15px var(--verde-halo);
 }
