@@ -1,13 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=ABeeZee&family=Lato:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=ABeeZee&display=swap");
 
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
 html {
-  margin: 0 auto;
   scroll-behavior: smooth;
   background-color: #000;
 }
@@ -18,17 +17,7 @@ body {
   color: #f6f6f9;
 }
 
-html::-webkit-scrollbar {
-  background-color: #1a1a1a;
-  width: 10px;
-}
-
-html::-webkit-scrollbar-thumb {
-  background-color: #01be96;
-  border-radius: 20px;
-}
-
-main {
-  position: relative;
-  background-color: #000;
+/* Evita que el header tape los títulos al hacer scroll */
+section {
+  scroll-margin-top: 90px;
 }
