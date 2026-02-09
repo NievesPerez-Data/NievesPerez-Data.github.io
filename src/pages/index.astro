@@ -48,6 +48,15 @@ try {
   <script src="https://kit.fontawesome.com/2898a0ac51.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    /* Estilos globales corregidos para no romper layout */
+    body {
+      background-color: #020502;
+      color: #ffffff;
+      margin: 0;
+      font-family: 'Lato', sans-serif;
+      overflow-x: hidden;
+    }
+
     /* Estilo para los títulos de sección con efecto cuadrícula */
     .section-title {
       position: relative;
@@ -88,23 +97,28 @@ try {
       transition: width 0.4s ease;
     }
 
-    /* Efecto hover opcional si se desea interactividad */
+    /* Efecto hover interactividad */
     section:hover .section-title::after {
       width: 100%;
     }
+
+    /* Corrección de espaciado para que el Header fixed no tape el contenido */
+    main {
+      padding-top: 85px; /* Altura del Header */
+    }
   </style>
 </head>
-<body style="background-color: #020502; color: #ffffff; margin: 0; font-family: 'Lato', sans-serif;">
+<body>
   <Header />
 
-  <main style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+  <main style="max-width: 1200px; margin: 0 auto; padding-left: 20px; padding-right: 20px;">
     
     <!-- SECCIÓN INICIO / CONTACTO -->
-    <section id="inicio" style="display: flex; align-items: center; justify-content: space-between; padding: 160px 0 80px 0; min-height: 80vh; flex-wrap: wrap; gap: 40px;">
+    <section id="inicio" style="display: flex; align-items: center; justify-content: space-between; padding: 100px 0 80px 0; min-height: 80vh; flex-wrap: wrap; gap: 40px;">
       
       <div style="flex: 1; min-width: 320px;">
         <p style="color: #0f705d; font-family: 'Inconsolata', monospace; font-size: 1.4rem; font-weight: 700; margin-bottom: 10px;">Nieves Pérez Alonso</p>
-        <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; margin: 0 0 25px 0; font-weight: 800; text-transform: uppercase;">DATA ANALYST <br/> BUSINESS INTELLIGENCE</h1>
+        <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; margin: 0 0 25px 0; font-weight: 800; text-transform: uppercase; color: #ffffff; font-family: 'Inconsolata', monospace;">DATA ANALYST <br/> BUSINESS INTELLIGENCE</h1>
         
         <p style="color: #d1d1d1; line-height: 1.6; margin-bottom: 40px; max-width: 580px; font-size: 1.1rem; text-align: justify;">
           Especializada en transformar datos complejos en decisiones estratégicas. 
@@ -179,7 +193,6 @@ try {
       <h2 class="section-title">Estudios</h2>
       
       <div style="display: flex; flex-direction: column; gap: 40px;">
-        <!-- ADALAB -->
         <div style="border-left: 3px solid #0f705d; padding-left: 25px;">
           <h3 style="margin: 0; font-size: 1.2rem; color: #ffffff;">ADALAB</h3>
           <p style="margin: 5px 0; font-weight: 700; color: #0f705d;">Bootcamp Data Analytics & Inteligencia Artificial aplicada</p>
@@ -190,7 +203,6 @@ try {
           </div>
         </div>
 
-        <!-- UCM -->
         <div style="border-left: 3px solid #0f705d; padding-left: 25px;">
           <h3 style="margin: 0; font-size: 1.2rem; color: #ffffff;">UNIVERSIDAD COMPLUTENSE DE MADRID</h3>
           <p style="margin: 5px 0; font-weight: 700; color: #0f705d;">Máster en Educación Artística en Instituciones Sociales y Culturales</p>
@@ -201,7 +213,6 @@ try {
           </div>
         </div>
 
-        <!-- UAM -->
         <div style="border-left: 3px solid #0f705d; padding-left: 25px;">
           <h3 style="margin: 0; font-size: 1.2rem; color: #ffffff;">UNIVERSIDAD AUTÓNOMA DE MADRID</h3>
           <p style="margin: 5px 0; font-weight: 700; color: #0f705d;">Grado en Historia del Arte</p>
