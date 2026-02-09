@@ -155,3 +155,39 @@ try {
             <span style="color: #0f705d; font-family: 'Inconsolata', monospace; font-weight: bold; font-size: 0.8rem; margin-top: 15px;">{p.lang}</span>
           </div>
         ))}
+      </div>
+    </section>
+
+    <!-- HABILIDADES -->
+    <section id="habilidades" style="padding: 100px 0;">
+      <h2 style="color: #0f705d; font-family: 'Inconsolata', monospace; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 50px; display: flex; align-items: center; gap: 15px;">
+        Habilidades <span style="height: 1px; background: rgba(15, 112, 93, 0.3); flex-grow: 1;"></span>
+      </h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 20px;">
+        {[
+          { name: "Python", icon: "fa-brands fa-python" },
+          { name: "MySQL", icon: "fa-solid fa-database" },
+          { name: "Tableau", icon: "fa-solid fa-chart-pie" },
+          { name: "Power BI", icon: "fa-solid fa-chart-column" },
+          { name: "IA", icon: "fa-solid fa-brain" },
+          { name: "Excel", icon: "fa-regular fa-file-excel" }
+        ].map(skill => (
+          <div style="background: rgba(15, 112, 93, 0.05); border: 1px solid rgba(15, 112, 93, 0.1); padding: 20px; border-radius: 8px; text-align: center;">
+             <i class={skill.icon} style="font-size: 1.8rem; color: #0f705d; display: block; margin-bottom: 10px;"></i>
+             <span class="typewriter-font" style="font-size: 0.8rem; color: #ffffff;">{skill.name}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+      <Footer />
+      <p style="color: #555; font-size: 0.8rem; margin-top: 20px;">&copy; 2024 Nieves Pérez Alonso</p>
+    </div>
+  </footer>
+
+</body>
+</html>
