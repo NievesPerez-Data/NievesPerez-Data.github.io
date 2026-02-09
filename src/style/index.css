@@ -1,57 +1,164 @@
-Run withastro/action@v5
-Run len=`echo $INPUT_PM | wc -c`
-Run actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903
-Found in cache @ /opt/hostedtoolcache/node/22.22.0/x64
-(node:2203) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
-(Use `node --trace-deprecation ...` to show where the warning was created)
-Environment details
-/opt/hostedtoolcache/node/22.22.0/x64/bin/npm config get cache
-/home/runner/.npm
-Cache hit for: node-cache-Linux-x64-npm-e9e96e2b4701d53352356774d23ea0b78f6f5874b2570f4c3ff05d72445515c5
-(node:2203) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
-Received 39175997 of 39175997 (100.0%), 51.0 MBs/sec
-Cache Size: ~37 MB (39175997 B)
-/usr/bin/tar -xf /home/runner/work/_temp/67998261-feac-48e6-aa5f-e100b13ef7b2/cache.tzst -P -C /home/runner/work/NievesPerez-Data.github.io/NievesPerez-Data.github.io --use-compress-program unzstd
-Cache restored successfully
-Cache restored from key: node-cache-Linux-x64-npm-e9e96e2b4701d53352356774d23ea0b78f6f5874b2570f4c3ff05d72445515c5
-Run if [ "$PACKAGE_MANAGER" = "deno" ]; then
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Lato:wght@300;400;700&display=swap');
 
-added 398 packages, and audited 399 packages in 4s
+:root {
+  --verde-principal: #053931;
+  --verde-halo: rgba(5, 57, 49, 0.5);
+  --fondo-negro: #020502;
+  --blanco-puro: #ffffff;
+  --blanco-traslucido: rgba(255, 255, 255, 0.5);
+}
 
-179 packages are looking for funding
-  run `npm fund` for details
+html, body {
+  background-color: var(--fondo-negro);
+  color: var(--blanco-puro);
+  margin: 0;
+  padding: 0;
+  font-family: 'Inconsolata', monospace;
+  scroll-behavior: smooth;
+}
 
-16 vulnerabilities (2 low, 8 moderate, 6 high)
+h1, h2, h3, h4 {
+  font-family: 'Inconsolata', monospace;
+  color: var(--blanco-puro);
+  margin: 0;
+}
 
-To address all issues, run:
-  npm audit fix
+.container_p {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
 
-Run `npm audit` for details.
-Run actions/cache/restore@9255dc7a253b0ccc959486e2bca901246202afeb
-Cache hit for restore-key: astro-cache-Linux-6c7dc193e6dc028f118b44ef27f7e580400dc5ae
-Received 16643 of 16643 (100.0%), 0.1 MBs/sec
-Cache Size: ~0 MB (16643 B)
-/usr/bin/tar -xf /home/runner/work/_temp/b878ffb4-a9b3-49f6-a543-a0e9e7dd65ed/cache.tzst -P -C /home/runner/work/NievesPerez-Data.github.io/NievesPerez-Data.github.io --use-compress-program unzstd
-Cache restored successfully
-Cache restored from key: astro-cache-Linux-6c7dc193e6dc028f118b44ef27f7e580400dc5ae
-Run $PACKAGE_MANAGER run build
+section {
+  padding: 80px 0;
+  scroll-margin-top: 90px;
+}
 
-> portafolio@0.0.1 build
-> astro build
+.header-personalizado {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  background: rgba(2, 5, 2, 0.9);
+  border-bottom: 1px solid rgba(5, 57, 49, 0.3);
+  backdrop-filter: blur(10px);
+}
 
-11:35:24 [types] Added src/env.d.ts type declarations.
-11:35:24 [build] output: "static"
-11:35:24 [build] directory: /home/runner/work/NievesPerez-Data.github.io/NievesPerez-Data.github.io/dist/
-11:35:24 [build] Collecting build info...
-11:35:24 [build] ✓ Completed in 51ms.
-11:35:24 [build] Building static entrypoints...
-11:35:24 [types] Added src/env.d.ts type declarations.
-Error: 4 [ERROR] [vite] x Build failed in 285ms
-Expected "}" but found ":"
-  Stack trace:
-    at failureErrorWithLog (/home/runner/work/NievesPerez-Data.github.io/NievesPerez-Data.github.io/node_modules/esbuild/lib/main.js:1472:15)
-    at responseCallbacks.<computed> (/home/runner/work/NievesPerez-Data.github.io/NievesPerez-Data.github.io/node_modules/esbuild/lib/main.js:622:9)
-    at Socket.readFromStdout (/home/runner/work/NievesPerez-Data.github.io/NievesPerez-Data.github.io/node_modules/esbuild/lib/main.js:600:7)
-    at addChunk (node:internal/streams/readable:561:12)
-    at Readable.push (node:internal/streams/readable:392:5)
-Error: Process completed with exit code 1.
+.nav-lista {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+.nav-lista a {
+  text-decoration: none;
+  color: white;
+}
+
+.inicio-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 180px;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.nombre-pequeno {
+  color: var(--blanco-traslucido);
+  font-size: 1rem;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.titulo-principal {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  color: var(--verde-principal);
+  margin-bottom: 25px;
+}
+
+.texto-traslucido {
+  color: var(--blanco-traslucido);
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  line-height: 1.8;
+  max-width: 650px;
+}
+
+.foto-contenedor {
+  position: relative;
+}
+
+.foto-halo {
+  position: absolute;
+  inset: -10px;
+  border-radius: 50%;
+  background: var(--verde-principal);
+  filter: blur(20px);
+  opacity: 0.3;
+}
+
+.foto-circulo {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 1.5px solid var(--verde-principal);
+  overflow: hidden;
+  background: #000;
+  z-index: 1;
+}
+
+.foto-circulo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.grid-proyectos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.card-proyecto {
+  background: rgba(5, 57, 49, 0.05);
+  border: 1px solid var(--verde-principal);
+  padding: 40px 30px;
+  border-radius: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s ease;
+  min-height: 450px;
+  justify-content: space-between;
+}
+
+.card-proyecto:hover {
+  background: rgba(5, 57, 49, 0.15);
+  box-shadow: 0 0 25px var(--verde-halo);
+  transform: translateY(-8px);
+}
+
+.lang-tag {
+  margin-bottom: 25px;
+  font-size: 0.75rem;
+  color: var(--verde-principal);
+  font-weight: bold;
+  border: 1px solid var(--verde-principal);
+  padding: 5px 12px;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.header-logo {
+  font-family: 'Inconsolata', monospace;
+  letter-spacing: 3px;
+  font-weight: 700;
+  color: var(--verde-principal);
+}
