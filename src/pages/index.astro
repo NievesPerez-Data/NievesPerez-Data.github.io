@@ -1,275 +1,125 @@
 ---
 import Header from "../components/header/Header.astro";
 import Footer from "../components/footer/Footer.astro";
+import "../style/index.css";
 
-// Configuración de GitHub
-const GITHUB_USERNAME = "NievesPerez-Data";
-
-let proyectos = [];
-let error = null;
-
-try {
-  const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=10`);
-  
-  if (response.ok) {
-    const data = await response.json();
-    const reposAOcultar = [`${GITHUB_USERNAME.toLowerCase()}.github.io`, "portfolio-astro"];
-    
-    proyectos = data
-      .filter(repo => !reposAOcultar.includes(repo.name.toLowerCase()))
-      .slice(0, 6) 
-      .map(repo => ({
-        name: repo.name.replace(/-/g, ' ').replace(/_/g, ' '),
-        url: repo.html_url,
-        desc: repo.description || "Análisis de datos y estrategia de negocio.",
-        lang: repo.language || "Data Science"
-      }));
-  } else {
-    throw new Error("No se pudieron cargar los repositorios");
-  }
-} catch (e) {
-  error = "Hubo un problema conectando con GitHub.";
-  proyectos = [
-    { 
-      name: "Sakila Cinema Analytics", 
-      url: "https://github.com/NievesPerez-Data/proyecto-sql-sakila-analysis", 
-      desc: "Análisis de bases de datos SQL para optimizar inventario y comportamiento de clientes.", 
-      lang: "SQL" 
-    }
-  ];
-}
-
-// Habilidades con iconos
-const habilidades = [
-  { nombre: "Python", icon: "fa-brands fa-python" },
-  { nombre: "MySQL", icon: "fa-solid fa-database" },
-  { nombre: "Tableau", icon: "fa-solid fa-chart-pie" },
-  { nombre: "Power BI", icon: "fa-solid fa-chart-column" },
-  { nombre: "Web Scraping", icon: "fa-solid fa-spider" },
-  { nombre: "Excel", icon: "fa-regular fa-file-excel" },
-  { nombre: "Ollama IA", icon: "fa-solid fa-robot" } 
+const proyectos = [
+  { name: "Sakila Cinema Analytics", url: "https://github.com/NievesPerez-Data/proyecto-sql-sakila-analysis", desc: "SQL & Data Analysis para optimizar inventario.", lang: "SQL" },
+  { name: "The Friends Data Project", url: "https://github.com/NievesPerezData/proyecto_serieTV_Friends_Tableau", desc: "NLP y Sentiment Analysis sobre guiones.", lang: "Tableau" },
+  { name: "Análisis Retail Oysho", url: "#", desc: "Optimización de KPIs y gestión de stock.", lang: "Excel/BI" }
 ];
 ---
 
 <html lang="es">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nieves Pérez Alonso | Data Analyst</title>
-  <script src="https://kit.fontawesome.com/2898a0ac51.js" crossorigin="anonymous" is:inline></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
-  
-  <style>
-    :root {
-      --primary: #0f705d;
-      --bg-dark: #020502;
-      --text-main: #ffffff;
-      --text-dim: #d1d1d1;
-      --font-mono: 'Inconsolata', monospace;
-    }
-
-    body {
-      background-color: var(--bg-dark);
-      color: var(--text-main);
-      margin: 0;
-      font-family: 'Lato', sans-serif;
-      line-height: 1.6;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    section {
-      padding: 120px 0 60px 0;
-    }
-
-    .hero {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 70vh;
-      gap: 40px;
-    }
-
-    .hero-content { flex: 2; }
-
-    h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      line-height: 1.1;
-      margin: 10px 0 24px 0;
-      text-transform: uppercase;
-      font-weight: 800;
-    }
-
-    .hero-desc {
-      font-size: 1.2rem;
-      color: var(--text-dim);
-      margin-bottom: 40px;
-      max-width: 600px;
-    }
-
-    /* Skills Grid */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-      gap: 20px;
-    }
-
-    .skill-card {
-      background: rgba(15, 112, 93, 0.05);
-      border: 1px solid rgba(15, 112, 93, 0.1);
-      padding: 25px 15px;
-      border-radius: 8px;
-      text-align: center;
-      transition: 0.3s;
-    }
-
-    .skill-card:hover {
-      border-color: var(--primary);
-      transform: translateY(-5px);
-    }
-
-    .skill-card i {
-      font-size: 2rem;
-      color: var(--primary);
-      margin-bottom: 12px;
-      display: block;
-    }
-
-    /* Project Cards */
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 25px;
-    }
-
-    .project-card {
-      background: #0a0a0a;
-      border: 1px solid #1a1a1a;
-      padding: 30px;
-      border-radius: 8px;
-      transition: 0.3s;
-    }
-
-    .project-card:hover { border-color: var(--primary); }
-
-    .btn {
-      display: inline-block;
-      padding: 14px 32px;
-      border-radius: 4px;
-      text-decoration: none;
-      font-weight: 700;
-      transition: 0.3s;
-    }
-
-    .btn-primary { background: var(--primary); color: white; }
-    .btn-outline { border: 2px solid var(--primary); color: white; margin-left: 15px; }
-
-    .photo-frame {
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
-      border: 2px solid var(--primary);
-      overflow: hidden;
-    }
-
-    .photo-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    @media (max-width: 768px) {
-      .hero { flex-direction: column-reverse; text-align: center; }
-      .photo-frame { width: 200px; height: 200px; }
-      .btn-outline { margin-left: 0; margin-top: 10px; }
-    }
-  </style>
-</head>
-<body>
-
-  <Header />
-
-  <main class="container">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Nieves Pérez Alonso | Data Analyst</title>
+    <script src="https://kit.fontawesome.com/2898a0ac51.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <Header />
     
-    <!-- HERO -->
-    <section id="inicio" class="hero">
-      <div class="hero-content">
-        <span style="color: var(--primary); font-family: var(--font-mono); font-weight: 700;">&gt; DATA ANALYST</span>
-        <h1>Nieves Pérez <br/> Alonso</h1>
-        <p class="hero-desc">
-          Especializada en transformar datos complejos en decisiones estratégicas de negocio. Con más de 6 años de experiencia en el sector Retail (Inditex).
-        </p>
-        <div>
-          <a href="mailto:nievesperezalonso@gmail.com" class="btn btn-primary">Hablemos</a>
-          <a href="#proyectos" class="btn btn-outline">Ver Proyectos</a>
+    <main class="container_p">
+      <section id="inicio" style="display: flex; align-items: center; justify-content: space-between; padding-top: 150px; flex-wrap: wrap; gap: 40px;">
+        <div style="flex: 1; min-width: 300px;">
+          <h1 style="font-size: 2.8rem; margin: 0;">Nieves Pérez Alonso</h1>
+          <p style="color: #4a6350; font-size: 1.2rem; margin-top: 10px;">[ DATA ANALYST ]</p>
+          <p style="color: #777; margin-top: 25px; font-family: 'Lato', sans-serif; line-height: 1.6;">
+            Especializada en transformar datos de Retail en insights accionables. 
+            Experiencia sólida en gestión operativa en el sector moda.
+          </p>
         </div>
-      </div>
-      <div class="photo-frame">
-        <img src="/img/tu-foto.webp" alt="Nieves Pérez" onerror="this.src='https://via.placeholder.com/300x300/020502/0f705d?text=NPA'"/>
-      </div>
-    </section>
-
-    <!-- SOBRE MI -->
-    <section id="sobremi">
-      <h2 style="font-family: var(--font-mono); color: var(--primary);">// SOBRE_MÍ</h2>
-      <p style="max-width: 800px; font-size: 1.1rem; color: var(--text-dim);">
-        Tras años liderando operaciones en el sector Retail, mi transición al análisis de datos responde a una pasión por optimizar procesos mediante el dato. Combino visión estratégica de negocio con un stack técnico sólido para facilitar la toma de decisiones críticas.
-      </p>
-    </section>
-
-    <!-- HABILIDADES -->
-    <section id="habilidades">
-      <h2 style="font-family: var(--font-mono); color: var(--primary); margin-bottom: 40px;">// TECH_STACK</h2>
-      <div class="skills-grid">
-        {habilidades.map(h => (
-          <div class="skill-card">
-            <i class={h.icon}></i>
-            <span style="font-family: var(--font-mono); font-size: 0.9rem; font-weight: 700;">{h.nombre}</span>
+        
+        <div style="position: relative;">
+          <div style="position: absolute; inset: -5px; border-radius: 50%; background: var(--verde-halo); filter: blur(10px); opacity: 0.5;"></div>
+          
+          <div style="position: relative; width: 160px; height: 160px; border-radius: 50%; border: 2px solid var(--verde-borde); overflow: hidden; background: #000; z-index: 1;">
+            <img src="/img/tu-foto.webp" alt="Nieves Pérez" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%);" />
           </div>
-        ))}
-      </div>
-    </section>
+        </div>
+      </section>
 
-    <!-- PROYECTOS -->
-    <section id="proyectos">
-      <h2 style="font-family: var(--font-mono); color: var(--primary); margin-bottom: 40px;">// PROYECTOS_DESTACADOS</h2>
-      <div class="project-grid">
-        {proyectos.map(p => (
-          <div class="project-card">
-            <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
-              <i class="fa-regular fa-folder" style="color: var(--primary); font-size: 1.5rem;"></i>
-              <a href={p.url} style="color: white; opacity: 0.5;"><i class="fa-brands fa-github"></i></a>
+      <section id="proyectos">
+        <h2 style="font-size: 1.2rem; margin-bottom: 40px; color: #4a6350;">// PROYECTOS_RECIENTES</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
+          {proyectos.map(p => (
+            <div class="card-proyecto">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                <i class="fa-regular fa-folder" style="color: #4a6350;"></i>
+                <a href={p.url} style="color: #444;"><i class="fa-brands fa-github"></i></a>
+              </div>
+              <h3 style="font-size: 1.1rem; margin-bottom: 10px;">{p.name}</h3>
+              <p style="color: #666; font-size: 0.85rem; font-family: 'Lato', sans-serif;">{p.desc}</p>
+              <div style="margin-top: 20px; font-size: 0.75rem; color: #4a6350;">
+                &lt; {p.lang} /&gt;
+              </div>
             </div>
-            <h3 style="margin-bottom: 10px;">{p.name}</h3>
-            <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 20px;">{p.desc}</p>
-            <span style="font-family: var(--font-mono); color: var(--primary); font-size: 0.8rem;">{p.lang}</span>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <!-- FORMACIÓN -->
-    <section id="estudios">
-      <h2 style="font-family: var(--font-mono); color: var(--primary); margin-bottom: 40px;">// FORMACIÓN</h2>
-      <div style="border-left: 2px solid var(--primary); padding-left: 30px;">
-        <div style="margin-bottom: 30px;">
-          <h3 style="margin: 0;">Bootcamp Data Analytics & IA</h3>
-          <p style="margin: 5px 0; color: var(--primary); font-weight: 700;">Adalab // 2024 - 2025</p>
+          ))}
         </div>
-        <div>
-          <h3 style="margin: 0;">Máster en Educación Artística</h3>
-          <p style="margin: 5px 0; color: var(--text-dim);">Universidad Complutense de Madrid</p>
+      </section>
+
+      <section id="skills">
+        <h2 style="font-size: 1.2rem; margin-bottom: 30px; color: #4a6350;">// HABILIDADES_TECH</h2>
+        <div style="border: 1px solid var(--verde-borde); padding: 30px; background: rgba(21, 34, 25, 0.2);">
+           <p style="color: #aaa;">Python • SQL • Tableau • Power BI • Análisis de KPIs • Retail Strategy</p>
         </div>
-      </div>
-    </section>
+      </section>
+      
+      </main>
 
-  </main>
-
-  <Footer />
-
-</body>
+    <Footer />
+  </body>
 </html>
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Lato:wght@400;700&display=swap');
+
+:root {
+  --verde-footer: #152219;   /* Tu verde oscuro base */
+  --verde-borde: #233629;    /* Verde para las líneas de los cuadros */
+  --verde-halo: rgba(35, 54, 41, 0.6); /* El resplandor para el efecto 3D */
+  --fondo-negro: #020502;
+  --blanco-suave: #d1d1d1;
+}
+
+html, body {
+  background-color: var(--fondo-negro) !important;
+  color: var(--blanco-suave) !important;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inconsolata', monospace;
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3 {
+  font-family: 'Inconsolata', monospace;
+  color: #ffffff;
+}
+
+.container_p {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+section {
+  padding: 80px 0;
+  scroll-margin-top: 90px;
+}
+
+/* Estilo para los cuadros de proyectos (como pediste) */
+.card-proyecto {
+  background: #050806;
+  border: 1px solid var(--verde-borde);
+  padding: 25px;
+  border-radius: 4px; /* Un poco más cuadrado para estilo imprenta */
+  transition: all 0.3s ease;
+}
+
+.card-proyecto:hover {
+  border-color: var(--verde-halo);
+  box-shadow: 0 0 15px var(--verde-halo);
+}
+
+
