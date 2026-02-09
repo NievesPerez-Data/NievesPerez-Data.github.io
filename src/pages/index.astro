@@ -52,6 +52,8 @@ try {
   <title>Nieves Pérez Alonso | Data Analyst</title>
   <!-- Font Awesome para los iconos -->
   <script src="https://kit.fontawesome.com/2898a0ac51.js" crossorigin="anonymous"></script>
+  <!-- Devicon para logos tecnológicos -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body style="background-color: #020502; color: #ffffff; margin: 0; font-family: 'Lato', sans-serif;">
@@ -126,10 +128,27 @@ try {
     <!-- SECCIÓN HABILIDADES -->
     <section id="habilidades" style="padding: 100px 0;">
       <h2 style="color: #ffffff; font-family: 'Inconsolata', monospace; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 40px;">Habilidades</h2>
-      <div style="border: 1px solid rgba(15, 112, 93, 0.2); padding: 40px; background: rgba(15, 112, 93, 0.03); border-radius: 4px;">
-         <p style="color: #cccccc; line-height: 2; font-size: 1.1rem; margin: 0;">
-            Python • SQL • Tableau • Power BI • Análisis de KPIs • Estrategia de Retail • Git • GitHub
-         </p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 20px;">
+        {[
+          { name: "Python", icon: "devicon-python-plain" },
+          { name: "MySQL", icon: "devicon-mysql-plain" },
+          { name: "Tableau", icon: "fa-solid fa-chart-pie" },
+          { name: "Power BI", icon: "fa-solid fa-chart-column" },
+          { name: "Excel", icon: "fa-regular fa-file-excel" },
+          { name: "IA", icon: "fa-solid fa-brain" },
+          { name: "Git", icon: "devicon-git-plain" },
+          { name: "GitHub", icon: "devicon-github-original" },
+          { name: "VScode", icon: "devicon-vscode-plain" },
+          { name: "Pandas", icon: "devicon-pandas-plain" },
+          { name: "Numpy", icon: "devicon-numpy-plain" },
+          { name: "Selenium", icon: "devicon-selenium-original" },
+          { name: "BeautifulSoup", icon: "fa-solid fa-spider" }
+        ].map(skill => (
+          <div style="background: rgba(15, 112, 93, 0.05); border: 1px solid rgba(15, 112, 93, 0.1); border-radius: 8px; padding: 20px 10px; display: flex; flex-direction: column; align-items: center; gap: 12px; transition: 0.3s;">
+            <i class={skill.icon} style="font-size: 2rem; color: #0f705d;"></i>
+            <span style="font-family: 'Inconsolata', monospace; font-size: 0.8rem; font-weight: 700; color: #ffffff; text-align: center;">{skill.name}</span>
+          </div>
+        ))}
       </div>
     </section>
 
@@ -178,7 +197,7 @@ try {
           Mi trayectoria se ha centrado en la dirección estratégica y la optimización operativa, donde descubrí que el verdadero valor diferencial reside en la capacidad de transformar datos brutos en decisiones inteligentes. Combino una sólida experiencia en gestión de equipos y unidades de negocio con una formación técnica avanzada en Análisis de Datos, lo que me permite aportar una visión de negocio única junto a una capacidad real para traducir datasets complejos en KPIs de rendimiento que impactan directamente en el crecimiento.
         </p>
         <p style="margin: 0;">
-          Cuento con experiencia práctica en la exploración, limpieza y transformación de datos (ETL), asegurando siempre que la información sea precisa, útil y accionable para el diseño de estrategias comerciales. Mi enfoque no solo analiza el pasado, sino que utiliza la excelencia técnica para optimizar procesos operativos y detectar oportunidades de mercado mediante el análisis avanzado.
+          Cuento con experiencia práctica en la exploración, limpieza y transformación de datos (ETL), asegurando siempre que la información sea precisa, útil y actionable para el diseño de estrategias comerciales. Mi enfoque no solo analiza el pasado, sino que utiliza la excelencia técnica para optimizar procesos operativos y detectar oportunidades de mercado mediante el análisis avanzado.
         </p>
         <p style="margin: 0;">
           Mi valor reside en unir el rigor de la analítica con la visión ejecutiva necesaria para garantizar que cada dato se transforme en una decisión estratégica que aporte un valor real y medible al negocio.
