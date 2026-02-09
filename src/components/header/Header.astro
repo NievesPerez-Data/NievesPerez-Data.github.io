@@ -1,72 +1,36 @@
----
----
-<header class="main-header">
-  <div class="container_p header-flex">
-    <div class="header-logo">
-      NIEVES PÉREZ ALONSO
-    </div>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="#inicio">INICIO</a></li>
-        <li><a href="#proyectos">PROYECTOS</a></li>
-        <li><a href="#skills">SKILLS</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+<header class="main-header"> <div class="container_p header-flex"> <div class="header-logo"> PORTFOLIO </div> <nav> <ul class="nav-links"> <li><a href="#inicio">INICIO</a></li> <li><a href="#proyectos">PROYECTOS</a></li> <li><a href="#habilidades">HABILIDADES</a></li> <li><a href="#estudios">ESTUDIOS</a></li> <li><a href="#sobremi">SOBRE MÍ</a></li> <li><a href="#contacto">CONTACTO</a></li> </ul> </nav> </div> </header>
 
-<style>
-  .main-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 100;
-    background: rgba(2, 5, 2, 0.9);
-    border-bottom: 1px solid rgba(35, 54, 41, 0.3);
-    backdrop-filter: blur(10px);
-  }
+<style> .main-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: rgba(2, 5, 2, 0.95); border-bottom: 1px solid rgba(35, 54, 41, 0.4); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
 
-  .header-flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-  }
+.header-flex { display: flex; justify-content: space-between; align-items: center; height: 85px; }
 
-  .header-logo {
-    font-family: 'Inconsolata', monospace;
-    letter-spacing: 2px;
-    font-weight: 700;
-    color: #ffffff;
-    font-size: 0.9rem;
-  }
+.header-logo { font-family: 'Inconsolata', monospace; text-transform: uppercase; letter-spacing: 0.2em; font-weight: 700; color: #ffffff; font-size: 0.95rem; white-space: nowrap; }
 
-  .nav-links {
-    display: flex;
-    list-style: none;
-    gap: 30px;
-    margin: 0;
-    padding: 0;
-  }
+.nav-links { display: flex; list-style: none; gap: 25px; margin: 0; padding: 0; }
 
-  .nav-links a {
-    text-decoration: none;
-    color: #d1d1d1;
-    font-size: 0.75rem;
-    letter-spacing: 1px;
-    transition: color 0.3s ease;
-  }
+.nav-links a { text-decoration: none; color: rgba(209, 209, 209, 0.7); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; transition: all 0.3s ease; padding: 5px 0; position: relative; }
 
-  .nav-links a:hover {
-    color: #ffffff;
-  }
+.nav-links a:hover { color: #ffffff; }
 
-  @media (max-width: 768px) {
-    .header-logo {
-      font-size: 0.7rem;
-    }
-    .nav-links {
-      gap: 15px;
-    }
-  }
-</style>
+.nav-links a::after { content: ''; position: absolute; width: 0; height: 1px; bottom: 0; left: 0; background-color: #233629; transition: width 0.3s ease; }
+
+.nav-links a:hover::after { width: 100%; }
+
+@media (max-width: 1024px) { .nav-links { gap: 15px; } }
+
+@media (max-width: 768px) { .header-flex { height: auto; padding: 15px 20px; flex-direction: column; justify-content: center; gap: 12px; }
+
+.header-logo {
+  font-size: 0.8rem;
+}
+
+.nav-links {
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav-links a {
+  font-size: 0.6rem;
+}
+} </style>
