@@ -3,45 +3,40 @@ import Header from "../components/header/Header.astro";
 import Footer from "../components/footer/Footer.astro";
 import "../style/index.css";
 
-// Lista de tus 6 proyectos definida correctamente dentro del bloque de Astro
-const proyectos = [
-  { 
-    name: "Sakila Cinema Analytics", 
-    url: "https://github.com/NievesPerez-Data/proyecto-sql-sakila-analysis", 
-    desc: "Análisis de bases de datos SQL para optimizar inventario y comportamiento de clientes.", 
-    lang: "SQL" 
-  },
-  { 
-    name: "The Friends Data Project", 
-    url: "https://github.com/NievesPerezData/proyecto_serieTV_Friends_Tableau", 
-    desc: "NLP y análisis de sentimiento aplicado a los guiones de la serie Friends.", 
-    lang: "Tableau & Python" 
-  },
-  { 
-    name: "Análisis Retail Oysho", 
-    url: "#", 
-    desc: "Optimización de KPIs, gestión de stock y análisis de ventas en tiempo real.", 
-    lang: "Excel & BI" 
-  },
-  { 
-    name: "Accidentes viales en Madrid", 
-    url: "#", 
-    desc: "Estudio estadístico sobre la siniestralidad vial utilizando Python.", 
-    lang: "Python" 
-  },
-  { 
-    name: "Diamond Price Predictor", 
-    url: "#", 
-    desc: "Modelo de Machine Learning para predecir el precio de diamantes.", 
-    lang: "ML & Scikit-learn" 
-  },
-  { 
-    name: "E-commerce Segmentation", 
-    url: "#", 
-    desc: "Segmentación de clientes mediante algoritmos de clustering (K-Means).", 
-    lang: "Python" 
+// Configuración de GitHub
+const GITHUB_USERNAME = "NievesPerez-Data";
+
+let proyectos = [];
+let error = null;
+
+try {
+  // Obtenemos los repositorios reales de tu GitHub
+  const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=6`);
+  
+  if (response.ok) {
+    const data = await response.json();
+    // Mapeamos los datos para que coincidan con nuestra estructura
+    proyectos = data.map(repo => ({
+      name: repo.name.replace(/-/g, ' ').replace(/_/g, ' '),
+      url: repo.html_url,
+      desc: repo.description || "Sin descripción disponible en el repositorio.",
+      lang: repo.language || "Markdown"
+    }));
+  } else {
+    throw new Error("No se pudieron cargar los repositorios");
   }
-];
+} catch (e) {
+  error = "Hubo un problema conectando con GitHub.";
+  // Fallback por si la API falla o hay límites de rate
+  proyectos = [
+    { 
+      name: "Sakila Cinema Analytics", 
+      url: "https://github.com/NievesPerez-Data/proyecto-sql-sakila-analysis", 
+      desc: "Análisis de bases de datos SQL para optimizar inventario y comportamiento de clientes.", 
+      lang: "SQL" 
+    }
+  ];
+}
 ---
 
 <html lang="es">
@@ -78,8 +73,7 @@ const proyectos = [
         <div style="display: flex; align-items: center; gap: 15px; color: #ffffff;">
           <span style="font-size: 0.95rem;">Echa un vistazo a mi</span>
           <div style="display: flex; gap: 10px;">
-            <!-- Enlaces sociales corregidos con tus perfiles -->
-            <a href="https://github.com/NievesPerez-Data" target="_blank" rel="noopener noreferrer" style="background: #0f705d; color: #ffffff; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 4px; text-decoration: none;" aria-label="GitHub">
+            <a href={`https://github.com/${GITHUB_USERNAME}`} target="_blank" rel="noopener noreferrer" style="background: #0f705d; color: #ffffff; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 4px; text-decoration: none;" aria-label="GitHub">
               <i class="fa-brands fa-github"></i>
             </a>
             <a href="https://linkedin.com/in/nievesperezalonso" target="_blank" rel="noopener noreferrer" style="background: #0f705d; color: #ffffff; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 4px; text-decoration: none;" aria-label="LinkedIn">
@@ -100,17 +94,22 @@ const proyectos = [
     <!-- SECCIÓN PROYECTOS -->
     <section id="proyectos" style="padding: 100px 0;">
       <h2 style="color: #ffffff; font-family: 'Inconsolata', monospace; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 50px;">Proyectos</h2>
+      
+      {error && <p style="color: #ff6b6b; font-family: 'Inconsolata', monospace;">{error}</p>}
+      
       <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px;">
         {proyectos.map(p => (
-          <div style="background: rgba(15, 112, 93, 0.03); border: 1px solid rgba(15, 112, 93, 0.1); padding: 30px; border-radius: 4px;">
-            <div style="display: flex; justify-content: space-between; margin-bottom: 25px; color: #0f705d;">
-              <i class="fa-regular fa-folder" style="font-size: 1.8rem;"></i>
-              <a href={p.url} target="_blank" rel="noopener noreferrer" style="color: #ffffff; opacity: 0.6;">
-                <i class="fa-brands fa-github" style="font-size: 1.3rem;"></i>
-              </a>
+          <div style="background: rgba(15, 112, 93, 0.03); border: 1px solid rgba(15, 112, 93, 0.1); padding: 30px; border-radius: 4px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="display: flex; justify-content: space-between; margin-bottom: 25px; color: #0f705d;">
+                <i class="fa-regular fa-folder" style="font-size: 1.8rem;"></i>
+                <a href={p.url} target="_blank" rel="noopener noreferrer" style="color: #ffffff; opacity: 0.6;">
+                  <i class="fa-brands fa-github" style="font-size: 1.3rem;"></i>
+                </a>
+              </div>
+              <h3 style="margin: 0 0 12px 0; font-size: 1.2rem; color: #ffffff; text-transform: capitalize;">{p.name}</h3>
+              <p style="color: #aaaaaa; font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">{p.desc}</p>
             </div>
-            <h3 style="margin: 0 0 12px 0; font-size: 1.2rem; color: #ffffff;">{p.name}</h3>
-            <p style="color: #aaaaaa; font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">{p.desc}</p>
             <div style="color: #0f705d; font-size: 0.8rem; font-weight: 700; font-family: 'Inconsolata', monospace;">
               &lt; {p.lang} /&gt;
             </div>
