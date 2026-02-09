@@ -1,12 +1,12 @@
-/* Importamos tipografías: Serif para títulos (imprenta) y Sans para cuerpo */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap');
+/* Importamos Inconsolata para ese estilo de imprenta técnica/mono */
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Lato:wght@400;700&display=swap');
 
 :root {
-  --verde-oscuro: #1b3022;   /* Verde bosque profundo */
-  --verde-medio: #395442;    /* Verde oliva */
-  --verde-acento: #4f772d;   /* Verde hoja */
+  --verde-footer: #152219;   /* El verde oscuro que te gusta del footer */
+  --verde-detalle: #2d4a36;  /* Un verde medio para bordes */
+  --verde-texto: #5c856a;    /* Verde suave para resaltar palabras */
   --fondo-negro: #020502;
-  --blanco-suave: #e0e0e0;
+  --blanco-suave: #d1d1d1;
 }
 
 html, body {
@@ -14,28 +14,24 @@ html, body {
   color: var(--blanco-suave) !important;
   margin: 0;
   padding: 0;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Inconsolata', monospace; /* Tipografía estilo mono */
   scroll-behavior: smooth;
 }
 
-h1, h2, h3 {
-  font-family: 'Playfair Display', serif; /* Letra tipo imprenta */
+h1, h2, h3, h4 {
+  font-family: 'Inconsolata', monospace;
   color: #ffffff;
+  text-transform: uppercase; /* Opcional: da un toque más serio */
+  letter-spacing: 1px;
 }
 
 .container_p {
-  max-width: 1100px;
+  max-width: 1000px; /* Un poco más estrecho para que sea más elegante */
   margin: 0 auto;
   padding: 0 20px;
 }
 
 section {
-  padding: 100px 0;
+  padding: 80px 0;
   scroll-margin-top: 90px;
 }
-
-/* Etiquetas de lenguajes con distintos verdes */
-.lang-sql { color: #8fb339; }
-.lang-python { color: #4f772d; }
-.lang-tableau { color: #90a955; }
-.lang-default { color: var(--verde-medio); }
