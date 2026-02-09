@@ -49,6 +49,7 @@ const proyectos = [
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nieves Pérez Alonso | Data Analyst</title>
+  <!-- Font Awesome para los iconos -->
   <script src="https://kit.fontawesome.com/2898a0ac51.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -70,15 +71,20 @@ const proyectos = [
         </p>
 
         <div id="contacto" style="display: flex; gap: 20px; margin-bottom: 40px; scroll-margin-top: 120px;">
-          <a href="mailto:tu-email@ejemplo.com" style="background-color: #0f705d; color: #ffffff; padding: 14px 35px; text-decoration: none; font-weight: 700; border-radius: 4px; border: 2px solid #0f705d; transition: 0.3s;">Hablemos</a>
+          <a href="mailto:nievesperezalonso@gmail.com" style="background-color: #0f705d; color: #ffffff; padding: 14px 35px; text-decoration: none; font-weight: 700; border-radius: 4px; border: 2px solid #0f705d; transition: 0.3s;">Hablemos</a>
           <a href="#" style="border: 2px solid #0f705d; color: #ffffff; padding: 14px 35px; text-decoration: none; font-weight: 700; border-radius: 4px; transition: 0.3s;">Ver Currículum</a>
         </div>
 
         <div style="display: flex; align-items: center; gap: 15px; color: #ffffff;">
           <span style="font-size: 0.95rem;">Echa un vistazo a mi</span>
           <div style="display: flex; gap: 10px;">
-            <a href="https://github.com/tu-perfil" style="background: #0f705d; color: #ffffff; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 4px; text-decoration: none;"><i class="fa-brands fa-github"></i></a>
-            <a href="https://linkedin.com/in/tu-perfil" style="background: #0f705d; color: #ffffff; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 4px; text-decoration: none;"><i class="fa-brands fa-linkedin"></i></a>
+            <!-- Enlaces sociales corregidos con tus perfiles -->
+            <a href="https://github.com/NievesPerez-Data" target="_blank" rel="noopener noreferrer" style="background: #0f705d; color: #ffffff; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 4px; text-decoration: none;" aria-label="GitHub">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://linkedin.com/in/nievesperezalonso" target="_blank" rel="noopener noreferrer" style="background: #0f705d; color: #ffffff; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 4px; text-decoration: none;" aria-label="LinkedIn">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
           </div>
         </div>
       </div>
@@ -93,13 +99,15 @@ const proyectos = [
 
     <!-- SECCIÓN PROYECTOS -->
     <section id="proyectos" style="padding: 100px 0;">
-      <h2 style="color: #0f705d; font-family: 'Inconsolata', monospace; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 50px;">// Proyectos</h2>
+      <h2 style="color: #ffffff; font-family: 'Inconsolata', monospace; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 50px;">Proyectos</h2>
       <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px;">
         {proyectos.map(p => (
           <div style="background: rgba(15, 112, 93, 0.03); border: 1px solid rgba(15, 112, 93, 0.1); padding: 30px; border-radius: 4px;">
             <div style="display: flex; justify-content: space-between; margin-bottom: 25px; color: #0f705d;">
               <i class="fa-regular fa-folder" style="font-size: 1.8rem;"></i>
-              <a href={p.url} style="color: #ffffff; opacity: 0.6;"><i class="fa-brands fa-github" style="font-size: 1.3rem;"></i></a>
+              <a href={p.url} target="_blank" rel="noopener noreferrer" style="color: #ffffff; opacity: 0.6;">
+                <i class="fa-brands fa-github" style="font-size: 1.3rem;"></i>
+              </a>
             </div>
             <h3 style="margin: 0 0 12px 0; font-size: 1.2rem; color: #ffffff;">{p.name}</h3>
             <p style="color: #aaaaaa; font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">{p.desc}</p>
@@ -113,7 +121,7 @@ const proyectos = [
 
     <!-- SECCIÓN HABILIDADES -->
     <section id="habilidades" style="padding: 100px 0;">
-      <h2 style="color: #0f705d; font-family: 'Inconsolata', monospace; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 40px;">// Habilidades</h2>
+      <h2 style="color: #ffffff; font-family: 'Inconsolata', monospace; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 40px;">Habilidades</h2>
       <div style="border: 1px solid rgba(15, 112, 93, 0.2); padding: 40px; background: rgba(15, 112, 93, 0.03); border-radius: 4px;">
          <p style="color: #cccccc; line-height: 2; font-size: 1.1rem; margin: 0;">
            Python • SQL • Tableau • Power BI • Análisis de KPIs • Estrategia de Retail • Git • GitHub
@@ -123,7 +131,7 @@ const proyectos = [
 
     <!-- SECCIÓN ESTUDIOS -->
     <section id="estudios" style="padding: 100px 0;">
-      <h2 style="color: #0f705d; font-family: 'Inconsolata', monospace; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 40px;">// Estudios</h2>
+      <h2 style="color: #ffffff; font-family: 'Inconsolata', monospace; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 40px;">Estudios</h2>
       <div style="border-left: 3px solid #0f705d; padding-left: 25px; margin-bottom: 30px;">
         <h3 style="margin: 0; font-size: 1.2rem;">Bootcamp Data Analytics</h3>
         <p style="color: #888888; margin: 8px 0 0 0;">Ironhack | 2023</p>
@@ -132,7 +140,7 @@ const proyectos = [
 
     <!-- SECCIÓN SOBRE MÍ -->
     <section id="sobremi" style="padding: 100px 0 150px 0;">
-      <h2 style="color: #0f705d; font-family: 'Inconsolata', monospace; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 40px;">// Sobre mí</h2>
+      <h2 style="color: #ffffff; font-family: 'Inconsolata', monospace; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 40px;">Sobre mí</h2>
       <p style="color: #aaaaaa; max-width: 850px; line-height: 1.8; font-size: 1.1rem; margin: 0;">
         Tras años liderando operaciones en el sector Retail, mi transición al análisis de datos responde a una pasión por optimizar procesos mediante el dato.
       </p>
