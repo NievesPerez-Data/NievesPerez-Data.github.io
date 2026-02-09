@@ -17,7 +17,6 @@ const proyectos = [
     <script src="https://kit.fontawesome.com/2898a0ac51.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <div class="main-background"></div>
     
     <Header />
     
@@ -27,7 +26,7 @@ const proyectos = [
           <div class="circulo-foto">
             <img src="/img/tu-foto.webp" alt="Nieves Pérez" />
           </div>
-          <h1 class="gradient-text">Nieves Pérez Alonso</h1>
+          <h1 class="nombre">Nieves Pérez Alonso</h1>
           <p class="puesto">Data Analyst | Retail Expert</p>
         </div>
       </section>
@@ -80,7 +79,7 @@ const proyectos = [
       <section id="sobremi">
         <h2 class="titulo">Sobre mí</h2>
         <p class="texto-largo">
-          Store Manager con más de 6 años de experiencia en Oysho (Inditex). Experta en optimización de ventas y gestión de equipos, ahora enfocada en extraer valor de los datos.
+          Store Manager con más de 6 años de experiencia en Oysho (Inditex). Experta en optimización de ventas y gestión de equipos, ahora enfocada en extraer valor de los datos a través del análisis avanzado.
         </p>
       </section>
     </main>
@@ -92,66 +91,55 @@ const proyectos = [
 <style is:global>
   @import url("https://fonts.googleapis.com/css2?family=ABeeZee&display=swap");
 
-  /* FUERZA EL FONDO NEGRO DESDE EL PRINCIPIO */
+  /* COLORES VERDES SÓLIDOS */
   :root {
-    --verde-puro: #2d5a27;
-    --verde-brillante: #4ade80;
+    --verde-fondo: #050a05; /* Un verde casi negro, muy profundo */
+    --verde-borde: #1a2e1a;
+    --verde-detalle: #4ade80; /* El verde brillante para resaltar */
   }
 
-  html {
-    background-color: #050505 !important;
-  }
-
-  body {
-    background-color: #050505 !important;
-    color: #f6f6f9;
+  html, body {
+    background-color: var(--verde-fondo) !important;
+    color: #f6f6f9 !important;
     margin: 0;
+    padding: 0;
     font-family: 'ABeeZee', sans-serif;
     scroll-behavior: smooth;
-    min-height: 100vh;
-  }
-
-  /* Capa de degradado verde */
-  .main-background {
-    position: fixed;
-    inset: 0;
-    background: radial-gradient(circle at 50% -10%, #1a331a 0%, #050505 60%);
-    z-index: -1;
   }
 
   .container_p { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
   section { padding: 80px 0; scroll-margin-top: 90px; }
-  .titulo { color: var(--verde-brillante); font-size: 2rem; margin-bottom: 30px; }
+  
+  .titulo { color: var(--verde-detalle); font-size: 2rem; margin-bottom: 30px; }
 
-  /* FOTO Y PERFIL */
-  .home-flex { text-align: center; padding-top: 120px; }
+  /* FOTO */
+  .home-flex { text-align: center; padding-top: 100px; }
   .circulo-foto {
     width: 200px; height: 200px; border-radius: 50%;
-    border: 3px solid var(--verde-puro); margin: 0 auto 20px;
-    overflow: hidden; box-shadow: 0 0 20px rgba(74, 222, 128, 0.2);
+    border: 3px solid var(--verde-detalle); margin: 0 auto 20px;
+    overflow: hidden; background: #000;
   }
   .circulo-foto img { width: 100%; height: 100%; object-fit: cover; }
-  .gradient-text { font-size: 3rem; margin: 10px 0; color: #fff; }
-  .puesto { color: var(--verde-brillante); font-weight: bold; }
+  .nombre { font-size: 3rem; margin: 10px 0; color: #fff; }
+  .puesto { color: var(--verde-detalle); font-weight: bold; font-size: 1.2rem; }
 
-  /* PROYECTOS */
+  /* TARJETAS */
   .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
   .card { 
-    background: #0f0f0f; border: 1px solid #1a2e1a; padding: 25px; border-radius: 12px;
+    background: #0a0f0a; border: 1px solid var(--verde-borde); padding: 25px; border-radius: 12px;
     transition: 0.3s;
   }
-  .card:hover { border-color: var(--verde-brillante); transform: translateY(-5px); }
-  .card-icons { display: flex; justify-content: space-between; color: var(--verde-brillante); font-size: 1.5rem; margin-bottom: 15px; }
-  .lang { color: var(--verde-brillante); font-size: 0.8rem; font-weight: bold; }
+  .card:hover { border-color: var(--verde-detalle); transform: translateY(-5px); }
+  .card-icons { display: flex; justify-content: space-between; color: var(--verde-detalle); font-size: 1.5rem; margin-bottom: 15px; }
+  .lang { color: var(--verde-detalle); font-size: 0.8rem; font-weight: bold; }
 
-  /* ESTUDIOS */
-  .estudio-item { border-left: 2px solid var(--verde-puro); padding-left: 20px; margin-bottom: 25px; }
-  .estudio-item h3 { font-size: 1.2rem; color: #fff; }
-  .estudio-item p { color: #888; }
-
-  /* HABILIDADES */
-  .skills-flex { display: flex; gap: 30px; flex-wrap: wrap; }
-  .skill-box { background: #0f0f0f; padding: 20px; border-radius: 8px; flex: 1; min-width: 250px; }
-  ul { list-style: none; padding: 0; color: #aaa; }
-  li::before { content: "▹ "; color: var(--verde-brillante); }
+  /* LISTAS */
+  .estudio-item { border-left: 2px solid var(--verde-detalle); padding-left: 20px; margin-bottom: 25px; }
+  .skill-box { background: #0a0f0a; padding: 20px; border-radius: 8px; flex: 1; min-width: 250px; border: 1px solid var(--verde-borde); }
+  .skills-flex { display: flex; gap: 20px; flex-wrap: wrap; }
+  ul { list-style: none; padding: 0; }
+  li { color: #aaa; margin-bottom: 8px; }
+  li::before { content: "▹ "; color: var(--verde-detalle); }
+  
+  .texto-largo { color: #bbb; line-height: 1.8; max-width: 800px; }
 </style>
