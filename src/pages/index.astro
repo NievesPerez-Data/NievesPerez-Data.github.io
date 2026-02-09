@@ -1,12 +1,15 @@
 ---
 import Header from "../components/header/Header.astro";
 import Footer from "../components/footer/Footer.astro";
-import "../style/index.css"; // Importación vital
+import "../style/index.css";
 
+// 4. LISTA DE PROYECTOS: Añade aquí todos los que quieras
 const proyectos = [
-  { name: "Sakila Cinema Analytics", url: "https://github.com/NievesPerez-Data/proyecto-sql-sakila-analysis", desc: "SQL & Data Analysis para optimizar inventario.", lang: "SQL" },
-  { name: "The Friends Data Project", url: "https://github.com/NievesPerezData/proyecto_serieTV_Friends_Tableau", desc: "NLP y Sentiment Analysis sobre guiones.", lang: "Tableau" },
-  { name: "Análisis Retail Oysho", url: "#", desc: "Optimización de KPIs y gestión de stock.", lang: "Excel/BI" }
+  { name: "Sakila Cinema Analytics", url: "https://github.com/NievesPerez-Data/proyecto-sql-sakila-analysis", desc: "SQL & Data Analysis para optimizar inventario.", lang: "SQL", class: "lang-sql" },
+  { name: "The Friends Data Project", url: "https://github.com/NievesPerezData/proyecto_serieTV_Friends_Tableau", desc: "NLP y Sentiment Analysis sobre guiones.", lang: "Tableau", class: "lang-tableau" },
+  { name: "Análisis Retail Oysho", url: "#", desc: "Optimización de KPIs y gestión de stock.", lang: "Excel/BI", class: "lang-default" },
+  { name: "Predicción de Ventas", url: "#", desc: "Modelo Machine Learning con Python.", lang: "Python", class: "lang-python" },
+  // Puedes seguir añadiendo proyectos aquí...
 ];
 ---
 
@@ -21,51 +24,75 @@ const proyectos = [
     <Header />
     
     <main class="container_p">
-      <section id="inicio" style="text-align: center; padding-top: 120px;">
-        <div style="width: 180px; height: 180px; border-radius: 50%; border: 3px solid #4ade80; margin: 0 auto 20px; overflow: hidden;">
+      <section id="inicio" style="display: flex; align-items: center; gap: 50px; padding-top: 150px; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 300px;">
+          <h1 style="font-size: 3.5rem; margin-bottom: 10px;">Nieves Pérez Alonso</h1>
+          <p style="color: var(--verde-acento); font-size: 1.5rem; font-weight: bold;">Data Analyst | Retail Expert</p>
+          <p style="color: #888; margin-top: 20px; max-width: 500px;">Especialista en convertir datos complejos de retail en decisiones estratégicas rentables.</p>
+        </div>
+        
+        <div style="width: 280px; height: 280px; border-radius: 15px; border: 1px solid var(--verde-medio); overflow: hidden; box-shadow: 20px 20px 0px var(--verde-oscuro);">
           <img src="/img/tu-foto.webp" alt="Nieves Pérez" style="width: 100%; height: 100%; object-fit: cover;" />
         </div>
-        <h1 style="font-size: 3rem; margin: 10px 0;">Nieves Pérez Alonso</h1>
-        <p style="color: #4ade80; font-weight: bold; font-size: 1.2rem;">Data Analyst | Retail Expert</p>
       </section>
 
       <section id="proyectos">
-        <h2>Proyectos</h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+        <h2 style="border-bottom: 1px solid var(--verde-oscuro); padding-bottom: 10px; margin-bottom: 40px;">Proyectos Seleccionados</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px;">
           {proyectos.map(p => (
-            <div style="background: #0a0f0a; border: 1px solid #1a2e1a; padding: 25px; border-radius: 12px;">
-              <h3 style="color: #fff; margin-bottom: 10px;">{p.name}</h3>
-              <p style="color: #888; font-size: 0.9rem;">{p.desc}</p>
-              <span style="color: #4ade80; font-weight: bold;">{p.lang}</span>
+            <div style="background: #080c08; border: 1px solid #1a241a; padding: 30px; border-radius: 4px; transition: 0.3s;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                <i class="fa-regular fa-folder" style="color: var(--verde-acento); font-size: 1.5rem;"></i>
+                <a href={p.url} target="_blank" style="color: #fff;"><i class="fa-brands fa-github"></i></a>
+              </div>
+              <h3 style="margin-bottom: 15px;">{p.name}</h3>
+              <p style="color: #999; font-size: 0.95rem; margin-bottom: 20px; min-height: 45px;">{p.desc}</p>
+              <span class={p.class} style="font-weight: bold; font-size: 0.8rem; font-family: sans-serif;">{p.lang}</span>
             </div>
           ))}
         </div>
       </section>
 
       <section id="skills">
-        <h2>Habilidades</h2>
-        <div style="display: flex; gap: 40px; flex-wrap: wrap;">
-          <div style="flex: 1; min-width: 250px;">
-            <h4 style="color: #fff;">Tech & Data</h4>
-            <ul style="color: #aaa; list-style: none; padding: 0;">
-              <li>▹ Python</li><li>▹ SQL</li><li>▹ Tableau</li>
+        <h2 style="margin-bottom: 40px;">Habilidades</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+          <div style="border-top: 2px solid var(--verde-medio); padding-top: 20px;">
+            <h4 style="color: var(--verde-acento); margin-bottom: 15px;">Análisis Técnico</h4>
+            <ul style="list-style: none; padding: 0; color: #bbb; line-height: 2;">
+              <li>▹ Python (Pandas, Scikit-learn)</li>
+              <li>▹ SQL Avanzado</li>
+              <li>▹ Visualización (Tableau/PB)</li>
+            </ul>
+          </div>
+          <div style="border-top: 2px solid var(--verde-medio); padding-top: 20px;">
+            <h4 style="color: var(--verde-acento); margin-bottom: 15px;">Retail Management</h4>
+            <ul style="list-style: none; padding: 0; color: #bbb; line-height: 2;">
+              <li>▹ Optimización de Stock</li>
+              <li>▹ Gestión de KPIs</li>
+              <li>▹ Estrategia Inditex / Oysho</li>
             </ul>
           </div>
         </div>
       </section>
 
       <section id="estudios">
-        <h2>Estudios</h2>
-        <div style="border-left: 2px solid #4ade80; padding-left: 20px;">
-          <h3 style="color: #fff;">Bootcamp Data Analytics</h3>
-          <p style="color: #888;">Adalab | 2024 - 2025</p>
+        <h2 style="margin-bottom: 40px;">Formación Académica</h2>
+        <div style="display: flex; flex-direction: column; gap: 30px;">
+          <div style="background: rgba(27, 48, 34, 0.2); padding: 20px; border-radius: 4px;">
+            <h3 style="font-size: 1.3rem;">Bootcamp Data Analytics</h3>
+            <p style="color: var(--verde-acento);">Adalab | 2024 - 2025</p>
+          </div>
+          <div style="padding: 20px;">
+            <h3 style="font-size: 1.3rem;">Máster en Educación Artística</h3>
+            <p style="color: #888;">Universidad Complutense de Madrid</p>
+          </div>
         </div>
       </section>
 
       <section id="sobremi">
-        <h2>Sobre mí</h2>
-        <p style="color: #aaa; line-height: 1.8;">
-          Store Manager con más de 6 años de experiencia en Oysho (Inditex). Especializada en análisis de KPIs y gestión de operaciones.
+        <h2 style="margin-bottom: 30px;">Sobre mí</h2>
+        <p style="font-size: 1.2rem; color: #aaa; line-height: 1.8; max-width: 800px;">
+          Mi trayectoria como Store Manager me ha permitido entender el negocio desde la base. Mi objetivo actual es aplicar el <strong>Data Science</strong> para resolver los retos reales del sector retail.
         </p>
       </section>
     </main>
