@@ -1,23 +1,95 @@
 ---
 import Header from "../components/header/Header.astro";
-import "../style/index.css";
-import Main from "../components/main/main.astro";
 import Footer from "../components/footer/Footer.astro";
+
+// TUS DATOS REALES
+const proyectos = [
+  { name: "Sakila Cinema Analytics", url: "https://github.com/NievesPerez-Data/proyecto-sql-sakila-analysis", desc: "SQL & Data Analysis", lang: "SQL" },
+  { name: "The Friends Data Project", url: "https://github.com/NievesPerezData/proyecto_serieTV_Friends_Tableau", desc: "NLP & Tableau Visualization", lang: "Tableau" }
+];
 ---
 
 <html lang="es">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="description" content="Portafolio de Nieves Pérez Alonso - Data Analyst" />
+    <title>Nieves Pérez Alonso | Data Analyst</title>
     <script src="https://kit.fontawesome.com/2898a0ac51.js" crossorigin="anonymous"></script>
-    <title>Portafolio | Nieves Pérez Alonso</title>
   </head>
   <body>
     <Header />
-    <Main />
+    
+    <main class="container_p">
+      <section id="proyectos">
+        <h2 class="titulo">Proyectos</h2>
+        <div class="grid">
+          {proyectos.map(p => (
+            <div class="card">
+              <div class="card-icons">
+                <i class="fa-regular fa-folder"></i>
+                <a href={p.url} target="_blank"><i class="fa-brands fa-github"></i></a>
+              </div>
+              <h3>{p.name}</h3>
+              <p>{p.desc}</p>
+              <span>{p.lang}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="skills">
+        <h2 class="titulo">Habilidades</h2>
+        <div class="skills-flex">
+          <div>
+            <h4>Tech</h4>
+            <ul><li>Python</li><li>SQL</li><li>Tableau</li></ul>
+          </div>
+          <div>
+            <h4>Business</h4>
+            <ul><li>KPIs Retail</li><li>Agile</li><li>Oysho Exp.</li></ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
     <Footer />
   </body>
 </html>
+
+<style is:global>
+  /* ESTILO ORIGINAL DEL CREADOR FORZADO */
+  @import url("https://fonts.googleapis.com/css2?family=ABeeZee&display=swap");
+
+  html, body {
+    background-color: #000 !important;
+    color: #f6f6f9 !important;
+    margin: 0;
+    font-family: 'ABeeZee', sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  .container_p {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  section {
+    padding: 80px 0;
+    scroll-margin-top: 100px;
+  }
+
+  .titulo { color: #01be96; margin-bottom: 30px; font-size: 2rem; }
+
+  /* Estilo de las tarjetas de proyectos */
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+  .card { background: #111; padding: 25px; border-radius: 10px; border: 1px solid #222; }
+  .card-icons { display: flex; justify-content: space-between; color: #01be96; font-size: 1.5rem; margin-bottom: 15px; }
+  .card h3 { color: #fff; margin-bottom: 10px; }
+  .card p { color: #888; font-size: 0.9rem; }
+
+  /* Estilo de habilidades */
+  .skills-flex { display: flex; gap: 100px; }
+  ul { list-style: none; padding: 0; color: #888; }
+  li::before { content: "▹ "; color: #01be96; }
+</style>
