@@ -1,73 +1,62 @@
----
-import Header from "../components/header/Header.astro";
-import Footer from "../components/footer/Footer.astro";
-import "../style/index.css";
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Lato:wght@400;700&display=swap');
 
-const proyectos = [
-  { name: "Sakila Cinema Analytics", url: "https://github.com/NievesPerez-Data/proyecto-sql-sakila-analysis", desc: "SQL & Data Analysis para optimizar inventario.", lang: "SQL" },
-  { name: "The Friends Data Project", url: "https://github.com/NievesPerezData/proyecto_serieTV_Friends_Tableau", desc: "NLP y Sentiment Analysis sobre guiones.", lang: "Tableau" },
-  { name: "Análisis Retail Oysho", url: "#", desc: "Optimización de KPIs y gestión de stock.", lang: "Excel/BI" }
-];
----
+:root {
+  --verde-principal: #053931;       /* Tu verde exacto */
+  --verde-halo: rgba(5, 57, 49, 0.5);
+  --fondo-negro: #020502;
+  --blanco-puro: #ffffff;
+  --blanco-traslucido: rgba(255, 255, 255, 0.5); /* Texto tipo encabezado */
+}
 
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Nieves Pérez Alonso | Data Analyst</title>
-    <script src="https://kit.fontawesome.com/2898a0ac51.js" crossorigin="anonymous"></script>
-  </head>
-  <body>
-    <Header />
-    
-    <main class="container_p">
-      <section id="inicio" style="display: flex; align-items: center; justify-content: space-between; padding-top: 150px; flex-wrap: wrap; gap: 40px;">
-        <div style="flex: 1; min-width: 300px;">
-          <h1 style="font-size: 2.8rem; margin: 0;">Nieves Pérez Alonso</h1>
-          <p style="color: #4a6350; font-size: 1.2rem; margin-top: 10px;">[ DATA ANALYST ]</p>
-          <p style="color: #777; margin-top: 25px; font-family: 'Lato', sans-serif; line-height: 1.6;">
-            Especializada en transformar datos de Retail en insights accionables. 
-            Experiencia sólida en gestión operativa en el sector moda.
-          </p>
-        </div>
-        
-        <div style="position: relative;">
-          <div style="position: absolute; inset: -5px; border-radius: 50%; background: var(--verde-halo); filter: blur(10px); opacity: 0.5;"></div>
-          
-          <div style="position: relative; width: 160px; height: 160px; border-radius: 50%; border: 2px solid var(--verde-borde); overflow: hidden; background: #000; z-index: 1;">
-            <img src="/img/tu-foto.webp" alt="Nieves Pérez" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%);" />
-          </div>
-        </div>
-      </section>
+html, body {
+  background-color: var(--fondo-negro) !important;
+  color: var(--blanco-puro) !important;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inconsolata', monospace;
+  scroll-behavior: smooth;
+}
 
-      <section id="proyectos">
-        <h2 style="font-size: 1.2rem; margin-bottom: 40px; color: #4a6350;">// PROYECTOS_RECIENTES</h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
-          {proyectos.map(p => (
-            <div class="card-proyecto">
-              <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
-                <i class="fa-regular fa-folder" style="color: #4a6350;"></i>
-                <a href={p.url} style="color: #444;"><i class="fa-brands fa-github"></i></a>
-              </div>
-              <h3 style="font-size: 1.1rem; margin-bottom: 10px;">{p.name}</h3>
-              <p style="color: #666; font-size: 0.85rem; font-family: 'Lato', sans-serif;">{p.desc}</p>
-              <div style="margin-top: 20px; font-size: 0.75rem; color: #4a6350;">
-                &lt; {p.lang} /&gt;
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+h1, h2, h3 {
+  font-family: 'Inconsolata', monospace;
+  color: var(--blanco-puro);
+}
 
-      <section id="skills">
-        <h2 style="font-size: 1.2rem; margin-bottom: 30px; color: #4a6350;">// HABILIDADES_TECH</h2>
-        <div style="border: 1px solid var(--verde-borde); padding: 30px; background: rgba(21, 34, 25, 0.2);">
-           <p style="color: #aaa;">Python • SQL • Tableau • Power BI • Análisis de KPIs • Retail Strategy</p>
-        </div>
-      </section>
-      
-      </main>
+.container_p {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
 
-    <Footer />
-  </body>
-</html>
+section {
+  padding: 80px 0;
+  scroll-margin-top: 90px;
+}
+
+/* EFECTO TEXTO TRASLÚCIDO (Como el encabezado) */
+.texto-traslucido {
+  color: var(--blanco-traslucido);
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+}
+
+/* FORMATO CÁPSULA VERTICAL PARA PROYECTOS */
+.card-proyecto {
+  background: rgba(5, 57, 49, 0.05);
+  border: 1px solid var(--verde-principal);
+  padding: 40px 30px;
+  border-radius: 50px; /* Forma de cápsula */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s ease;
+  min-height: 400px;
+  justify-content: space-between;
+}
+
+.card-proyecto:hover {
+  background: rgba(5, 57, 49, 0.15);
+  box-shadow: 0 0 20px var(--verde-halo);
+  transform: translateY(-5px);
+}
