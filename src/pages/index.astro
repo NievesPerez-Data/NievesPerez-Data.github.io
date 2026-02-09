@@ -1,317 +1,186 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nieves Pérez Alonso | Data Analyst & BI</title>
-    <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/2898a0ac51.js" crossorigin="anonymous"></script>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #0f705d;
-            --primary-hover: #148a74;
-            --bg-dark: #020502;
-            --card-bg: #0a0a0a;
-            --text-main: #ffffff;
-            --text-dim: #d1d1d1;
-            --text-muted: #666666;
-            --font-mono: 'Inconsolata', monospace;
-            --font-sans: 'Lato', sans-serif;
-        }
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>Nieves Pérez Alonso | Data Analyst</title>
+		<script src="https://kit.fontawesome.com/2898a0ac51.js" crossorigin="anonymous"></script>
+		<style>
+			:root {
+				--accent: 136, 58, 234;
+				--accent-light: 224, 204, 250;
+				--accent-dark: 49, 10, 101;
+				--accent-gradient: linear-gradient(
+					45deg,
+					rgb(var(--accent)),
+					rgb(var(--accent-light)) 30%,
+					white 60%
+				);
+			}
+			html {
+				font-family: system-ui, sans-serif;
+				background: #13151a;
+				background-size: 224px;
+				color: white;
+			}
+			main {
+				margin: auto;
+				padding: 1rem;
+				width: 800px;
+				max-width: calc(100% - 2rem);
+				font-size: 20px;
+				line-height: 1.6;
+			}
+			.astro-a {
+				position: absolute;
+				top: -32px;
+				left: 50%;
+				transform: translatex(-50%);
+				width: 220px;
+				height: auto;
+				z-index: -1;
+			}
+			h1 {
+				font-size: 3.5rem;
+				font-weight: 700;
+				line-height: 1;
+				text-align: center;
+				margin-bottom: 1em;
+			}
+			.text-gradient {
+				background-image: var(--accent-gradient);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-size: 400%;
+				background-position: 0%;
+			}
+			.instructions {
+				margin-bottom: 2rem;
+				border: 1px solid rgba(var(--accent-light), 25%);
+				background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
+				padding: 1.5rem;
+				border-radius: 8px;
+			}
+			.instructions code {
+				font-size: 0.8em;
+				font-weight: bold;
+				background: rgba(var(--accent-light), 12%);
+				color: rgb(var(--accent-light));
+				border-radius: 4px;
+				padding: 0.3em 0.45em;
+			}
+			.instructions strong {
+				color: rgb(var(--accent-light));
+			}
+			.link-card-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+				gap: 2rem;
+				padding: 0;
+			}
+			/* Estilos para las tarjetas de contenido */
+			.link-card {
+				list-style: none;
+				display: flex;
+				padding: 1px;
+				background-color: #23262d;
+				background-image: none;
+				background-size: 400%;
+				border-radius: 7px;
+				background-position: 100%;
+				transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+				box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+			}
+			.link-card > div {
+				width: 100%;
+				text-decoration: none;
+				line-height: 1.4;
+				padding: calc(1.5rem - 1px);
+				border-radius: 8px;
+				color: white;
+				background-color: #23262d;
+				opacity: 0.8;
+			}
+			h2 {
+				margin: 0;
+				font-size: 1.25rem;
+				transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+			}
+			p {
+				margin-top: 0.5rem;
+				margin-bottom: 0;
+			}
+			.link-card:is(:hover, :focus-within) {
+				background-position: 0;
+				background-image: var(--accent-gradient);
+			}
+			.link-card:is(:hover, :focus-within) h2 {
+				color: rgb(var(--accent-light));
+			}
+			.social-links {
+				display: flex;
+				justify-content: center;
+				gap: 2rem;
+				margin-top: 3rem;
+				font-size: 2rem;
+			}
+			.social-links a {
+				color: white;
+				transition: color 0.3s;
+			}
+			.social-links a:hover {
+				color: rgb(var(--accent-light));
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<h1><span class="text-gradient">Nieves Pérez Alonso</span></h1>
+			
+			<section class="instructions">
+				<strong>Data Analyst & BI Specialist</strong><br />
+				Transformando datos en decisiones estratégicas. Experta en el sector Retail con más de 6 años de experiencia operativa.
+			</section>
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+			<h2 style="margin-bottom: 1rem;">Sobre mí</h2>
+			<div class="instructions" style="background: rgba(255,255,255,0.05);">
+				Vengo del sector Retail (Inditex/Oysho), lo que me da una visión práctica de los datos. Mi objetivo es unir la analítica avanzada con las necesidades reales de negocio.
+			</div>
 
-        html { scroll-behavior: smooth; }
+			<h2 style="margin-bottom: 1rem;">Formación</h2>
+			<ul role="list" class="link-card-grid">
+				<li class="link-card">
+					<div>
+						<h2>Adalab <span>&rarr;</span></h2>
+						<p>Bootcamp Data Analytics & IA (2024-2025). Python, SQL, Tableau y Machine Learning.</p>
+					</div>
+				</li>
+				<li class="link-card">
+					<div>
+						<h2>Univ. Complutense <span>&rarr;</span></h2>
+						<p>Máster en Educación Artística e Investigación (2016-2017). Gestión y análisis cultural.</p>
+					</div>
+				</li>
+				<li class="link-card">
+					<div>
+						<h2>Univ. Autónoma <span>&rarr;</span></h2>
+						<p>Grado en Historia del Arte (2009-2014). Pensamiento crítico y análisis visual.</p>
+					</div>
+				</li>
+				<li class="link-card">
+					<div>
+						<h2>Stack Tecnológico <span>&rarr;</span></h2>
+						<p>Python (Pandas, Numpy), SQL, Tableau, Power BI, Excel Avanzado y Git.</p>
+					</div>
+				</li>
+			</ul>
 
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            font-family: var(--font-sans);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* --- HEADER --- */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 15px 40px;
-            background: rgba(2, 5, 2, 0.9);
-            backdrop-filter: blur(12px);
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid rgba(15, 112, 93, 0.2);
-        }
-
-        .logo {
-            font-family: var(--font-mono);
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-            font-size: 1.1rem;
-            letter-spacing: 2px;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 25px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--text-dim);
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            transition: 0.3s;
-            letter-spacing: 1px;
-        }
-
-        nav a:hover { color: var(--primary); }
-
-        /* --- MAIN CONTENT --- */
-        main {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        section { padding: 100px 0 40px 0; }
-
-        .section-title {
-            font-family: var(--font-mono);
-            font-size: 1.5rem;
-            text-transform: uppercase;
-            margin-bottom: 40px;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .section-title::after {
-            content: "";
-            height: 1px;
-            background: rgba(15, 112, 93, 0.3);
-            flex-grow: 1;
-        }
-
-        /* --- HERO --- */
-        .hero {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            min-height: 85vh;
-            flex-wrap: wrap;
-            gap: 40px;
-        }
-
-        .hero-title {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            line-height: 1.1;
-            margin: 15px 0 25px 0;
-            font-weight: 800;
-            text-transform: uppercase;
-        }
-
-        .btn-primary {
-            background-color: var(--primary);
-            color: white;
-            padding: 12px 30px;
-            text-decoration: none;
-            font-weight: 700;
-            border-radius: 4px;
-            transition: 0.3s;
-            font-family: var(--font-mono);
-        }
-
-        /* --- SOBRE MÍ --- */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: start;
-        }
-
-        .about-text p { margin-bottom: 20px; color: var(--text-dim); }
-
-        /* --- SKILLS --- */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-            gap: 20px;
-        }
-
-        .skill-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(15, 112, 93, 0.1);
-            border-radius: 8px;
-            transition: 0.3s;
-        }
-
-        .skill-card:hover { border-color: var(--primary); transform: translateY(-3px); }
-
-        .green-filter {
-            filter: invert(33%) sepia(80%) saturate(450%) hue-rotate(125deg) brightness(95%) contrast(90%);
-            width: 30px; height: 30px;
-        }
-
-        /* --- ESTUDIOS --- */
-        .education-item {
-            margin-bottom: 30px;
-            padding-left: 20px;
-            border-left: 2px solid var(--primary);
-        }
-
-        .edu-date { font-family: var(--font-mono); color: var(--primary); font-size: 0.9rem; }
-        .edu-title { font-size: 1.2rem; font-weight: 700; margin: 5px 0; }
-        .edu-inst { color: var(--text-muted); font-style: italic; margin-bottom: 10px; }
-
-        /* --- FOOTER --- */
-        footer {
-            margin-top: 80px;
-            padding: 40px 20px;
-            background: #050805;
-            border-top: 1px solid rgba(15, 112, 93, 0.1);
-            text-align: center;
-        }
-
-        .footer-socials { display: flex; justify-content: center; gap: 25px; margin-bottom: 20px; }
-        .footer-socials a { color: var(--text-muted); font-size: 1.3rem; transition: 0.3s; }
-        .footer-socials a:hover { color: var(--primary); }
-
-        @media (max-width: 768px) {
-            .about-content { grid-template-columns: 1fr; }
-            header { flex-direction: column; padding: 15px; }
-            nav ul { gap: 10px; flex-wrap: wrap; justify-content: center; }
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <a href="#" class="logo">&lt;NIEVES.DATA /&gt;</a>
-        <nav>
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#sobremi">Sobre mí</a></li>
-                <li><a href="#habilidades">Habilidades</a></li>
-                <li><a href="#proyectos">Proyectos</a></li>
-                <li><a href="#estudios">Estudios</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <!-- SECCIÓN HERO -->
-        <section id="inicio" class="hero">
-            <div class="hero-content">
-                <span style="color: var(--primary); font-family: var(--font-mono); font-weight: 700;">&lt; DATA_STRATEGY /&gt;</span>
-                <h1 class="hero-title">NIEVES PÉREZ ALONSO<br/> <span style="color: var(--primary); font-size: 0.8em;">DATA ANALYST | BI</span></h1>
-                <p style="color: var(--text-dim); max-width: 550px; font-size: 1.1rem; margin-bottom: 30px;">
-                    Transformando datos de Retail en decisiones estratégicas. Más de 6 años de experiencia operativa optimizando flujos de negocio.
-                </p>
-                <a href="mailto:nievesperezalonso@gmail.com" class="btn-primary">CONTACTAR</a>
-            </div>
-            
-            <div style="flex: 1; display: flex; justify-content: center;">
-                <div style="width: 260px; height: 260px; border-radius: 50%; border: 1px solid var(--primary); padding: 10px; background: radial-gradient(circle, rgba(15,112,93,0.1), transparent);">
-                    <div style="width: 100%; height: 100%; border-radius: 50%; background: #0a0a0a; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-                        <i class="fa-solid fa-user-tie" style="font-size: 6rem; color: #1a1a1a;"></i>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECCIÓN SOBRE MÍ -->
-        <section id="sobremi">
-            <h2 class="section-title">Sobre mí</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Soy una analista de datos con una sólida base operativa en el sector <strong>Retail</strong>. Mi trayectoria de más de 6 años en <strong>Inditex (Oysho)</strong> me ha permitido desarrollar una visión única sobre cómo los datos impactan directamente en la rentabilidad y la eficiencia de la cadena de suministro.</p>
-                    <p>Mi enfoque une la precisión técnica del análisis de datos con una profunda comprensión del comportamiento del consumidor, permitiéndome optimizar inventarios y estrategias de venta mediante modelos predictivos y visualizaciones claras.</p>
-                </div>
-                <div style="background: rgba(15,112,93,0.05); padding: 30px; border-radius: 8px; border: 1px solid rgba(15,112,93,0.1);">
-                    <h4 style="color: var(--primary); margin-bottom: 15px; font-family: var(--font-mono);">_ Highlights</h4>
-                    <ul style="list-style: none; color: var(--text-dim); font-size: 0.9rem;">
-                        <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--primary); margin-right: 10px;"></i> Especialista en KPIs de Retail</li>
-                        <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--primary); margin-right: 10px;"></i> Experta en Limpieza de Datasets</li>
-                        <li><i class="fa-solid fa-check" style="color: var(--primary); margin-right: 10px;"></i> Storytelling con Visualización de Datos</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECCIÓN HABILIDADES -->
-        <section id="habilidades">
-            <h2 class="section-title">Stack Tecnológico</h2>
-            <div class="skills-grid">
-                <div class="skill-card"><div class="icon-box"><i class="fa-brands fa-python"></i></div><span class="skill-name" style="font-size:0.7rem;">Python</span></div>
-                <div class="skill-card"><div class="icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" class="green-filter"></div><span class="skill-name" style="font-size:0.7rem;">MySQL</span></div>
-                <div class="skill-card"><div class="icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" class="green-filter"></div><span class="skill-name" style="font-size:0.7rem;">Pandas</span></div>
-                <div class="skill-card"><div class="icon-box"><i class="fa-solid fa-network-wired"></i></div><span class="skill-name" style="font-size:0.7rem;">Scraping</span></div>
-                <div class="skill-card">
-                    <div class="icon-box"><svg viewBox="0 0 24 24" width="25" height="25" fill="var(--primary)"><path d="M12 2C8.69 2 6 4.69 6 8C6 10.36 7.37 12.41 9.38 13.38L9 22H15L14.62 13.38C16.63 12.41 18 10.36 18 8C18 4.69 15.31 2 12 2ZM13.5 9H10.5V7H13.5V9Z"/></svg></div>
-                    <span class="skill-name" style="font-size:0.7rem;">Ollama IA</span>
-                </div>
-                <div class="skill-card"><div class="icon-box"><i class="fa-solid fa-chart-pie"></i></div><span class="skill-name" style="font-size:0.7rem;">Tableau</span></div>
-                <div class="skill-card"><div class="icon-box"><i class="fa-solid fa-chart-column"></i></div><span class="skill-name" style="font-size:0.7rem;">Power BI</span></div>
-                <div class="skill-card"><div class="icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" class="green-filter"></div><span class="skill-name" style="font-size:0.7rem;">VS Code</span></div>
-                <div class="skill-card"><div class="icon-box"><i class="fa-brands fa-git-alt"></i></div><span class="skill-name" style="font-size:0.7rem;">Git</span></div>
-                <div class="skill-card"><div class="icon-box"><i class="fa-regular fa-file-excel"></i></div><span class="skill-name" style="font-size:0.7rem;">Excel</span></div>
-            </div>
-        </section>
-
-        <!-- SECCIÓN ESTUDIOS (ACTUALIZADA) -->
-        <section id="estudios">
-            <h2 class="section-title">Formación Académica</h2>
-            
-            <div class="education-item">
-                <span class="edu-date">2024 - 2025</span>
-                <h3 class="edu-title">BOOTCAMP DATA ANALYTICS & IA</h3>
-                <p class="edu-inst">Adalab</p>
-                <p style="color: var(--text-dim); font-size: 0.9rem;">Formación intensiva en el ecosistema de datos: Python, SQL, visualización avanzada y aplicación de IA generativa en procesos de análisis.</p>
-            </div>
-
-            <div class="education-item">
-                <span class="edu-date">2016 - 2017</span>
-                <h3 class="edu-title">MÁSTER EN EDUCACIÓN ARTÍSTICA</h3>
-                <p class="edu-inst">Universidad Complutense de Madrid (UCM)</p>
-                <p style="color: var(--text-dim); font-size: 0.9rem;">Investigación aplicada y gestión en instituciones culturales.</p>
-            </div>
-
-            <div class="education-item">
-                <span class="edu-date">2009 - 2014</span>
-                <h3 class="edu-title">GRADO EN HISTORIA DEL ARTE</h3>
-                <p class="edu-inst">Universidad Autónoma de Madrid (UAM)</p>
-                <p style="color: var(--text-dim); font-size: 0.9rem;">Desarrollo de pensamiento crítico y análisis visual de estructuras complejas.</p>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-socials">
-            <a href="https://github.com/NievesPerez-Data"><i class="fa-brands fa-github"></i></a>
-            <a href="https://linkedin.com/in/nievesperezalonso"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="mailto:nievesperezalonso@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-        </div>
-        <p class="copyright">NIEVES PÉREZ ALONSO // DATA ANALYST // 2026</p>
-    </footer>
-
-</body>
+			<div class="social-links">
+				<a href="https://github.com/NievesPerez-Data" target="_blank"><i class="fa-brands fa-github"></i></a>
+				<a href="https://linkedin.com/in/nievesperezalonso" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+				<a href="mailto:nievesperezalonso@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+			</div>
+		</main>
+	</body>
 </html>
