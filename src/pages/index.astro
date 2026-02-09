@@ -17,12 +17,11 @@ try {
     const data = await response.json();
     
     // FILTRO: Excluimos el repo del portfolio y otros que no quieras mostrar
-    // Puedes añadir más nombres al array 'reposAOcultar'
     const reposAOcultar = [`${GITHUB_USERNAME.toLowerCase()}.github.io`, "portfolio-astro"];
     
     proyectos = data
       .filter(repo => !reposAOcultar.includes(repo.name.toLowerCase()))
-      .slice(0, 6) // Nos quedamos con los 6 más recientes tras filtrar
+      .slice(0, 6) 
       .map(repo => ({
         name: repo.name.replace(/-/g, ' ').replace(/_/g, ' '),
         url: repo.html_url,
@@ -43,6 +42,21 @@ try {
     }
   ];
 }
+
+const habilidades = [
+  { nombre: "Python", icon: "fa-brands fa-python" },
+  { nombre: "Pandas", customIcon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" },
+  { nombre: "NumPy", customIcon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" },
+  { nombre: "SQL (MySQL)", icon: "fa-solid fa-database" },
+  { nombre: "Tableau", icon: "fa-solid fa-chart-line" },
+  { nombre: "Power BI", icon: "fa-solid fa-chart-bar" },
+  { nombre: "Selenium", icon: "fa-solid fa-robot" },
+  { nombre: "BeautifulSoup", icon: "fa-solid fa-gears" },
+  { nombre: "Git", icon: "fa-brands fa-git-alt" },
+  { nombre: "GitHub", icon: "fa-brands fa-github" },
+  { nombre: "Excel", icon: "fa-regular fa-file-excel" },
+  { nombre: "Ollama IA", icon: "fa-solid fa-microchip" }
+];
 ---
 
 <html lang="es">
@@ -64,7 +78,7 @@ try {
       
       <div style="flex: 1; min-width: 320px;">
         <p style="color: #0f705d; font-family: 'Inconsolata', monospace; font-size: 1.4rem; font-weight: 700; margin-bottom: 10px;">Nieves Pérez Alonso</p>
-        <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; margin: 0 0 25px 0; font-weight: 800; text-transform: uppercase;">DATA ANALYST <br/> BUSINESS INTELLIGENCE</h1>
+        <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; margin: 0 0 25px 0; font-weight: 800; text-transform: uppercase;">DATA ANALYST <br/> RETAIL SPECIALIST</h1>
         
         <p style="color: #d1d1d1; line-height: 1.6; margin-bottom: 40px; max-width: 580px; font-size: 1.1rem; text-align: justify;">
           Especializada en transformar datos complejos en decisiones estratégicas. 
@@ -124,13 +138,22 @@ try {
       </div>
     </section>
 
-    <!-- SECCIÓN HABILIDADES -->
+    <!-- SECCIÓN HABILIDADES (HERRAMIENTAS CON LOGOS) -->
     <section id="habilidades" style="padding: 100px 0;">
-      <h2 style="color: #ffffff; font-family: 'Inconsolata', monospace; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 40px;">Habilidades</h2>
-      <div style="border: 1px solid rgba(15, 112, 93, 0.2); padding: 40px; background: rgba(15, 112, 93, 0.03); border-radius: 4px;">
-         <p style="color: #cccccc; line-height: 2; font-size: 1.1rem; margin: 0;">
-           Python • SQL • Tableau • Power BI • Análisis de KPIs • Estrategia de Retail • Git • GitHub
-         </p>
+      <h2 style="color: #ffffff; font-family: 'Inconsolata', monospace; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 50px;">Habilidades</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 40px; justify-items: center;">
+        {habilidades.map(hab => (
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 12px; transition: transform 0.3s ease;" class="skill-item">
+            <div style="width: 64px; height: 64px; background: rgba(15, 112, 93, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(15, 112, 93, 0.3);">
+              {hab.customIcon ? (
+                <img src={hab.customIcon} alt={hab.nombre} style="width: 32px; height: 32px;" />
+              ) : (
+                <i class={`${hab.icon}`} style="font-size: 2rem; color: #0f705d;"></i>
+              )}
+            </div>
+            <span style="font-family: 'Inconsolata', monospace; font-size: 0.85rem; color: #d1d1d1; text-align: center;">{hab.nombre}</span>
+          </div>
+        ))}
       </div>
     </section>
 
@@ -190,5 +213,16 @@ try {
   </main>
 
   <Footer />
+
+  <style>
+    .skill-item:hover {
+      transform: translateY(-5px);
+    }
+    .skill-item:hover div {
+      background: rgba(15, 112, 93, 0.2);
+      border-color: #0f705d;
+      box-shadow: 0 0 15px rgba(15, 112, 93, 0.3);
+    }
+  </style>
 </body>
 </html>
