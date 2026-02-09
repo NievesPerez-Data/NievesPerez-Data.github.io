@@ -1,160 +1,48 @@
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Lato:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Lato:wght@400;700&display=swap');
 
-html {
-  background-color: #020502;
-  color: #ffffff;
+:root {
+  --verde-footer: #152219;   /* Tu verde oscuro base */
+  --verde-borde: #233629;    /* Verde para las líneas de los cuadros */
+  --verde-halo: rgba(35, 54, 41, 0.6); /* El resplandor para el efecto 3D */
+  --fondo-negro: #020502;
+  --blanco-suave: #d1d1d1;
+}
+
+html, body {
+  background-color: var(--fondo-negro) !important;
+  color: var(--blanco-suave) !important;
   margin: 0;
   padding: 0;
   font-family: 'Inconsolata', monospace;
+  scroll-behavior: smooth;
 }
 
-body {
-  background-color: #020502;
+h1, h2, h3 {
+  font-family: 'Inconsolata', monospace;
   color: #ffffff;
-  margin: 0;
-  padding: 0;
 }
 
 .container_p {
-  max-width: 1100px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-.main-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 100;
-  background: rgba(2, 5, 2, 0.9);
-  border-bottom: 1px solid rgba(5, 57, 49, 0.3);
+section {
+  padding: 80px 0;
+  scroll-margin-top: 90px;
 }
 
-.header-flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
+/* Estilo para los cuadros de proyectos (como pediste) */
+.card-proyecto {
+  background: #050806;
+  border: 1px solid var(--verde-borde);
+  padding: 25px;
+  border-radius: 4px; /* Un poco más cuadrado para estilo imprenta */
+  transition: all 0.3s ease;
 }
 
-.header-logo {
-  font-family: 'Inconsolata', monospace;
-  letter-spacing: 3px;
-  font-weight: 700;
-  color: #053931;
-}
-
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 30px;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #ffffff;
-  font-size: 0.8rem;
-}
-
-.hero-section {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 180px;
-  flex-wrap: wrap;
-  gap: 50px;
-}
-
-.hero-content {
-  flex: 1;
-  min-width: 320px;
-}
-
-.hero-subtitle {
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 1rem;
-  letter-spacing: 2px;
-  margin-bottom: 5px;
-}
-
-.hero-title {
-  font-size: 3.5rem;
-  line-height: 1.1;
-  color: #053931;
-  margin-bottom: 25px;
-}
-
-.hero-text {
-  max-width: 650px;
-  color: rgba(255, 255, 255, 0.5);
-  font-family: 'Lato', sans-serif;
-  font-weight: 300;
-  line-height: 1.8;
-}
-
-.hero-img-container {
-  width: 180px;
-  height: 180px;
-  border-radius: 999px;
-  border: 2px solid #053931;
-  overflow: hidden;
-}
-
-.hero-img-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.section-title {
-  font-size: 1rem;
-  margin-bottom: 50px;
-  color: #053931;
-  letter-spacing: 3px;
-  margin-top: 80px;
-}
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 30px;
-  padding-bottom: 80px;
-}
-
-.project-card {
-  background: rgba(5, 57, 49, 0.05);
-  border: 1px solid #053931;
-  padding: 40px 30px;
-  border-radius: 60px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  min-height: 450px;
-  justify-content: space-between;
-}
-
-.project-icon {
-  color: #053931;
-  font-size: 1.8rem;
-  margin-bottom: 25px;
-  display: block;
-}
-
-.project-tag {
-  margin-bottom: 20px;
-  font-size: 0.75rem;
-  color: #053931;
-  border: 1px solid #053931;
-  padding: 5px 12px;
-  border-radius: 20px;
-  display: inline-block;
-}
-
-.project-github {
-  color: #ffffff;
-  font-size: 1.2rem;
-  opacity: 0.6;
+.card-proyecto:hover {
+  border-color: var(--verde-halo);
+  box-shadow: 0 0 15px var(--verde-halo);
 }
