@@ -1,29 +1,17 @@
----
-import Header from "../components/header/Header.astro";
-import Main from "../components/main/main.astro";
-import Footer from "../components/footer/Footer.astro";
-import "../style/index.css";
----
-
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Nieves Pérez Alonso | Data Analyst</title>
-    <script src="https://kit.fontawesome.com/2898a0ac51.js" crossorigin="anonymous"></script>
-    
-    <style is:global>
-      /* Refuerzo para que nada se vea blanco */
-      html, body {
-        background-color: #000 !important;
-        color: #f6f6f9 !important;
-      }
-    </style>
-  </head>
-  <body>
-    <Header />
-    <Main />
-    <Footer />
-  </body>
-</html>
+<style is:global>
+  /* ESTO RECUPERA EL COLOR NEGRO */
+  html, body {
+    background-color: #000 !important;
+    color: #f6f6f9 !important;
+    margin: 0;
+    padding: 0;
+    font-family: 'ABeeZee', sans-serif;
+  }
+  
+  /* Esto arregla el contenedor de los componentes */
+  .container_p {
+    max-width: 1355px;
+    margin: 0 auto;
+    background-color: #000;
+  }
+</style>
