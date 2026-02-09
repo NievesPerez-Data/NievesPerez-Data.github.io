@@ -44,12 +44,27 @@ try {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nieves Pérez Alonso | Data Analyst</title>
   <script src="https://kit.fontawesome.com/2898a0ac51.js" crossorigin="anonymous"></script>
-  <!-- REGRESO A LA TIPOGRAFÍA ORIGINAL -->
   <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
   <style>
     .text-justified {
       text-align: justify;
       hyphens: auto;
+    }
+    /* Estilo común para los encabezados de sección */
+    .section-title {
+      color: #ffffff; /* Títulos en blanco */
+      font-family: 'Inconsolata', monospace;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      margin-bottom: 50px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .section-title span {
+      height: 1px;
+      background: rgba(15, 112, 93, 0.4);
+      flex-grow: 1;
     }
   </style>
 </head>
@@ -61,10 +76,7 @@ try {
     <!-- SECCIÓN INICIO -->
     <section id="inicio" style="display: flex; align-items: center; justify-content: space-between; padding: 160px 0 80px 0; min-height: 80vh; flex-wrap: wrap; gap: 40px;">
       <div style="flex: 1; min-width: 320px;">
-        <!-- Nombre un poco más grande (1.8rem) -->
         <p style="color: #0f705d; font-family: 'Inconsolata', monospace; font-size: 1.8rem; font-weight: 700; margin-bottom: 10px;">Nieves Pérez Alonso</p>
-        
-        <!-- Subtítulo profesional un poco más pequeño (3.2rem) pero superior al nombre -->
         <h1 style="font-size: clamp(2.2rem, 4.5vw, 3.2rem); line-height: 1.1; margin: 0 0 25px 0; font-weight: 800; text-transform: uppercase; font-family: 'Lato', sans-serif;">DATA ANALYST <br/> & BUSINESS INTELLIGENCE</h1>
         
         <p class="text-justified" style="color: #d1d1d1; line-height: 1.6; margin-bottom: 40px; max-width: 580px; font-size: 1.1rem;">
@@ -86,8 +98,8 @@ try {
 
     <!-- SECCIÓN PROYECTOS -->
     <section id="proyectos" style="padding: 100px 0;">
-      <h2 style="color: #0f705d; font-family: 'Inconsolata', monospace; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 50px; display: flex; align-items: center; gap: 15px;">
-        Proyectos <span style="height: 1px; background: rgba(15, 112, 93, 0.3); flex-grow: 1;"></span>
+      <h2 class="section-title">
+        Proyectos <span></span>
       </h2>
       {error && <p style="color: #ff6b6b;">{error}</p>}
       <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px;">
@@ -107,10 +119,10 @@ try {
       </div>
     </section>
 
-    <!-- SECCIÓN HABILIDADES (SIMPLIFICADA) -->
+    <!-- SECCIÓN HABILIDADES -->
     <section id="habilidades" style="padding: 100px 0;">
-      <h2 style="color: #0f705d; font-family: 'Inconsolata', monospace; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 50px; display: flex; align-items: center; gap: 15px;">
-        Habilidades <span style="height: 1px; background: rgba(15, 112, 93, 0.3); flex-grow: 1;"></span>
+      <h2 class="section-title">
+        Habilidades <span></span>
       </h2>
       <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 20px;">
         {[
@@ -132,10 +144,10 @@ try {
       </div>
     </section>
 
-    <!-- SECCIÓN FORMACIÓN (SIMPLIFICADA Y ACTUALIZADA) -->
+    <!-- SECCIÓN FORMACIÓN -->
     <section id="estudios" style="padding: 100px 0;">
-      <h2 style="color: #0f705d; font-family: 'Inconsolata', monospace; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 50px; display: flex; align-items: center; gap: 15px;">
-        Formación <span style="height: 1px; background: rgba(15, 112, 93, 0.3); flex-grow: 1;"></span>
+      <h2 class="section-title">
+        Formación <span></span>
       </h2>
       
       <div style="display: flex; flex-direction: column; gap: 40px;">
@@ -164,8 +176,8 @@ try {
 
     <!-- SECCIÓN SOBRE MÍ -->
     <section id="sobremi" style="padding: 100px 0 150px 0;">
-      <h2 style="color: #0f705d; font-family: 'Inconsolata', monospace; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 40px; display: flex; align-items: center; gap: 15px;">
-        Sobre mí <span style="height: 1px; background: rgba(15, 112, 93, 0.3); flex-grow: 1;"></span>
+      <h2 class="section-title">
+        Sobre mí <span></span>
       </h2>
       <div class="text-justified" style="color: #aaaaaa; max-width: 850px; line-height: 1.8; font-size: 1.1rem;">
         <p style="margin-bottom: 20px;">
