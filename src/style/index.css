@@ -107,7 +107,7 @@ section {
   max-width: 650px;
 }
 
-.texto-traslucido p {
+.espaciado-p {
   margin-bottom: 15px;
 }
 
@@ -146,6 +146,13 @@ section {
 }
 
 /* PROYECTOS */
+.subtitulo-seccion {
+  font-size: 1rem;
+  margin-bottom: 50px;
+  color: var(--verde-principal);
+  letter-spacing: 3px;
+}
+
 .grid-proyectos {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -172,6 +179,18 @@ section {
   transform: translateY(-8px);
 }
 
+.icono-proyecto {
+  color: var(--verde-principal);
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  display: block;
+}
+
+.titulo-proyecto {
+  font-size: 1.25rem;
+  margin-bottom: 20px;
+}
+
 .lang-tag {
   margin-bottom: 25px;
   font-size: 0.75rem;
@@ -191,15 +210,18 @@ section {
 }
 
 /* SKILLS */
+.seccion-skills {
+  border-top: 1px solid rgba(5, 57, 49, 0.2);
+}
+
 .skills-grid {
   display: grid; 
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
   gap: 40px;
-  border-top: 1px solid rgba(5, 57, 49, 0.2);
   padding-top: 40px;
 }
 
-.skill-title {
+.skill-box-title {
   font-size: 0.8rem; 
   color: var(--blanco-puro); 
   margin-bottom: 20px;
