@@ -5,7 +5,8 @@ import "../style/index.css";
 
 // Configuración de GitHub
 const GITHUB_USERNAME = "NievesPerez-Data";
-// URL de la imagen de LinkedIn
+
+// URL Directa de tu imagen de LinkedIn
 const LINKEDIN_PHOTO_URL = "https://media.licdn.com/dms/image/v2/D4D03AQE-3H1G-FpPZA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1710344510373?e=1744848000&v=beta&t=Zz77xS9z-D_xLhK7X-Q5-gO7V7M9E8k9R8v7f7C6Y5U";
 
 let proyectos = [];
@@ -19,12 +20,11 @@ try {
     const data = await response.json();
     
     // FILTRO: Excluimos el repo del portfolio y otros que no quieras mostrar
-    // Puedes añadir más nombres al array 'reposAOcultar'
     const reposAOcultar = [`${GITHUB_USERNAME.toLowerCase()}.github.io`, "portfolio-astro"];
     
     proyectos = data
       .filter(repo => !reposAOcultar.includes(repo.name.toLowerCase()))
-      .slice(0, 6) // Nos quedamos con los 6 más recientes tras filtrar
+      .slice(0, 6) 
       .map(repo => ({
         name: repo.name.replace(/-/g, ' ').replace(/_/g, ' '),
         url: repo.html_url,
@@ -95,7 +95,12 @@ try {
       <div style="position: relative; width: 350px; height: 350px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
         <div style="position: absolute; width: 120%; height: 120%; background: radial-gradient(circle, rgba(15, 112, 93, 0.25) 0%, transparent 70%); border-radius: 50%;"></div>
         <div style="position: relative; width: 300px; height: 300px; border-radius: 50%; overflow: hidden; border: 1px solid rgba(15, 112, 93, 0.3); background: #0a0a0a; z-index: 2;">
-          <img src={LINKEDIN_PHOTO_URL} alt="Nieves Pérez" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='https://github.com/NievesPerez-Data.png'"/>
+          <img 
+            src={LINKEDIN_PHOTO_URL} 
+            alt="Nieves Pérez" 
+            style="width: 100%; height: 100%; object-fit: cover;" 
+            crossorigin="anonymous"
+          />
         </div>
       </div>
     </section>
