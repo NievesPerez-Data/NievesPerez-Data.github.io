@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Lato:wght@400;700&display=swap');
 
 :root {
-  --verde-footer: #152219;   /* Tu verde oscuro base */
-  --verde-borde: #233629;    /* Verde para las líneas de los cuadros */
-  --verde-halo: rgba(35, 54, 41, 0.6); /* El resplandor para el efecto 3D */
+  --verde-footer: #152219;
+  --verde-borde: #233629;
+  --verde-halo: rgba(35, 54, 41, 0.6);
   --fondo-negro: #020502;
   --blanco-suave: #d1d1d1;
 }
 
 html, body {
-  background-color: var(--fondo-negro) !important;
-  color: var(--blanco-suave) !important;
+  background-color: #020502 !important;
+  color: #d1d1d1 !important;
   margin: 0;
   padding: 0;
   font-family: 'Inconsolata', monospace;
@@ -33,16 +33,55 @@ section {
   scroll-margin-top: 90px;
 }
 
-/* Estilo para los cuadros de proyectos (como pediste) */
+/* Clases para corregir el error del compilador */
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 150px;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.foto-wrapper {
+  position: relative;
+}
+
+.foto-halo {
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  background: rgba(35, 54, 41, 0.6);
+  filter: blur(10px);
+  opacity: 0.5;
+}
+
+.foto-frame {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 2px solid #233629;
+  overflow: hidden;
+  background: #000;
+  z-index: 1;
+}
+
 .card-proyecto {
   background: #050806;
-  border: 1px solid var(--verde-borde);
+  border: 1px solid #233629;
   padding: 25px;
-  border-radius: 4px; /* Un poco más cuadrado para estilo imprenta */
+  border-radius: 4px;
   transition: all 0.3s ease;
 }
 
 .card-proyecto:hover {
-  border-color: var(--verde-halo);
-  box-shadow: 0 0 15px var(--verde-halo);
+  border-color: rgba(35, 54, 41, 0.6);
+  box-shadow: 0 0 15px rgba(35, 54, 41, 0.6);
+}
+
+.skills-box {
+  border: 1px solid #233629;
+  padding: 30px;
+  background: rgba(21, 34, 25, 0.2);
 }
