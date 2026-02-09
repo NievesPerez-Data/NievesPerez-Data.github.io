@@ -1,33 +1,41 @@
+/* Importamos tipografías: Serif para títulos (imprenta) y Sans para cuerpo */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap');
 
-@import url("https://fonts.googleapis.com/css2?family=ABeeZee&display=swap");
+:root {
+  --verde-oscuro: #1b3022;   /* Verde bosque profundo */
+  --verde-medio: #395442;    /* Verde oliva */
+  --verde-acento: #4f772d;   /* Verde hoja */
+  --fondo-negro: #020502;
+  --blanco-suave: #e0e0e0;
+}
 
-/* ELIMINAMOS EL BLANCO POR FUERZA BRUTA */
 html, body {
-  background-color: #020502 !important;
-  color: #f6f6f9 !important;
+  background-color: var(--fondo-negro) !important;
+  color: var(--blanco-suave) !important;
   margin: 0;
   padding: 0;
-  font-family: 'ABeeZee', sans-serif;
+  font-family: 'Lato', sans-serif;
   scroll-behavior: smooth;
 }
 
-* {
-  box-sizing: border-box;
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif; /* Letra tipo imprenta */
+  color: #ffffff;
 }
 
-/* Contenedor principal */
 .container_p {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 20px;
-  background-color: #020502;
 }
 
-/* Formato de las secciones */
 section {
-  padding: 80px 0;
+  padding: 100px 0;
   scroll-margin-top: 90px;
-  background-color: #020502;
 }
 
-h2 { color: #4ade80; font-size: 2rem; }
+/* Etiquetas de lenguajes con distintos verdes */
+.lang-sql { color: #8fb339; }
+.lang-python { color: #4f772d; }
+.lang-tableau { color: #90a955; }
+.lang-default { color: var(--verde-medio); }
