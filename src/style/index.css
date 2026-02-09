@@ -1,42 +1,47 @@
----
-import Header from "../components/header/Header.astro";
-import Main from "../components/main/main.astro";
-import Footer from "../components/footer/Footer.astro";
----
+@import url("https://fonts.googleapis.com/css2?family=ABeeZee&family=Lato:wght@400;700&display=swap");
 
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Nieves Pérez Alonso | Data Analyst</title>
-    <script src="https://kit.fontawesome.com/2898a0ac51.js" crossorigin="anonymous"></script>
-  </head>
-  <body>
-    <Header />
-    <Main />
-    <Footer />
-  </body>
-</html>
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
-<style is:global>
-  /* ESTO FUERZA EL COLOR NEGRO */
-  html, body {
-    background-color: #000 !important;
-    color: #f6f6f9 !important;
-    margin: 0;
-    padding: 0;
-    font-family: 'ABeeZee', sans-serif;
-    scroll-behavior: smooth;
-  }
+html {
+  margin: 0 auto;
+  scroll-behavior: smooth;
+}
 
-  /* Arregla el problema de los botones del Header */
-  section {
-    scroll-margin-top: 90px;
-    min-height: 200px; /* Para que se vea contenido aunque esté vacío */
-  }
+:root {
+  --text: "Lato", sans-serif;
+}
 
-  .container_p {
-    max-width: 1355px;
-    margin: 0 auto;
-  }
-</style>
+body {
+  font-family: "ABeeZee", sans-serif;
+  background-color: #000;
+  color: #f6f6f9;
+}
+
+html::-webkit-scrollbar {
+  background-color: #46465e;
+  width: 10px;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: #01be96;
+  border-radius: 20px;
+  width: 10px;
+}
+
+main {
+  position: relative;
+  background-color: #000;
+}
+
+.container_p {
+  max-width: 1355px;
+  margin: 0 auto;
+}
+
+section {
+  scroll-margin-top: 100px; /* Para que el menú no tape los títulos */
+}
