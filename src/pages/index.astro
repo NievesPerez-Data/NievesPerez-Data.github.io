@@ -14,7 +14,6 @@ try {
   
   if (response.ok) {
     const data = await response.json();
-    // 2. BLOQUEO DE github.io para que no figure el repositorio del portfolio
     proyectos = data
       .filter(repo => !repo.name.includes('github.io'))
       .slice(0, 6)
@@ -44,16 +43,12 @@ try {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nieves Pérez Alonso | Data Analyst</title>
   <script src="https://kit.fontawesome.com/2898a0ac51.js" crossorigin="anonymous"></script>
-  <!-- 4. FUENTE TIPO MÁQUINA (COURIER PRIME / TIPO NIAGARA) -->
-  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Inconsolata:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <!-- REGRESO A LA TIPOGRAFÍA ORIGINAL -->
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* Estilo para asegurar que los textos estén cuadrados (justificados) */
     .text-justified {
       text-align: justify;
       hyphens: auto;
-    }
-    .typewriter-font {
-      font-family: 'Courier Prime', 'Courier New', Courier, monospace;
     }
   </style>
 </head>
@@ -65,10 +60,12 @@ try {
     <!-- SECCIÓN INICIO -->
     <section id="inicio" style="display: flex; align-items: center; justify-content: space-between; padding: 160px 0 80px 0; min-height: 80vh; flex-wrap: wrap; gap: 40px;">
       <div style="flex: 1; min-width: 320px;">
-        <!-- Nombre un poco más grande -->
+        <!-- Nombre un poco más grande (1.8rem) -->
         <p style="color: #0f705d; font-family: 'Inconsolata', monospace; font-size: 1.8rem; font-weight: 700; margin-bottom: 10px;">Nieves Pérez Alonso</p>
-        <!-- Subtítulo profesional un poco más pequeño, pero mayor que el nombre -->
-        <h1 class="typewriter-font" style="font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.1; margin: 0 0 25px 0; font-weight: 800; text-transform: uppercase;">DATA ANALYST <br/> & BUSINESS INTELLIGENCE</h1>
+        
+        <!-- Subtítulo profesional un poco más pequeño (3.2rem) pero superior al nombre -->
+        <h1 style="font-size: clamp(2.2rem, 4.5vw, 3.2rem); line-height: 1.1; margin: 0 0 25px 0; font-weight: 800; text-transform: uppercase; font-family: 'Lato', sans-serif;">DATA ANALYST <br/> & BUSINESS INTELLIGENCE</h1>
+        
         <p class="text-justified" style="color: #d1d1d1; line-height: 1.6; margin-bottom: 40px; max-width: 580px; font-size: 1.1rem;">
           Especializada en transformar datos complejos en decisiones estratégicas. Más de 6 años optimizando procesos y operaciones para maximizar la rentabilidad mediante el análisis avanzado.
         </p>
@@ -100,7 +97,7 @@ try {
                 <i class="fa-regular fa-folder" style="font-size: 1.5rem;"></i>
                 <a href={p.url} target="_blank" style="color: #ffffff; opacity: 0.7;"><i class="fa-brands fa-github"></i></a>
               </div>
-              <h3 class="typewriter-font" style="color: #ffffff; margin-bottom: 10px; text-transform: capitalize;">{p.name}</h3>
+              <h3 style="color: #ffffff; margin-bottom: 10px; text-transform: capitalize; font-family: 'Inconsolata', monospace;">{p.name}</h3>
               <p class="text-justified" style="color: #aaaaaa; font-size: 0.9rem; line-height: 1.5; margin-bottom: 20px;">{p.desc}</p>
             </div>
             <span style="color: #0f705d; font-family: 'Inconsolata', monospace; font-weight: bold; font-size: 0.8rem;">{p.lang}</span>
@@ -109,7 +106,7 @@ try {
       </div>
     </section>
 
-    <!-- SECCIÓN HABILIDADES (TÍTULO SIMPLIFICADO) -->
+    <!-- SECCIÓN HABILIDADES (SIMPLIFICADA) -->
     <section id="habilidades" style="padding: 100px 0;">
       <h2 style="color: #0f705d; font-family: 'Inconsolata', monospace; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 50px; display: flex; align-items: center; gap: 15px;">
         Habilidades <span style="height: 1px; background: rgba(15, 112, 93, 0.3); flex-grow: 1;"></span>
@@ -128,40 +125,43 @@ try {
         ].map(skill => (
           <div style="background: rgba(15, 112, 93, 0.05); border: 1px solid rgba(15, 112, 93, 0.1); padding: 25px; border-radius: 8px; text-align: center; transition: 0.3s;">
              <i class={skill.icon} style="font-size: 2rem; color: #0f705d; display: block; margin-bottom: 10px;"></i>
-             <span class="typewriter-font" style="font-size: 0.85rem; font-weight: 700; color: #ffffff;">{skill.name}</span>
+             <span style="font-family: 'Inconsolata', monospace; font-size: 0.85rem; font-weight: 700; color: #ffffff;">{skill.name}</span>
           </div>
         ))}
       </div>
     </section>
 
-    <!-- SECCIÓN FORMACIÓN (TÍTULO SIMPLIFICADO) -->
+    <!-- SECCIÓN FORMACIÓN (SIMPLIFICADA Y ACTUALIZADA) -->
     <section id="estudios" style="padding: 100px 0;">
       <h2 style="color: #0f705d; font-family: 'Inconsolata', monospace; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 50px; display: flex; align-items: center; gap: 15px;">
         Formación <span style="height: 1px; background: rgba(15, 112, 93, 0.3); flex-grow: 1;"></span>
       </h2>
       
       <div style="display: flex; flex-direction: column; gap: 40px;">
+        <!-- ADALAB -->
         <div style="border-left: 3px solid #0f705d; padding-left: 25px;">
-          <h3 class="typewriter-font" style="margin: 0; font-size: 1.25rem; color: #ffffff;">DATA ANALYST</h3>
-          <p style="margin: 5px 0; font-weight: 700; color: #0f705d;">Análisis de Datos & Inteligencia Artificial aplicada</p>
-          <div style="color: #888888; font-size: 0.9rem; font-family: 'Inconsolata', monospace;">2024 - Actualidad</div>
+          <h3 style="margin: 0; font-size: 1.25rem; color: #ffffff; font-family: 'Inconsolata', monospace; letter-spacing: 1px;">ADALAB</h3>
+          <p style="margin: 5px 0; font-weight: 700; color: #0f705d;">Bootcamp Data Analytics & Inteligencia Artificial aplicada</p>
+          <div style="color: #888888; font-size: 0.9rem; font-family: 'Inconsolata', monospace;">Online | 2025 - 2026</div>
         </div>
 
+        <!-- UCM -->
         <div style="border-left: 3px solid #0f705d; padding-left: 25px;">
-          <h3 class="typewriter-font" style="margin: 0; font-size: 1.25rem; color: #ffffff;">MÁSTER EN EDUCACIÓN ARTÍSTICA</h3>
-          <p style="margin: 5px 0; font-weight: 700; color: #0f705d;">Especialización en Instituciones Sociales y Culturales</p>
-          <div style="color: #888888; font-size: 0.9rem; font-family: 'Inconsolata', monospace;">Madrid | 2014-2015</div>
+          <h3 style="margin: 0; font-size: 1.25rem; color: #ffffff; font-family: 'Inconsolata', monospace; letter-spacing: 1px;">UNIVERSIDAD COMPLUTENSE DE MADRID</h3>
+          <p style="margin: 5px 0; font-weight: 700; color: #0f705d;">Máster en Educación Artística en Instituciones Sociales y Culturales</p>
+          <div style="color: #888888; font-size: 0.9rem; font-family: 'Inconsolata', monospace;">Madrid | 2014 - 2015</div>
         </div>
 
+        <!-- UAM -->
         <div style="border-left: 3px solid #0f705d; padding-left: 25px;">
-          <h3 class="typewriter-font" style="margin: 0; font-size: 1.25rem; color: #ffffff;">GRADO EN HISTORIA DEL ARTE</h3>
-          <p style="margin: 5px 0; font-weight: 700; color: #0f705d;">Facultad de Filosofía y Letras</p>
-          <div style="color: #888888; font-size: 0.9rem; font-family: 'Inconsolata', monospace;">Madrid | 2009-2014</div>
+          <h3 style="margin: 0; font-size: 1.25rem; color: #ffffff; font-family: 'Inconsolata', monospace; letter-spacing: 1px;">UNIVERSIDAD AUTÓNOMA DE MADRID</h3>
+          <p style="margin: 5px 0; font-weight: 700; color: #0f705d;">Grado en Historia del Arte</p>
+          <div style="color: #888888; font-size: 0.9rem; font-family: 'Inconsolata', monospace;">Madrid | 2009 - 2014</div>
         </div>
       </div>
     </section>
 
-    <!-- SECCIÓN SOBRE MÍ ORIGINAL -->
+    <!-- SECCIÓN SOBRE MÍ -->
     <section id="sobremi" style="padding: 100px 0 150px 0;">
       <h2 style="color: #0f705d; font-family: 'Inconsolata', monospace; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 40px; display: flex; align-items: center; gap: 15px;">
         Sobre mí <span style="height: 1px; background: rgba(15, 112, 93, 0.3); flex-grow: 1;"></span>
