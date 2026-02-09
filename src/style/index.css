@@ -34,6 +34,7 @@ section {
   scroll-margin-top: 90px;
 }
 
+/* HEADER */
 .header-personalizado {
   position: fixed;
   top: 0;
@@ -44,12 +45,28 @@ section {
   backdrop-filter: blur(10px);
 }
 
+.header-inner {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 20px;
+}
+
+.header-logo {
+  font-family: 'Inconsolata', monospace;
+  letter-spacing: 3px;
+  font-weight: 700;
+  color: var(--verde-principal);
+}
+
 .nav-lista {
   display: flex;
   list-style: none;
   gap: 30px;
   font-size: 0.8rem;
   letter-spacing: 1px;
+  padding: 0;
+  margin: 0;
 }
 
 .nav-lista a {
@@ -57,6 +74,7 @@ section {
   color: white;
 }
 
+/* SECCION INICIO */
 .inicio-flex {
   display: flex;
   align-items: center;
@@ -89,13 +107,21 @@ section {
   max-width: 650px;
 }
 
+.texto-traslucido p {
+  margin-bottom: 15px;
+}
+
+/* FOTO */
 .foto-contenedor {
   position: relative;
 }
 
 .foto-halo {
   position: absolute;
-  inset: -10px;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
   border-radius: 50%;
   background: var(--verde-principal);
   filter: blur(20px);
@@ -119,6 +145,7 @@ section {
   object-fit: cover;
 }
 
+/* PROYECTOS */
 .grid-proyectos {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -156,9 +183,25 @@ section {
   display: inline-block;
 }
 
-.header-logo {
-  font-family: 'Inconsolata', monospace;
-  letter-spacing: 3px;
-  font-weight: 700;
-  color: var(--verde-principal);
+.github-link {
+  color: var(--blanco-puro);
+  font-size: 1.3rem;
+  opacity: 0.6;
+  text-decoration: none;
+}
+
+/* SKILLS */
+.skills-grid {
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+  gap: 40px;
+  border-top: 1px solid rgba(5, 57, 49, 0.2);
+  padding-top: 40px;
+}
+
+.skill-title {
+  font-size: 0.8rem; 
+  color: var(--blanco-puro); 
+  margin-bottom: 20px;
+  letter-spacing: 1px;
 }
