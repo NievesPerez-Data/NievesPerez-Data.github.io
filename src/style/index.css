@@ -1,23 +1,42 @@
-@import url("https://fonts.googleapis.com/css2?family=ABeeZee&display=swap");
+---
+import Header from "../components/header/Header.astro";
+import Main from "../components/main/main.astro";
+import Footer from "../components/footer/Footer.astro";
+---
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Nieves Pérez Alonso | Data Analyst</title>
+    <script src="https://kit.fontawesome.com/2898a0ac51.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <Header />
+    <Main />
+    <Footer />
+  </body>
+</html>
 
-html {
-  scroll-behavior: smooth;
-  background-color: #000;
-}
+<style is:global>
+  /* ESTO FUERZA EL COLOR NEGRO */
+  html, body {
+    background-color: #000 !important;
+    color: #f6f6f9 !important;
+    margin: 0;
+    padding: 0;
+    font-family: 'ABeeZee', sans-serif;
+    scroll-behavior: smooth;
+  }
 
-body {
-  font-family: "ABeeZee", sans-serif;
-  background-color: #000;
-  color: #f6f6f9;
-}
+  /* Arregla el problema de los botones del Header */
+  section {
+    scroll-margin-top: 90px;
+    min-height: 200px; /* Para que se vea contenido aunque esté vacío */
+  }
 
-/* Evita que el header tape los títulos al hacer scroll */
-section {
-  scroll-margin-top: 90px;
-}
+  .container_p {
+    max-width: 1355px;
+    margin: 0 auto;
+  }
+</style>
