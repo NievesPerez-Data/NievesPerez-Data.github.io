@@ -3,17 +3,51 @@ import Header from "../components/header/Header.astro";
 import Footer from "../components/footer/Footer.astro";
 import "../style/index.css";
 
+// Lista completa de tus 6 proyectos
 const proyectos = [
-  { name: "Sakila Cinema Analytics", url: "https://github.com/NievesPerez-Data/proyecto-sql-sakila-analysis", desc: "SQL & Data Analysis para optimizar inventario.", lang: "SQL" },
-  { name: "The Friends Data Project", url: "https://github.com/NievesPerezData/proyecto_serieTV_Friends_Tableau", desc: "NLP y Sentiment Analysis sobre guiones.", lang: "Tableau" },
-  { name: "Análisis Retail Oysho", url: "#", desc: "Optimización de KPIs y gestión de stock.", lang: "Excel/BI" }
+  { 
+    name: "Sakila Cinema Analytics", 
+    url: "https://github.com/NievesPerez-Data/proyecto-sql-sakila-analysis", 
+    desc: "Análisis de bases de datos SQL para optimizar inventario y comportamiento de clientes.", 
+    lang: "SQL" 
+  },
+  { 
+    name: "The Friends Data Project", 
+    url: "https://github.com/NievesPerezData/proyecto_serieTV_Friends_Tableau", 
+    desc: "NLP y análisis de sentimiento aplicado a los guiones de la serie Friends.", 
+    lang: "Tableau & Python" 
+  },
+  { 
+    name: "Análisis Retail Oysho", 
+    url: "#", 
+    desc: "Optimización de KPIs, gestión de stock y análisis de ventas en tiempo real.", 
+    lang: "Excel & BI" 
+  },
+  { 
+    name: "Accidentes viales en Madrid", 
+    url: "#", 
+    desc: "Estudio estadístico sobre la siniestralidad vial utilizando Python.", 
+    lang: "Python" 
+  },
+  { 
+    name: "Diamond Price Predictor", 
+    url: "#", 
+    desc: "Modelo de Machine Learning para predecir el precio de diamantes.", 
+    lang: "ML & Scikit-learn" 
+  },
+  { 
+    name: "E-commerce Segmentation", 
+    url: "#", 
+    desc: "Segmentación de clientes mediante algoritmos de clustering (K-Means).", 
+    lang: "Python" 
+  }
 ];
 ---
 
 <html lang="es">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nieves Pérez Alonso | Data Analyst</title>
     <script src="https://kit.fontawesome.com/2898a0ac51.js" crossorigin="anonymous"></script>
   </head>
@@ -21,36 +55,38 @@ const proyectos = [
     <Header />
     
     <main class="container_p">
-      <section id="inicio" class="hero-container">
+      <!-- SECCIÓN: INICIO -->
+      <section id="inicio" style="display: flex; align-items: center; justify-content: space-between; padding-top: 150px; flex-wrap: wrap; gap: 40px;">
         <div style="flex: 1; min-width: 300px;">
           <h1 style="font-size: 2.8rem; margin: 0;">Nieves Pérez Alonso</h1>
           <p style="color: #4a6350; font-size: 1.2rem; margin-top: 10px;">[ DATA ANALYST ]</p>
           <p style="color: #777; margin-top: 25px; font-family: 'Lato', sans-serif; line-height: 1.6;">
-            Especializada en transformar datos de Retail en insights accionables. 
-            Experiencia sólida en gestión operativa en el sector moda.
+            Especializada en transformar datos complejos en decisiones estratégicas. 
+            Con un fuerte background en gestión operativa de Retail.
           </p>
         </div>
         
-        <div class="foto-wrapper">
-          <div class="foto-halo"></div>
-          <div class="foto-frame">
-            <img src="/img/tu-foto.webp" alt="Nieves Pérez" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%);" />
+        <div style="position: relative;">
+          <div style="position: absolute; inset: -5px; border-radius: 50%; background: var(--verde-halo); filter: blur(10px); opacity: 0.5;"></div>
+          <div style="position: relative; width: 180px; height: 180px; border-radius: 50%; border: 2px solid var(--verde-borde); overflow: hidden; background: #000; z-index: 1;">
+            <img src="/img/tu-foto.webp" alt="Nieves Pérez" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(10%);" />
           </div>
         </div>
       </section>
 
+      <!-- SECCIÓN: PROYECTOS -->
       <section id="proyectos">
         <h2 style="font-size: 1.2rem; margin-bottom: 40px; color: #4a6350;">// PROYECTOS_RECIENTES</h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px;">
           {proyectos.map(p => (
             <div class="card-proyecto">
               <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
-                <i class="fa-regular fa-folder" style="color: #4a6350;"></i>
-                <a href={p.url} style="color: #444;"><i class="fa-brands fa-github"></i></a>
+                <i class="fa-regular fa-folder" style="color: #4a6350; font-size: 1.5rem;"></i>
+                <a href={p.url} target="_blank" style="color: #444;"><i class="fa-brands fa-github" style="font-size: 1.2rem;"></i></a>
               </div>
-              <h3 style="font-size: 1.1rem; margin-bottom: 10px;">{p.name}</h3>
-              <p style="color: #666; font-size: 0.85rem; font-family: 'Lato', sans-serif;">{p.desc}</p>
-              <div style="margin-top: 20px; font-size: 0.75rem; color: #4a6350;">
+              <h3 style="font-size: 1.1rem; margin-bottom: 12px; color: #fff;">{p.name}</h3>
+              <p style="color: #888; font-size: 0.85rem; font-family: 'Lato', sans-serif; line-height: 1.5;">{p.desc}</p>
+              <div style="margin-top: 25px; font-size: 0.75rem; color: #4a6350; font-weight: bold;">
                 &lt; {p.lang} /&gt;
               </div>
             </div>
@@ -58,10 +94,49 @@ const proyectos = [
         </div>
       </section>
 
-      <section id="skills">
+      <!-- SECCIÓN: HABILIDADES -->
+      <section id="habilidades">
         <h2 style="font-size: 1.2rem; margin-bottom: 30px; color: #4a6350;">// HABILIDADES_TECH</h2>
-        <div class="skills-box">
-           <p style="color: #aaa;">Python • SQL • Tableau • Power BI • Análisis de KPIs • Retail Strategy</p>
+        <div style="border: 1px solid var(--verde-borde); padding: 40px; background: rgba(21, 34, 25, 0.1); border-radius: 4px;">
+           <p style="color: #aaa; line-height: 2.2; letter-spacing: 0.5px;">
+             <span style="color: #fff;">LENGUAJES:</span> Python, SQL <br/>
+             <span style="color: #fff;">VISUALIZACIÓN:</span> Tableau, Power BI, Matplotlib, Seaborn <br/>
+             <span style="color: #fff;">RETAIL:</span> Gestión de Inventarios, Optimización de Stock, Análisis de KPIs <br/>
+             <span style="color: #fff;">HERRAMIENTAS:</span> Git, GitHub, Excel Avanzado
+           </p>
+        </div>
+      </section>
+
+      <!-- SECCIÓN: ESTUDIOS -->
+      <section id="estudios">
+        <h2 style="font-size: 1.2rem; margin-bottom: 30px; color: #4a6350;">// FORMACIÓN_Y_ESTUDIOS</h2>
+        <div style="display: flex; flex-direction: column; gap: 30px;">
+          <div style="border-left: 2px solid var(--verde-borde); padding-left: 25px;">
+            <h3 style="font-size: 1.1rem; margin: 0; color: #fff;">Bootcamp Data Analytics</h3>
+            <p style="font-size: 0.9rem; color: #777; margin: 5px 0;">Ironhack | 2023</p>
+          </div>
+          <div style="border-left: 2px solid var(--verde-borde); padding-left: 25px;">
+            <h3 style="font-size: 1.1rem; margin: 0; color: #fff;">Grado en...</h3>
+            <p style="font-size: 0.9rem; color: #777; margin: 5px 0;">Universidad Complutense de Madrid</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECCIÓN: SOBRE MÍ -->
+      <section id="sobremi">
+        <h2 style="font-size: 1.2rem; margin-bottom: 30px; color: #4a6350;">// SOBRE_MÍ</h2>
+        <p style="color: #aaa; font-family: 'Lato', sans-serif; max-width: 850px; line-height: 1.8; font-size: 1.05rem;">
+          Tras años gestionando operaciones en el sector Retail, decidí unir mi conocimiento de negocio con la analítica de datos. Me apasiona resolver problemas complejos a través de la interpretación de números.
+        </p>
+      </section>
+
+      <!-- SECCIÓN: CONTACTO -->
+      <section id="contacto" style="margin-bottom: 120px; text-align: center; border-top: 1px solid rgba(35,54,41,0.2); padding-top: 80px;">
+        <h2 style="font-size: 1.2rem; margin-bottom: 40px; color: #4a6350;">// CONTACTO</h2>
+        <div style="display: flex; justify-content: center; gap: 40px; font-size: 2rem;">
+          <a href="mailto:tu-email@ejemplo.com" style="color: #d1d1d1;"><i class="fa-regular fa-envelope"></i></a>
+          <a href="#" style="color: #d1d1d1;"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="#" style="color: #d1d1d1;"><i class="fa-brands fa-github"></i></a>
         </div>
       </section>
       
