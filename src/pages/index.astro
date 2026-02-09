@@ -1,5 +1,4 @@
 ---
-/* src/pages/index.astro */
 import Header from "../components/header/Header.astro";
 import Main from "../components/main/main.astro";
 import Footer from "../components/footer/Footer.astro";
@@ -9,7 +8,9 @@ import "../style/index.css";
 <html lang="es">
   <head>
     <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
     <title>Nieves Pérez Alonso | Data Analyst</title>
     <script src="https://kit.fontawesome.com/2898a0ac51.js" crossorigin="anonymous"></script>
   </head>
@@ -21,13 +22,14 @@ import "../style/index.css";
 </html>
 
 <style is:global>
-  /* ESTO RECUPERA EL COLOR NEGRO Y EL FORMATO */
+  /* ESTO FUERZA EL COLOR NEGRO EN TODA LA WEB */
   :root {
     --primary-color: #01be96;
+    --background-color: #000;
   }
-  
+
   html, body {
-    background-color: #000 !important;
+    background-color: #000 !important; /* El !important es para que nada lo cambie a blanco */
     color: #f6f6f9 !important;
     margin: 0;
     padding: 0;
@@ -35,13 +37,15 @@ import "../style/index.css";
     scroll-behavior: smooth;
   }
 
+  /* Esto hace que cuando pulses "Habilidades", el título no quede tapado por el menú */
   section {
-    scroll-margin-top: 90px;
+    scroll-margin-top: 100px;
+    background-color: #000;
   }
 
   .container_p {
     max-width: 1355px;
     margin: 0 auto;
-    padding: 0 20px;
+    background-color: #000;
   }
 </style>
