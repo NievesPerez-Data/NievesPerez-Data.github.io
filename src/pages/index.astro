@@ -1,186 +1,354 @@
 <!DOCTYPE html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<title>Nieves Pérez Alonso | Data Analyst</title>
-		<script src="https://kit.fontawesome.com/2898a0ac51.js" crossorigin="anonymous"></script>
-		<style>
-			:root {
-				--accent: 136, 58, 234;
-				--accent-light: 224, 204, 250;
-				--accent-dark: 49, 10, 101;
-				--accent-gradient: linear-gradient(
-					45deg,
-					rgb(var(--accent)),
-					rgb(var(--accent-light)) 30%,
-					white 60%
-				);
-			}
-			html {
-				font-family: system-ui, sans-serif;
-				background: #13151a;
-				background-size: 224px;
-				color: white;
-			}
-			main {
-				margin: auto;
-				padding: 1rem;
-				width: 800px;
-				max-width: calc(100% - 2rem);
-				font-size: 20px;
-				line-height: 1.6;
-			}
-			.astro-a {
-				position: absolute;
-				top: -32px;
-				left: 50%;
-				transform: translatex(-50%);
-				width: 220px;
-				height: auto;
-				z-index: -1;
-			}
-			h1 {
-				font-size: 3.5rem;
-				font-weight: 700;
-				line-height: 1;
-				text-align: center;
-				margin-bottom: 1em;
-			}
-			.text-gradient {
-				background-image: var(--accent-gradient);
-				-webkit-background-clip: text;
-				-webkit-text-fill-color: transparent;
-				background-size: 400%;
-				background-position: 0%;
-			}
-			.instructions {
-				margin-bottom: 2rem;
-				border: 1px solid rgba(var(--accent-light), 25%);
-				background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
-				padding: 1.5rem;
-				border-radius: 8px;
-			}
-			.instructions code {
-				font-size: 0.8em;
-				font-weight: bold;
-				background: rgba(var(--accent-light), 12%);
-				color: rgb(var(--accent-light));
-				border-radius: 4px;
-				padding: 0.3em 0.45em;
-			}
-			.instructions strong {
-				color: rgb(var(--accent-light));
-			}
-			.link-card-grid {
-				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-				gap: 2rem;
-				padding: 0;
-			}
-			/* Estilos para las tarjetas de contenido */
-			.link-card {
-				list-style: none;
-				display: flex;
-				padding: 1px;
-				background-color: #23262d;
-				background-image: none;
-				background-size: 400%;
-				border-radius: 7px;
-				background-position: 100%;
-				transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-				box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-			}
-			.link-card > div {
-				width: 100%;
-				text-decoration: none;
-				line-height: 1.4;
-				padding: calc(1.5rem - 1px);
-				border-radius: 8px;
-				color: white;
-				background-color: #23262d;
-				opacity: 0.8;
-			}
-			h2 {
-				margin: 0;
-				font-size: 1.25rem;
-				transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-			}
-			p {
-				margin-top: 0.5rem;
-				margin-bottom: 0;
-			}
-			.link-card:is(:hover, :focus-within) {
-				background-position: 0;
-				background-image: var(--accent-gradient);
-			}
-			.link-card:is(:hover, :focus-within) h2 {
-				color: rgb(var(--accent-light));
-			}
-			.social-links {
-				display: flex;
-				justify-content: center;
-				gap: 2rem;
-				margin-top: 3rem;
-				font-size: 2rem;
-			}
-			.social-links a {
-				color: white;
-				transition: color 0.3s;
-			}
-			.social-links a:hover {
-				color: rgb(var(--accent-light));
-			}
-		</style>
-	</head>
-	<body>
-		<main>
-			<h1><span class="text-gradient">Nieves Pérez Alonso</span></h1>
-			
-			<section class="instructions">
-				<strong>Data Analyst & BI Specialist</strong><br />
-				Transformando datos en decisiones estratégicas. Experta en el sector Retail con más de 6 años de experiencia operativa.
-			</section>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nieves Pérez Alonso | Data Analyst</title>
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/2898a0ac51.js" crossorigin="anonymous"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f705d; /* El verde corporativo */
+            --primary-hover: #148a74;
+            --bg-dark: #020502;
+            --card-bg: #0a0a0a;
+            --text-main: #ffffff;
+            --text-dim: #d1d1d1;
+            --text-muted: #666666;
+            --font-mono: 'Inconsolata', monospace;
+            --font-sans: 'Lato', sans-serif;
+        }
 
-			<h2 style="margin-bottom: 1rem;">Sobre mí</h2>
-			<div class="instructions" style="background: rgba(255,255,255,0.05);">
-				Vengo del sector Retail (Inditex/Oysho), lo que me da una visión práctica de los datos. Mi objetivo es unir la analítica avanzada con las necesidades reales de negocio.
-			</div>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-			<h2 style="margin-bottom: 1rem;">Formación</h2>
-			<ul role="list" class="link-card-grid">
-				<li class="link-card">
-					<div>
-						<h2>Adalab <span>&rarr;</span></h2>
-						<p>Bootcamp Data Analytics & IA (2024-2025). Python, SQL, Tableau y Machine Learning.</p>
-					</div>
-				</li>
-				<li class="link-card">
-					<div>
-						<h2>Univ. Complutense <span>&rarr;</span></h2>
-						<p>Máster en Educación Artística e Investigación (2016-2017). Gestión y análisis cultural.</p>
-					</div>
-				</li>
-				<li class="link-card">
-					<div>
-						<h2>Univ. Autónoma <span>&rarr;</span></h2>
-						<p>Grado en Historia del Arte (2009-2014). Pensamiento crítico y análisis visual.</p>
-					</div>
-				</li>
-				<li class="link-card">
-					<div>
-						<h2>Stack Tecnológico <span>&rarr;</span></h2>
-						<p>Python (Pandas, Numpy), SQL, Tableau, Power BI, Excel Avanzado y Git.</p>
-					</div>
-				</li>
-			</ul>
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-			<div class="social-links">
-				<a href="https://github.com/NievesPerez-Data" target="_blank"><i class="fa-brands fa-github"></i></a>
-				<a href="https://linkedin.com/in/nievesperezalonso" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-				<a href="mailto:nievesperezalonso@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-			</div>
-		</main>
-	</body>
+        /* --- HEADER --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 40px;
+            background: rgba(2, 5, 2, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(15, 112, 93, 0.2);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            transition: 0.3s;
+            opacity: 0.8;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+            opacity: 1;
+        }
+
+        /* --- MAIN CONTENT --- */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 90vh;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .hero-content {
+            flex: 2;
+            min-width: 320px;
+        }
+
+        .hero-name {
+            color: var(--primary);
+            font-family: var(--font-mono);
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            line-height: 1;
+            margin: 0 0 25px 0;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            padding: 14px 35px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 4px;
+            display: inline-block;
+            transition: 0.3s;
+            font-family: var(--font-mono);
+        }
+
+        .btn-primary:hover { background: var(--primary-hover); }
+
+        /* --- SKILLS CON ICONOS UNIFICADOS --- */
+        .section-title {
+            font-family: var(--font-mono);
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            transition: 0.3s;
+        }
+
+        .icon-box {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(15, 112, 93, 0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(15, 112, 93, 0.1);
+            transition: 0.3s;
+        }
+
+        /* FILTRO MÁGICO: Convierte cualquier icono/imagen a nuestro verde corporativo */
+        .green-filter {
+            filter: invert(33%) sepia(80%) saturate(450%) hue-rotate(125deg) brightness(95%) contrast(90%);
+            width: 35px; 
+            height: 35px;
+        }
+
+        .skill-card:hover .icon-box {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            background: rgba(15, 112, 93, 0.15);
+        }
+
+        /* --- ESTUDIOS --- */
+        .education-item {
+            margin-bottom: 30px;
+            padding-left: 20px;
+            border-left: 2px solid var(--primary);
+        }
+
+        .edu-date { font-family: var(--font-mono); color: var(--primary); font-size: 0.9rem; font-weight: bold; }
+        .edu-title { font-size: 1.2rem; font-weight: 700; margin: 5px 0; }
+        .edu-inst { color: var(--text-muted); font-style: italic; }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 60px 40px;
+            background: #050805;
+            border-top: 1px solid rgba(15, 112, 93, 0.1);
+            text-align: center;
+        }
+
+        .footer-socials {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 20px;
+        }
+
+        .footer-socials a {
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            transition: 0.3s;
+        }
+
+        .footer-socials a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-family: var(--font-mono);
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 15px 20px; flex-direction: column; gap: 15px; }
+            .hero { text-align: center; justify-content: center; padding-top: 120px; }
+            .hero-title { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">&lt;NIEVES.DATA /&gt;</a>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#sobremi">Sobre mí</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#estudios">Estudios</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- SECCIÓN HERO -->
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <p class="hero-name">Nieves Pérez Alonso</p>
+                <h1 class="hero-title">DATA ANALYST <br/> RETAIL SPECIALIST</h1>
+                <p style="color: var(--text-dim); margin-bottom: 40px; max-width: 600px; font-size: 1.1rem;">
+                    Experta en transformar datos operativos en ventajas competitivas para el sector Retail.
+                </p>
+                <div class="hero-actions">
+                    <a href="mailto:nievesperezalonso@gmail.com" class="btn-primary">HABLEMOS</a>
+                </div>
+            </div>
+            
+            <div style="flex: 1; display: flex; justify-content: center;">
+                <div style="width: 280px; height: 280px; border-radius: 50%; border: 2px solid var(--primary); overflow: hidden; position: relative; background: #0a0a0a; display: flex; align-items: center; justify-content: center;">
+                    <i class="fa-solid fa-user-tie" style="font-size: 6rem; color: #1a1a1a;"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOBRE MÍ -->
+        <section id="sobremi">
+            <h2 class="section-title">Sobre mí</h2>
+            <div style="max-width: 800px;">
+                <p style="color: var(--text-dim); font-size: 1.15rem; margin-bottom: 20px;">
+                    Con más de 6 años de experiencia en el corazón operativo de <strong>Inditex (Oysho)</strong>, he aprendido que el dato solo es valioso cuando se traduce en una acción de negocio.
+                </p>
+                <p style="color: var(--text-dim); font-size: 1.15rem;">
+                    Mi transición al análisis de datos con <strong>Adalab</strong> me permite cerrar el círculo: usar Python, SQL y BI para optimizar esos mismos flujos que gestioné en tienda y almacén.
+                </p>
+            </div>
+        </section>
+
+        <!-- HABILIDADES (ICONOS UNIFICADOS) -->
+        <section id="habilidades">
+            <h2 class="section-title">Tecnologías</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="icon-box"><i class="fa-brands fa-python green-filter" style="font-size: 2rem;"></i></div>
+                    <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">Python</span>
+                </div>
+                <div class="skill-card">
+                    <div class="icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" class="green-filter"></div>
+                    <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">SQL</span>
+                </div>
+                <div class="skill-card">
+                    <div class="icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" class="green-filter"></div>
+                    <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">Pandas</span>
+                </div>
+                <div class="skill-card">
+                    <div class="icon-box"><i class="fa-solid fa-chart-pie green-filter" style="font-size: 1.8rem;"></i></div>
+                    <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">Tableau</span>
+                </div>
+                <div class="skill-card">
+                    <div class="icon-box"><i class="fa-solid fa-chart-column green-filter" style="font-size: 1.8rem;"></i></div>
+                    <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">Power BI</span>
+                </div>
+                <div class="skill-card">
+                    <div class="icon-box"><i class="fa-regular fa-file-excel green-filter" style="font-size: 1.8rem;"></i></div>
+                    <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">Excel</span>
+                </div>
+                <div class="skill-card">
+                    <div class="icon-box"><i class="fa-brands fa-git-alt green-filter" style="font-size: 2rem;"></i></div>
+                    <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">Git</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ESTUDIOS -->
+        <section id="estudios">
+            <h2 class="section-title">Formación</h2>
+            
+            <div class="education-item">
+                <span class="edu-date">2024 - 2025</span>
+                <h3 class="edu-title">Bootcamp Data Analytics & IA</h3>
+                <p class="edu-inst">Adalab</p>
+            </div>
+
+            <div class="education-item">
+                <span class="edu-date">2016 - 2017</span>
+                <h3 class="edu-title">Máster en Educación Artística</h3>
+                <p class="edu-inst">Universidad Complutense de Madrid (UCM)</p>
+            </div>
+
+            <div class="education-item">
+                <span class="edu-date">2009 - 2014</span>
+                <h3 class="edu-title">Grado en Historia del Arte</h3>
+                <p class="edu-inst">Universidad Autónoma de Madrid (UAM)</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-socials">
+            <a href="https://github.com/NievesPerez-Data" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a href="https://linkedin.com/in/nievesperezalonso" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="mailto:nievesperezalonso@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+        <p class="copyright">&lt; NIEVES PÉREZ ALONSO // 2026 /&gt;</p>
+    </footer>
+
+</body>
 </html>
