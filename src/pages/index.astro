@@ -10,10 +10,12 @@ let proyectos = [];
 let error = null;
 
 try {
+  // Llamada a la API para traer tus repositorios reales
   const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=10`);
   
   if (response.ok) {
     const data = await response.json();
+    // 2. BLOQUEO DE github.io para que no figure el repositorio del portfolio
     proyectos = data
       .filter(repo => !repo.name.includes('github.io'))
       .slice(0, 6)
@@ -43,190 +45,149 @@ try {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nieves Pérez Alonso | Data Analyst</title>
   <script src="https://kit.fontawesome.com/2898a0ac51.js" crossorigin="anonymous"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <!-- 4. FUENTE TIPO MÁQUINA -->
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Inconsolata:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* Reset y Estilos Globales */
-    body {
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-      background-color: #020502;
-      color: #ffffff;
-      font-family: 'Lato', sans-serif;
-    }
-    
-    /* Contenedor Maestro para alinear TODO */
-    .global-wrapper {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
+    /* Estilo para asegurar que los textos estén cuadrados (justificados) */
     .text-justified {
       text-align: justify;
+      hyphens: auto;
     }
-
-    /* Estilo de títulos con barra inferior (Limpio) */
-    .section-title {
-      color: #ffffff; 
-      font-family: 'Inconsolata', monospace;
-      font-size: 1.8rem;
-      text-transform: uppercase;
-      margin-bottom: 50px;
-      border-bottom: 1px solid rgba(15, 112, 93, 0.3);
-      padding-bottom: 15px;
-      display: block; /* Ocupa todo el ancho del contenedor */
-      width: 100%;
+    .typewriter-font {
+      font-family: 'Courier Prime', 'Courier New', Courier, monospace;
     }
-
-    /* Cards de habilidades */
-    .skill-card {
-      background: rgba(15, 112, 93, 0.05);
-      border: 1px solid rgba(15, 112, 93, 0.1);
-      padding: 25px;
-      border-radius: 8px;
-      text-align: center;
-      transition: 0.3s;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .skill-card:hover {
-      border-color: #0f705d;
-      transform: translateY(-5px);
-      background: rgba(15, 112, 93, 0.1);
-    }
-
-    /* Ajustes de secciones */
-    section {
-      padding: 100px 0;
+    /* Contenedor para alinear Header, Main y Footer */
+    .layout-container {
+      max-width: 1200px;
+      margin: 0 auto;
       width: 100%;
     }
   </style>
 </head>
-<body>
+<body style="background-color: #020502; color: #ffffff; margin: 0; font-family: 'Lato', sans-serif;">
   
-  <Header />
-
-  <!-- Envolvemos el contenido en un wrapper que controla el centrado -->
-  <div class="global-wrapper">
-    
-    <main>
-      <!-- SECCIÓN INICIO -->
-      <section id="inicio" style="display: flex; align-items: center; justify-content: space-between; padding-top: 180px; min-height: 80vh; flex-wrap: wrap; gap: 60px;">
-        <div style="flex: 1; min-width: 320px;">
-          <p style="color: #0f705d; font-family: 'Inconsolata', monospace; font-size: 1.6rem; font-weight: 700; margin-bottom: 10px;">Nieves Pérez Alonso</p>
-          <h1 style="font-size: clamp(2.5rem, 5vw, 3.8rem); line-height: 1.1; margin: 0 0 25px 0; font-weight: 800; text-transform: uppercase; font-family: 'Lato', sans-serif;">ESTRATEGIA DE NEGOCIO <br/> & DATA ANALYTICS</h1>
-          
-          <p class="text-justified" style="color: #d1d1d1; line-height: 1.7; margin-bottom: 40px; max-width: 600px; font-size: 1.15rem;">
-            Trayectoria consolidada en dirección de unidades de negocio y gestión de equipos. Especializada en la interpretación de KPIs para el diseño de estrategias comerciales y el cumplimiento de objetivos mediante el análisis avanzado de datos.
-          </p>
-          
-          <div style="display: flex; gap: 20px; margin-bottom: 40px;">
-            <a href="mailto:nievesperezalonso@gmail.com" style="background-color: #0f705d; color: #ffffff; padding: 14px 35px; text-decoration: none; font-weight: 700; border-radius: 4px; border: 2px solid #0f705d; transition: 0.3s;">Hablemos</a>
-            <a href="#" style="border: 2px solid #0f705d; color: #ffffff; padding: 14px 35px; text-decoration: none; font-weight: 700; border-radius: 4px; transition: 0.3s;">Currículum</a>
-          </div>
-          
-          <div style="display: flex; align-items: center; gap: 20px;">
-            <a href={`https://github.com/${GITHUB_USERNAME}`} target="_blank" style="color: #ffffff; font-size: 1.8rem; opacity: 0.8; transition: 0.3s;" onmouseover="this.style.color='#0f705d'" onmouseout="this.style.color='#ffffff'"><i class="fa-brands fa-github"></i></a>
-            <a href="https://linkedin.com/in/nievesperezalonso" target="_blank" style="color: #ffffff; font-size: 1.8rem; opacity: 0.8; transition: 0.3s;" onmouseover="this.style.color='#0f705d'" onmouseout="this.style.color='#ffffff'"><i class="fa-brands fa-linkedin"></i></a>
-          </div>
-        </div>
-        
-        <div style="width: 350px; height: 350px; border-radius: 50%; border: 2px solid #0f705d; overflow: hidden; position: relative; box-shadow: 0 0 40px rgba(15, 112, 93, 0.1);">
-          <img src="/img/tu-foto.webp" alt="Nieves Pérez" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='https://via.placeholder.com/350x350/020502/0f705d?text=NPA'"/>
-        </div>
-      </section>
-
-      <!-- SECCIÓN PROYECTOS -->
-      <section id="proyectos">
-        <h2 class="section-title">Proyectos Destacados</h2>
-        {error && <p style="color: #ff6b6b;">{error}</p>}
-        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px;">
-          {proyectos.map(p => (
-            <div style="background: #0a0a0a; border: 1px solid rgba(15, 112, 93, 0.2); padding: 30px; border-radius: 6px; display: flex; flex-direction: column; justify-content: space-between; transition: 0.3s;" onmouseover="this.style.borderColor='#0f705d'" onmouseout="this.style.borderColor='rgba(15, 112, 93, 0.2)'">
-              <div>
-                <div style="display: flex; justify-content: space-between; margin-bottom: 25px; color: #0f705d;">
-                  <i class="fa-regular fa-folder" style="font-size: 1.8rem;"></i>
-                  <a href={p.url} target="_blank" style="color: #ffffff; opacity: 0.6;"><i class="fa-brands fa-github"></i></a>
-                </div>
-                <h3 style="color: #ffffff; margin-bottom: 15px; text-transform: capitalize; font-family: 'Inconsolata', monospace; font-size: 1.25rem;">{p.name}</h3>
-                <p class="text-justified" style="color: #aaaaaa; font-size: 0.95rem; line-height: 1.6; margin-bottom: 25px;">{p.desc}</p>
-              </div>
-              <span style="color: #0f705d; font-family: 'Inconsolata', monospace; font-weight: bold; font-size: 0.85rem;"># {p.lang}</span>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <!-- SECCIÓN HABILIDADES -->
-      <section id="habilidades">
-        <h2 class="section-title">Habilidades Técnicas</h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 25px;">
-          {[
-            { name: "Python", icon: "fa-brands fa-python" },
-            { name: "MySQL", icon: "fa-solid fa-database" },
-            { name: "Pandas", icon: "fa-solid fa-table" },
-            { name: "Tableau", icon: "fa-solid fa-chart-pie" },
-            { name: "Power BI", icon: "fa-solid fa-chart-column" },
-            { name: "Ollama IA", icon: "fa-solid fa-robot" },
-            { name: "Scraping", icon: "fa-solid fa-spider" },
-            { name: "Excel", icon: "fa-regular fa-file-excel" },
-            { name: "Git/GitHub", icon: "fa-brands fa-github" }
-          ].map(skill => (
-            <div class="skill-card">
-               <i class={skill.icon} style="font-size: 2rem; color: #0f705d;"></i>
-               <span style="font-family: 'Inconsolata', monospace; font-size: 0.85rem; font-weight: 700; color: #ffffff;">{skill.name}</span>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <!-- SECCIÓN FORMACIÓN -->
-      <section id="estudios">
-        <h2 class="section-title">Formación Académica</h2>
-        <div style="display: flex; flex-direction: column; gap: 35px;">
-          <div style="background: linear-gradient(90deg, rgba(15, 112, 93, 0.1) 0%, transparent 100%); padding: 30px; border-left: 4px solid #0f705d;">
-            <h3 style="margin: 0; font-size: 1.2rem; color: #ffffff; font-family: 'Inconsolata', monospace;">ADALAB</h3>
-            <p style="margin: 8px 0; font-weight: 700; color: #0f705d; font-size: 1rem;">Bootcamp Data Analytics & Inteligencia Artificial aplicada</p>
-            <div style="color: #888888; font-size: 0.9rem; font-family: 'Inconsolata', monospace;">Online | 2025 - 2026</div>
-          </div>
-
-          <div style="padding: 20px 30px; border-left: 4px solid rgba(15, 112, 93, 0.2);">
-            <h3 style="margin: 0; font-size: 1.2rem; color: #ffffff; font-family: 'Inconsolata', monospace;">UNIVERSIDAD COMPLUTENSE DE MADRID</h3>
-            <p style="margin: 8px 0; font-weight: 700; color: #aaaaaa; font-size: 1rem;">Máster en Educación Artística en Instituciones Sociales y Culturales</p>
-            <div style="color: #666666; font-size: 0.9rem; font-family: 'Inconsolata', monospace;">Madrid | 2014 - 2015</div>
-          </div>
-
-          <div style="padding: 20px 30px; border-left: 4px solid rgba(15, 112, 93, 0.2);">
-            <h3 style="margin: 0; font-size: 1.2rem; color: #ffffff; font-family: 'Inconsolata', monospace;">UNIVERSIDAD AUTÓNOMA DE MADRID</h3>
-            <p style="margin: 8px 0; font-weight: 700; color: #aaaaaa; font-size: 1rem;">Grado en Historia del Arte</p>
-            <div style="color: #666666; font-size: 0.9rem; font-family: 'Inconsolata', monospace;">Madrid | 2009 - 2014</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- SECCIÓN SOBRE MÍ -->
-      <section id="sobremi" style="padding-bottom: 150px;">
-        <h2 class="section-title">Sobre mí</h2>
-        <div class="text-justified" style="color: #aaaaaa; max-width: 900px; line-height: 1.8; font-size: 1.1rem;">
-          <p style="margin-bottom: 25px;">
-            Trayectoria consolidada en dirección de unidades de negocio y gestión de equipos en el sector Retail. Mi valor diferencial reside en la combinación de una experiencia directa en toma de decisiones operativas con una sólida competencia técnica para optimizar procesos y detectar oportunidades de crecimiento mediante el análisis de datos.
-          </p>
-          <p style="margin-bottom: 25px;">
-            Como especialista en la interpretación de KPIs de rendimiento, diseño estrategias comerciales alineadas con el cumplimiento de objetivos de venta. Cuento con formación técnica avanzada en Análisis de Datos, con capacidad para explorar, limpiar y transformar datasets complejos en información útil y accionable.
-          </p>
-          <p>
-            Mi enfoque se centra en unir el mundo de las operaciones con la analítica avanzada, garantizando que cada dato se transforme en una decisión estratégica que aporte valor real al negocio.
-          </p>
-        </div>
-      </section>
-    </main>
+  <!-- El Header debe ir dentro o fuera dependiendo de su diseño interno, 
+       lo mantenemos como estaba pero envuelto para alineación -->
+  <div class="layout-container">
+    <Header />
   </div>
 
-  <Footer />
+  <main style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+    
+    <!-- SECCIÓN INICIO -->
+    <section id="inicio" style="display: flex; align-items: center; justify-content: space-between; padding: 160px 0 80px 0; min-height: 80vh; flex-wrap: wrap; gap: 40px;">
+      <div style="flex: 1; min-width: 320px;">
+        <p style="color: #0f705d; font-family: 'Inconsolata', monospace; font-size: 1.8rem; font-weight: 700; margin-bottom: 10px;">Nieves Pérez Alonso</p>
+        <h1 class="typewriter-font" style="font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.1; margin: 0 0 25px 0; font-weight: 800; text-transform: uppercase;">DATA ANALYST <br/> & BUSINESS INTELLIGENCE</h1>
+        <p class="text-justified" style="color: #d1d1d1; line-height: 1.6; margin-bottom: 40px; max-width: 580px; font-size: 1.1rem;">
+          Especializada en transformar datos complejos en decisiones estratégicas. Más de 6 años optimizando procesos y operaciones para maximizar la rentabilidad mediante el análisis avanzado.
+        </p>
+        <div id="contacto" style="display: flex; gap: 20px; margin-bottom: 40px; scroll-margin-top: 120px;">
+          <a href="mailto:nievesperezalonso@gmail.com" style="background-color: #0f705d; color: #ffffff; padding: 14px 35px; text-decoration: none; font-weight: 700; border-radius: 4px; border: 2px solid #0f705d;">Hablemos</a>
+          <a href="#" style="border: 2px solid #0f705d; color: #ffffff; padding: 14px 35px; text-decoration: none; font-weight: 700; border-radius: 4px;">Currículum</a>
+        </div>
+        <div style="display: flex; align-items: center; gap: 15px;">
+          <a href={`https://github.com/${GITHUB_USERNAME}`} target="_blank" style="color: #0f705d; font-size: 1.5rem;"><i class="fa-brands fa-github"></i></a>
+          <a href="https://linkedin.com/in/nievesperezalonso" target="_blank" style="color: #0f705d; font-size: 1.5rem;"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+      </div>
+      <div style="width: 350px; height: 350px; border-radius: 50%; border: 3px solid #0f705d; overflow: hidden; position: relative; box-shadow: 0 0 30px rgba(15, 112, 93, 0.4);">
+        <img src="/img/tu-foto.webp" alt="Nieves Pérez" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='https://via.placeholder.com/350x350/020502/0f705d?text=NPA'"/>
+      </div>
+    </section>
+
+    <!-- SECCIÓN PROYECTOS -->
+    <section id="proyectos" style="padding: 100px 0;">
+      <h2 style="color: #0f705d; font-family: 'Inconsolata', monospace; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 50px; display: flex; align-items: center; gap: 15px;">
+        Proyectos <span style="height: 1px; background: rgba(15, 112, 93, 0.3); flex-grow: 1;"></span>
+      </h2>
+      {error && <p style="color: #ff6b6b;">{error}</p>}
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px;">
+        {proyectos.map(p => (
+          <div style="background: rgba(15, 112, 93, 0.05); border: 1px solid rgba(15, 112, 93, 0.2); padding: 30px; border-radius: 4px; display: flex; flex-direction: column; justify-content: space-between; transition: 0.3s;" onmouseover="this.style.borderColor='#0f705d'" onmouseout="this.style.borderColor='rgba(15, 112, 93, 0.2)'">
+            <div>
+              <div style="display: flex; justify-content: space-between; margin-bottom: 20px; color: #0f705d;">
+                <i class="fa-regular fa-folder" style="font-size: 1.5rem;"></i>
+                <a href={p.url} target="_blank" style="color: #ffffff; opacity: 0.7;"><i class="fa-brands fa-github"></i></a>
+              </div>
+              <h3 class="typewriter-font" style="color: #ffffff; margin-bottom: 10px; text-transform: capitalize;">{p.name}</h3>
+              <p class="text-justified" style="color: #aaaaaa; font-size: 0.9rem; line-height: 1.5; margin-bottom: 20px;">{p.desc}</p>
+            </div>
+            <span style="color: #0f705d; font-family: 'Inconsolata', monospace; font-weight: bold; font-size: 0.8rem;">{p.lang}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- SECCIÓN HABILIDADES -->
+    <section id="habilidades" style="padding: 100px 0;">
+      <h2 style="color: #0f705d; font-family: 'Inconsolata', monospace; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 50px; display: flex; align-items: center; gap: 15px;">
+        Habilidades <span style="height: 1px; background: rgba(15, 112, 93, 0.3); flex-grow: 1;"></span>
+      </h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 20px;">
+        {[
+          { name: "Python", icon: "fa-brands fa-python" },
+          { name: "MySQL", icon: "fa-solid fa-database" },
+          { name: "Pandas", icon: "fa-solid fa-table" },
+          { name: "Tableau", icon: "fa-solid fa-chart-pie" },
+          { name: "Power BI", icon: "fa-solid fa-chart-column" },
+          { name: "Ollama IA", icon: "fa-solid fa-brain" },
+          { name: "Scraping", icon: "fa-solid fa-spider" },
+          { name: "Excel", icon: "fa-regular fa-file-excel" },
+          { name: "Git/GitHub", icon: "fa-brands fa-github" }
+        ].map(skill => (
+          <div style="background: rgba(15, 112, 93, 0.05); border: 1px solid rgba(15, 112, 93, 0.1); padding: 25px; border-radius: 8px; text-align: center; transition: 0.3s;">
+             <i class={skill.icon} style="font-size: 2rem; color: #0f705d; display: block; margin-bottom: 10px;"></i>
+             <span class="typewriter-font" style="font-size: 0.85rem; font-weight: 700; color: #ffffff;">{skill.name}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- SECCIÓN FORMACIÓN -->
+    <section id="estudios" style="padding: 100px 0;">
+      <h2 style="color: #0f705d; font-family: 'Inconsolata', monospace; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 50px; display: flex; align-items: center; gap: 15px;">
+        Formación <span style="height: 1px; background: rgba(15, 112, 93, 0.3); flex-grow: 1;"></span>
+      </h2>
+      <div style="display: flex; flex-direction: column; gap: 40px;">
+        <div style="border-left: 3px solid #0f705d; padding-left: 25px;">
+          <h3 class="typewriter-font" style="margin: 0; font-size: 1.25rem; color: #ffffff;">DATA ANALYST</h3>
+          <p style="margin: 5px 0; font-weight: 700; color: #0f705d;">Análisis de Datos & Inteligencia Artificial aplicada</p>
+          <div style="color: #888888; font-size: 0.9rem; font-family: 'Inconsolata', monospace;">2024 - Actualidad</div>
+        </div>
+        <div style="border-left: 3px solid #0f705d; padding-left: 25px;">
+          <h3 class="typewriter-font" style="margin: 0; font-size: 1.25rem; color: #ffffff;">MÁSTER EN EDUCACIÓN ARTÍSTICA</h3>
+          <p style="margin: 5px 0; font-weight: 700; color: #0f705d;">Especialización en Instituciones Sociales y Culturales</p>
+          <div style="color: #888888; font-size: 0.9rem; font-family: 'Inconsolata', monospace;">Madrid | 2014-2015</div>
+        </div>
+        <div style="border-left: 3px solid #0f705d; padding-left: 25px;">
+          <h3 class="typewriter-font" style="margin: 0; font-size: 1.25rem; color: #ffffff;">GRADO EN HISTORIA DEL ARTE</h3>
+          <p style="margin: 5px 0; font-weight: 700; color: #0f705d;">Facultad de Filosofía y Letras</p>
+          <div style="color: #888888; font-size: 0.9rem; font-family: 'Inconsolata', monospace;">Madrid | 2009-2014</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN SOBRE MÍ -->
+    <section id="sobremi" style="padding: 100px 0 150px 0;">
+      <h2 style="color: #0f705d; font-family: 'Inconsolata', monospace; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 40px; display: flex; align-items: center; gap: 15px;">
+        Sobre mí <span style="height: 1px; background: rgba(15, 112, 93, 0.3); flex-grow: 1;"></span>
+      </h2>
+      <div class="text-justified" style="color: #aaaaaa; max-width: 850px; line-height: 1.8; font-size: 1.1rem;">
+        <p style="margin-bottom: 20px;">
+          Mi trayectoria profesional se ha centrado en la intersección entre la estrategia de negocio y la eficiencia operativa. Con más de 6 años de experiencia en entornos dinámicos, he desarrollado una capacidad analítica centrada en la resolución de problemas y la optimización de resultados.
+        </p>
+        <p>
+          Actualmente, enfoco mi carrera en el análisis de datos para transformar métricas en historias accionables. Mi objetivo es utilizar herramientas técnicas avanzadas para proporcionar una visión clara que facilite el crecimiento y la toma de decisiones basada en datos.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="layout-container">
+    <Footer />
+  </div>
 
 </body>
 </html>
