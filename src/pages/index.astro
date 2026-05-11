@@ -94,4 +94,167 @@ try {
       </div>
       
       <div style="position: relative; width: 350px; height: 350px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-        <div style="position: absolute; width: 120%; height: 120%; background
+        <div style="position: absolute; width: 120%; height: 120%; background: radial-gradient(circle, rgba(15, 112, 93, 0.25) 0%, transparent 70%); border-radius: 50%;"></div>
+        <div style="position: relative; width: 300px; height: 300px; border-radius: 50%; overflow: hidden; border: 1px solid rgba(15, 112, 93, 0.3); background: #0a0a0a; z-index: 2;">
+          <img src="/img/profile.jpg" alt="Nieves Pérez" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.opacity='0'"/>
+        </div>
+      </div>
+    </section>
+
+    <section id="proyectos" style="padding: 100px 0;">
+      <h2 style="color: #ffffff; font-family: 'Inconsolata', monospace; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 50px;">Proyectos</h2>
+      
+      {error && <p style="color: #ff6b6b; font-family: 'Inconsolata', monospace;">{error}</p>}
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px;">
+        {proyectos.map(p => (
+          <div style="background: rgba(15, 112, 93, 0.03); border: 1px solid rgba(15, 112, 93, 0.1); padding: 30px; border-radius: 4px; display: flex; flex-direction: column; justify-content: space-between;">
+            
+            <div>
+              <div style="display: flex; justify-content: space-between; margin-bottom: 25px; color: #0f705d;">
+                <i class="fa-regular fa-folder" style="font-size: 1.8rem;"></i>
+                <a href={p.url} target="_blank" rel="noopener noreferrer" style="color: #00c896; opacity: 0.8; transition: 0.3s;">
+                  <i class="fa-brands fa-github" style="font-size: 1.5rem;"></i>
+                </a>
+              </div>
+              
+              <h3 style="margin: 0 0 12px 0; font-size: 1.2rem; color: #ffffff; text-transform: capitalize;">{p.name}</h3>
+              <p style="color: #aaaaaa; font-size: 0.9rem; line-height: 1.6; margin-bottom: 15px; text-align: justify;">{p.desc}</p>
+              
+              <div style="margin-bottom: 25px;">
+                <a href={p.demoUrl} target="_blank" rel="noopener noreferrer" style="color: #00c896; text-decoration: none; font-family: 'Inconsolata', monospace; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 8px; border-bottom: 1px solid rgba(0, 200, 150, 0.2); padding-bottom: 2px;">
+                  <span>{p.demoUrl.replace('https://', '').split('/')[0]}...</span> 
+                  <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.7rem;"></i>
+                </a>
+              </div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(15, 112, 93, 0.1); padding-top: 15px; margin-top: 10px;">
+               <span style="color: #666666; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; font-family: 'Inconsolata', monospace;">Framework / Stack</span>
+               <div style="color: #0f705d; font-size: 0.8rem; font-weight: 700; font-family: 'Inconsolata', monospace;">
+                 &lt; {p.lang} /&gt;
+               </div>
+            </div>
+
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section id="habilidades" style="padding: 100px 0;">
+      <h2 style="color: #ffffff; font-family: 'Inconsolata', monospace; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 40px;">Habilidades</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 20px;">
+        {[
+          { name: "Python", icon: "devicon-python-plain" },
+          { name: "AWS · Re/Start", icon: "devicon-amazonwebservices-plain-wordmark" },
+          { name: "MySQL", icon: "devicon-mysql-plain" },
+          { name: "Tableau", icon: "fa-solid fa-chart-line" },
+          { name: "Power BI", icon: "fa-solid fa-chart-column" },
+          { name: "Excel", icon: "fa-regular fa-file-excel" },
+          { name: "Ollama (IA)", icon: "fa-solid fa-microchip" },
+          { name: "Git", icon: "devicon-git-plain" },
+          { name: "GitHub", icon: "devicon-github-original" },
+          { name: "VS Code", icon: "devicon-vscode-plain" },
+          { name: "Pandas", icon: "devicon-pandas-plain" },
+          { name: "NumPy", icon: "devicon-numpy-plain" },
+          { name: "Selenium", icon: "devicon-selenium-original" },
+          { name: "BeautifulSoup", icon: "fa-solid fa-spider" }
+        ].map(skill => (
+          <div style="background: rgba(15, 112, 93, 0.05); border: 1px solid rgba(15, 112, 93, 0.1); border-radius: 8px; padding: 20px 10px; display: flex; flex-direction: column; align-items: center; gap: 12px; transition: 0.3s;">
+            <i class={skill.icon} style="font-size: 2rem; color: #0f705d;"></i>
+            <span style="font-family: 'Inconsolata', monospace; font-size: 0.8rem; font-weight: 700; color: #ffffff; text-align: center;">{skill.name}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section id="estudios" style="padding: 80px 0; max-width: 800px; background: #050505;">
+      <h2 style="color: #ffffff; font-family: 'Inconsolata', monospace; font-size: 1.6rem; text-transform: uppercase; margin-bottom: 40px; text-shadow: 0 0 6px rgba(0,255,150,0.2);">
+        ESTUDIOS
+      </h2>
+
+      <div style="display:flex; flex-direction:column; gap:35px;">
+        <div style="display:flex; align-items:center; gap:20px; border-left:2px solid #00c896; padding-left:20px;">
+          <div style="width:65px; height:65px; background:#08110f; border:1px solid rgba(0,255,170,0.25); border-radius:6px; display:flex; justify-content:center; align-items:center; box-shadow:0 0 8px rgba(0,255,170,0.1); flex-shrink: 0;">
+            <img src="/img/aws-restart.png" alt="AWS" style="max-width:40px; max-height:40px; object-fit:contain; filter: brightness(1.1) contrast(1.1);" />
+          </div>
+          <div>
+            <h3 style="margin:0;color:white;font-size:1.1rem;">AWS re/Start Graduate</h3>
+            <p style="margin:3px 0;color:#00e0aa;font-weight:bold;font-size:0.9rem;">Amazon Web Services & Adalab</p>
+            <p style="margin:0;color:#8a8a8a;font-size:0.85rem;">Online | 2026</p>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:20px; border-left:2px solid #00c896; padding-left:20px;">
+          <div style="width:65px; height:65px; background:#08110f; border:1px solid rgba(0,255,170,0.25); border-radius:6px; display:flex; justify-content:center; align-items:center; box-shadow:0 0 8px rgba(0,255,170,0.1); flex-shrink: 0;">
+            <img src="/img/adalab-logo.png" alt="Adalab" style="max-width:45px; max-height:45px; object-fit:contain;" />
+          </div>
+          <div>
+            <h3 style="margin:0;color:white;font-size:1.1rem;">ADALAB</h3>
+            <p style="margin:3px 0;color:#00e0aa;font-weight:bold;font-size:0.9rem;">Bootcamp Data Analytics & IA aplicada</p>
+            <p style="margin:0;color:#8a8a8a;font-size:0.85rem;">Online | 2025-2026</p>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:20px; border-left:2px solid #00c896; padding-left:20px;">
+          <div style="width:65px; height:65px; background:#08110f; border:1px solid rgba(0,255,170,0.25); border-radius:6px; display:flex; justify-content:center; align-items:center; box-shadow:0 0 8px rgba(0,255,170,0.1); flex-shrink: 0;">
+            <img src="/img/ucm-logo.png" alt="UCM" style="max-width:40px; max-height:40px; object-fit:contain;" />
+          </div>
+          <div>
+            <h3 style="margin:0;color:white;font-size:1.1rem;">UNIVERSIDAD COMPLUTENSE DE MADRID</h3>
+            <p style="margin:3px 0;color:#00e0aa;font-weight:bold;font-size:0.9rem;">Máster en Educación Artística</p>
+            <p style="margin:0;color:#8a8a8a;font-size:0.85rem;">Madrid | 2014-2015</p>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:20px; border-left:2px solid #00c896; padding-left:20px;">
+          <div style="width:65px; height:65px; background:#08110f; border:1px solid rgba(0,255,170,0.25); border-radius:6px; display:flex; justify-content:center; align-items:center; box-shadow:0 0 8px rgba(0,255,170,0.1); flex-shrink: 0;">
+            <img src="/img/uam-logo.png" alt="UAM" style="max-width:40px; max-height:40px; object-fit:contain;" />
+          </div>
+          <div>
+            <h3 style="margin:0;color:white;font-size:1.1rem;">UNIVERSIDAD AUTÓNOMA DE MADRID</h3>
+            <p style="margin:3px 0;color:#00e0aa;font-weight:bold;font-size:0.9rem;">Grado en Historia del Arte</p>
+            <p style="margin:0;color:#8a8a8a;font-size:0.85rem;">Madrid | 2009-2014</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobremi" style="padding: 100px 0 150px 0;">
+      <h2 style="color: #ffffff; font-family: 'Inconsolata', monospace; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 40px;">
+        Sobre mí
+      </h2>
+      
+      <div style="display: flex; gap: 60px; align-items: flex-start; flex-wrap: wrap;">
+        <div style="color: #aaaaaa; flex: 1; min-width: 300px; line-height: 1.6; font-size: 1.1rem; display: flex; flex-direction: column; gap: 15px; text-align: justify;">
+          <p style="margin: 0;">
+            Mi trayectoria se ha centrado en la dirección estratégica y la optimización operativa, donde descubrí que el verdadero valor diferencial reside en la capacidad de transformar datos brutos en decisiones inteligentes. Combino una sólida experiencia en gestión de equipos y unidades de negocio con una formación técnica avanzada en Análisis de Datos, lo que me permite aportar una visión de negocio única junto a una capacidad real para traducir datasets complejos en KPIs de rendimiento que impactan directamente en el crecimiento.
+          </p>
+          <p style="margin: 0;">
+            Cuento con experiencia práctica en la exploración, limpieza y transformación de datos (ETL), asegurando siempre que la información sea precisa, útil y actionable para el diseño de estrategias comerciales. Mi enfoque no solo analiza el pasado, sino que utiliza la excelencia técnica para optimizar procesos operativos y detectar oportunidades de mercado mediante el análisis avanzado.
+          </p>
+          <p style="margin: 0;">
+            Mi valor reside en unir el rigor de la analítica con la visión ejecutiva necesaria para garantizar que cada dato se transforme en una decisión estratégica que aporte un valor real y medible al negocio.
+          </p>
+        </div>
+
+        <div style="flex-shrink: 0; width: 300px;">
+          <img 
+            src="/img/Nieves_Data.PNG"
+            alt="Nieves Pérez Data"
+            style="
+              width: 280px;
+              border-radius: 6px;
+              border: 3px solid #0f705d;
+              box-shadow: 0 0 25px rgba(15,112,93,0.4);
+            "
+          />
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</body>
+</html>
