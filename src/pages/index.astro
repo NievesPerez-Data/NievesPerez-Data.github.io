@@ -109,32 +109,42 @@ try {
       </div>
     </section>
 
-    <!-- SECCIÓN PROYECTOS -->
-    <section id="proyectos" style="padding: 100px 0;">
-      <h2 style="color: #ffffff; font-family: 'Inconsolata', monospace; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 50px;">Proyectos</h2>
-      
-      {error && <p style="color: #ff6b6b; font-family: 'Inconsolata', monospace;">{error}</p>}
-      
-      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px;">
-        {proyectos.map(p => (
-          <div style="background: rgba(15, 112, 93, 0.03); border: 1px solid rgba(15, 112, 93, 0.1); padding: 30px; border-radius: 4px; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="display: flex; justify-content: space-between; margin-bottom: 25px; color: #0f705d;">
-                <i class="fa-regular fa-folder" style="font-size: 1.8rem;"></i>
-                <a href={p.url} target="_blank" rel="noopener noreferrer" style="color: #ffffff; opacity: 0.6;">
-                  <i class="fa-brands fa-github" style="font-size: 1.3rem;"></i>
-                </a>
-              </div>
-              <h3 style="margin: 0 0 12px 0; font-size: 1.2rem; color: #ffffff; text-transform: capitalize;">{p.name}</h3>
-              <p style="color: #aaaaaa; font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px; text-align: justify;">{p.desc}</p>
-            </div>
-            <div style="color: #0f705d; font-size: 0.8rem; font-weight: 700; font-family: 'Inconsolata', monospace;">
-              &lt; {p.lang} /&gt;
+  <section id="proyectos" style="padding: 100px 0;">
+  <h2 style="color: #ffffff; font-family: 'Inconsolata', monospace; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 50px;">Proyectos</h2>
+  
+  {error && <p style="color: #ff6b6b; font-family: 'Inconsolata', monospace;">{error}</p>}
+  
+  <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px;">
+    {proyectos.map(p => (
+      <div style="background: rgba(15, 112, 93, 0.03); border: 1px solid rgba(15, 112, 93, 0.1); padding: 30px; border-radius: 4px; display: flex; flex-direction: column; justify-content: space-between; transition: 0.3s hover;">
+        <div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 25px; color: #0f705d;">
+            <i class="fa-regular fa-folder" style="font-size: 1.8rem;"></i>
+            <div style="display: flex; gap: 15px; align-items: center;">
+              <a href={p.url} target="_blank" rel="noopener noreferrer" style="color: #0f705d; text-decoration: none; transition: 0.3s; opacity: 0.8;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'">
+                <i class="fa-brands fa-github" style="font-size: 1.3rem;"></i>
+              </a>
             </div>
           </div>
-        ))}
+          
+          <h3 style="margin: 0 0 12px 0; font-size: 1.2rem; color: #ffffff; text-transform: capitalize;">{p.name}</h3>
+          <p style="color: #aaaaaa; font-size: 0.9rem; line-height: 1.6; margin-bottom: 15px; text-align: justify;">{p.desc}</p>
+          
+          <div style="margin-bottom: 20px;">
+            <a href={p.url} target="_blank" rel="noopener noreferrer" style="color: #00c896; text-decoration: none; font-family: 'Inconsolata', monospace; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; font-weight: 600;">
+              <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.75rem;"></i>
+              Ver proyecto
+            </a>
+          </div>
+        </div>
+
+        <div style="color: #0f705d; font-size: 0.8rem; font-weight: 700; font-family: 'Inconsolata', monospace;">
+          &lt; {p.lang} /&gt;
+        </div>
       </div>
-    </section>
+    ))}
+  </div>
+</section>
 
     <!-- SECCIÓN HABILIDADES -->
     <section id="habilidades" style="padding: 100px 0;">
