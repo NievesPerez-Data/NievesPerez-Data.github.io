@@ -25,7 +25,6 @@ try {
         return {
           name: repo.name.replace(/-/g, ' ').replace(/_/g, ' '),
           url: repo.html_url,
-          // Si tiene web (homepage) la usamos, si no, usamos la del repo de GitHub
           demoUrl: repo.homepage || repo.html_url, 
           desc: repo.description || "Sin descripción disponible.",
           lang: repo.language || "Stack" 
